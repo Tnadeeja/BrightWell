@@ -1,14 +1,14 @@
 package com.wellness.brightwell.ui.habits
 
-import android.app.AlertDialog
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.EditText
 import android.widget.Toast
+import androidx.appcompat.app.AlertDialog
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.google.android.material.textfield.TextInputEditText
 import com.wellness.brightwell.R
 import com.wellness.brightwell.data.Habit
 import com.wellness.brightwell.data.PreferencesManager
@@ -17,15 +17,15 @@ import com.wellness.brightwell.utils.DateUtils
 
 /**
  * Fragment for managing daily wellness habits
- * Allows users to add, edit, delete habits and track daily completion
+ * Allows users to add, edit, delete, and track completion of habits
  */
 class HabitsFragment : Fragment() {
 
     private var _binding: FragmentHabitsBinding? = null
     private val binding get() = _binding!!
-    
+
     private lateinit var prefsManager: PreferencesManager
-    private lateinit var habitsAdapter: HabitsAdapter
+    private lateinit var habitAdapter: HabitAdapter
     private val habits = mutableListOf<Habit>()
 
     override fun onCreateView(
@@ -39,19 +39,30 @@ class HabitsFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        
+
+        // Initialize PreferencesManager
         prefsManager = PreferencesManager(requireContext())
+
+        // Set up RecyclerView
         setupRecyclerView()
+
+        // Load habits from storage
         loadHabits()
-        setupClickListeners()
-        updateUI()
+
+        // Set up FAB to add new habit
+        binding.fabAddHabit.setOnClickListener {
+            showAddHabitDialog()
+        }
+
+        // Update the date display
+        updateDateDisplay()
     }
 
     /**
-     * Set up RecyclerView with adapter
+     * Set up the RecyclerView with adapter and layout manager
      */
     private fun setupRecyclerView() {
-        habitsAdapter = HabitsAdapter(
+        habitAdapter = HabitAdapter(
             habits = habits,
             onHabitChecked = { habit, isChecked ->
                 handleHabitChecked(habit, isChecked)
@@ -63,73 +74,42 @@ class HabitsFragment : Fragment() {
                 showDeleteConfirmation(habit)
             }
         )
-        
+
         binding.recyclerViewHabits.apply {
             layoutManager = LinearLayoutManager(requireContext())
-            adapter = habitsAdapter
+            adapter = habitAdapter
         }
     }
 
     /**
-     * Load habits from SharedPreferences
+     * Load habits from SharedPreferences and update UI
      */
     private fun loadHabits() {
         habits.clear()
-        habits.addAll(prefsManager.getHabits())
-        habitsAdapter.notifyDataSetChanged()
+        habits.addAll(prefsManager.loadHabits())
+        habitAdapter.notifyDataSetChanged()
+        updateEmptyState()
+        updateProgressBar()
     }
 
     /**
-     * Set up click listeners for buttons
+     * Update the date display to show today's date
      */
-    private fun setupClickListeners() {
-        binding.fabAddHabit.setOnClickListener {
-            showAddHabitDialog()
-        }
-    }
-
-    /**
-     * Update UI based on habits list
-     */
-    private fun updateUI() {
-        if (habits.isEmpty()) {
-            binding.recyclerViewHabits.visibility = View.GONE
-            binding.emptyStateLayout.visibility = View.VISIBLE
-        } else {
-            binding.recyclerViewHabits.visibility = View.VISIBLE
-            binding.emptyStateLayout.visibility = View.GONE
-            updateProgressCard()
-        }
-    }
-
-    /**
-     * Update progress card showing today's completion percentage
-     */
-    private fun updateProgressCard() {
-        if (habits.isEmpty()) {
-            binding.progressCard.visibility = View.GONE
-            return
-        }
-        
-        binding.progressCard.visibility = View.VISIBLE
-        val today = DateUtils.getTodayString()
-        val completedCount = habits.count { it.isCompletedOn(today) }
-        val totalCount = habits.size
-        val percentage = if (totalCount > 0) (completedCount * 100) / totalCount else 0
-        
-        binding.textProgress.text = "$percentage%"
-        binding.textProgressDetails.text = "$completedCount of $totalCount habits completed today"
-        binding.progressBar.progress = percentage
+    private fun updateDateDisplay() {
+        val today = DateUtils.formatDate(System.currentTimeMillis())
+        binding.textViewDate.text = today
     }
 
     /**
      * Handle habit checkbox toggle
+     * @param habit The habit that was checked/unchecked
+     * @param isChecked New checked state
      */
     private fun handleHabitChecked(habit: Habit, isChecked: Boolean) {
         val today = DateUtils.getTodayString()
         habit.toggleCompletion(today)
         prefsManager.updateHabit(habit)
-        updateProgressCard()
+        updateProgressBar()
         
         // Update widget
         updateWidget()
@@ -139,19 +119,17 @@ class HabitsFragment : Fragment() {
      * Show dialog to add a new habit
      */
     private fun showAddHabitDialog() {
-        val dialogView = LayoutInflater.from(requireContext())
-            .inflate(R.layout.dialog_add_habit, null)
-        
-        val editName = dialogView.findViewById<EditText>(R.id.editHabitName)
-        val editDescription = dialogView.findViewById<EditText>(R.id.editHabitDescription)
-        
+        val dialogView = layoutInflater.inflate(R.layout.dialog_add_habit, null)
+        val nameInput = dialogView.findViewById<TextInputEditText>(R.id.editTextHabitName)
+        val descInput = dialogView.findViewById<TextInputEditText>(R.id.editTextHabitDescription)
+
         AlertDialog.Builder(requireContext())
             .setTitle("Add New Habit")
             .setView(dialogView)
             .setPositiveButton("Add") { _, _ ->
-                val name = editName.text.toString().trim()
-                val description = editDescription.text.toString().trim()
-                
+                val name = nameInput.text.toString().trim()
+                val description = descInput.text.toString().trim()
+
                 if (name.isNotEmpty()) {
                     val newHabit = Habit(
                         name = name,
@@ -159,11 +137,7 @@ class HabitsFragment : Fragment() {
                     )
                     prefsManager.addHabit(newHabit)
                     loadHabits()
-                    updateUI()
                     Toast.makeText(requireContext(), "Habit added!", Toast.LENGTH_SHORT).show()
-                    
-                    // Update widget
-                    updateWidget()
                 } else {
                     Toast.makeText(requireContext(), "Please enter a habit name", Toast.LENGTH_SHORT).show()
                 }
@@ -174,25 +148,24 @@ class HabitsFragment : Fragment() {
 
     /**
      * Show dialog to edit an existing habit
+     * @param habit The habit to edit
      */
     private fun showEditHabitDialog(habit: Habit) {
-        val dialogView = LayoutInflater.from(requireContext())
-            .inflate(R.layout.dialog_add_habit, null)
-        
-        val editName = dialogView.findViewById<EditText>(R.id.editHabitName)
-        val editDescription = dialogView.findViewById<EditText>(R.id.editHabitDescription)
-        
-        // Pre-fill with existing data
-        editName.setText(habit.name)
-        editDescription.setText(habit.description)
-        
+        val dialogView = layoutInflater.inflate(R.layout.dialog_add_habit, null)
+        val nameInput = dialogView.findViewById<TextInputEditText>(R.id.editTextHabitName)
+        val descInput = dialogView.findViewById<TextInputEditText>(R.id.editTextHabitDescription)
+
+        // Pre-fill with existing values
+        nameInput.setText(habit.name)
+        descInput.setText(habit.description)
+
         AlertDialog.Builder(requireContext())
             .setTitle("Edit Habit")
             .setView(dialogView)
             .setPositiveButton("Save") { _, _ ->
-                val name = editName.text.toString().trim()
-                val description = editDescription.text.toString().trim()
-                
+                val name = nameInput.text.toString().trim()
+                val description = descInput.text.toString().trim()
+
                 if (name.isNotEmpty()) {
                     val updatedHabit = habit.copy(
                         name = name,
@@ -201,9 +174,6 @@ class HabitsFragment : Fragment() {
                     prefsManager.updateHabit(updatedHabit)
                     loadHabits()
                     Toast.makeText(requireContext(), "Habit updated!", Toast.LENGTH_SHORT).show()
-                    
-                    // Update widget
-                    updateWidget()
                 } else {
                     Toast.makeText(requireContext(), "Please enter a habit name", Toast.LENGTH_SHORT).show()
                 }
@@ -214,6 +184,7 @@ class HabitsFragment : Fragment() {
 
     /**
      * Show confirmation dialog before deleting a habit
+     * @param habit The habit to delete
      */
     private fun showDeleteConfirmation(habit: Habit) {
         AlertDialog.Builder(requireContext())
@@ -222,10 +193,7 @@ class HabitsFragment : Fragment() {
             .setPositiveButton("Delete") { _, _ ->
                 prefsManager.deleteHabit(habit.id)
                 loadHabits()
-                updateUI()
                 Toast.makeText(requireContext(), "Habit deleted", Toast.LENGTH_SHORT).show()
-                
-                // Update widget
                 updateWidget()
             }
             .setNegativeButton("Cancel", null)
@@ -233,19 +201,42 @@ class HabitsFragment : Fragment() {
     }
 
     /**
-     * Update the home screen widget
+     * Update the progress bar showing today's completion percentage
+     */
+    private fun updateProgressBar() {
+        if (habits.isEmpty()) {
+            binding.progressBarHabits.progress = 0
+            binding.textViewProgress.text = "0%"
+            return
+        }
+
+        val today = DateUtils.getTodayString()
+        val completedCount = habits.count { it.isCompletedOn(today) }
+        val percentage = (completedCount * 100) / habits.size
+
+        binding.progressBarHabits.progress = percentage
+        binding.textViewProgress.text = "$percentage%"
+    }
+
+    /**
+     * Show or hide empty state view based on habit count
+     */
+    private fun updateEmptyState() {
+        if (habits.isEmpty()) {
+            binding.recyclerViewHabits.visibility = View.GONE
+            binding.layoutEmpty.visibility = View.VISIBLE
+        } else {
+            binding.recyclerViewHabits.visibility = View.VISIBLE
+            binding.layoutEmpty.visibility = View.GONE
+        }
+    }
+
+    /**
+     * Update the home screen widget with latest data
      */
     private fun updateWidget() {
-        // This will be implemented when we create the widget
-        // For now, we'll just trigger a widget update
-        try {
-            val intent = android.content.Intent(requireContext(), 
-                Class.forName("com.wellness.brightwell.widget.HabitWidgetProvider"))
-            intent.action = android.appwidget.AppWidgetManager.ACTION_APPWIDGET_UPDATE
-            requireContext().sendBroadcast(intent)
-        } catch (e: Exception) {
-            // Widget class not yet created, ignore
-        }
+        // Trigger widget update
+        com.wellness.brightwell.widget.HabitWidgetProvider.updateWidget(requireContext())
     }
 
     override fun onDestroyView() {

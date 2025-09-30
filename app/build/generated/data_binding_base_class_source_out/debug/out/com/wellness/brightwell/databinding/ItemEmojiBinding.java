@@ -4,10 +4,10 @@ package com.wellness.brightwell.databinding;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.FrameLayout;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.cardview.widget.CardView;
 import androidx.viewbinding.ViewBinding;
 import androidx.viewbinding.ViewBindings;
 import com.wellness.brightwell.R;
@@ -17,19 +17,19 @@ import java.lang.String;
 
 public final class ItemEmojiBinding implements ViewBinding {
   @NonNull
-  private final CardView rootView;
+  private final FrameLayout rootView;
 
   @NonNull
-  public final TextView textEmoji;
+  public final TextView textViewEmoji;
 
-  private ItemEmojiBinding(@NonNull CardView rootView, @NonNull TextView textEmoji) {
+  private ItemEmojiBinding(@NonNull FrameLayout rootView, @NonNull TextView textViewEmoji) {
     this.rootView = rootView;
-    this.textEmoji = textEmoji;
+    this.textViewEmoji = textViewEmoji;
   }
 
   @Override
   @NonNull
-  public CardView getRoot() {
+  public FrameLayout getRoot() {
     return rootView;
   }
 
@@ -54,13 +54,13 @@ public final class ItemEmojiBinding implements ViewBinding {
     // This is done to optimize the compiled bytecode for size and performance.
     int id;
     missingId: {
-      id = R.id.textEmoji;
-      TextView textEmoji = ViewBindings.findChildViewById(rootView, id);
-      if (textEmoji == null) {
+      id = R.id.textViewEmoji;
+      TextView textViewEmoji = ViewBindings.findChildViewById(rootView, id);
+      if (textViewEmoji == null) {
         break missingId;
       }
 
-      return new ItemEmojiBinding((CardView) rootView, textEmoji);
+      return new ItemEmojiBinding((FrameLayout) rootView, textViewEmoji);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

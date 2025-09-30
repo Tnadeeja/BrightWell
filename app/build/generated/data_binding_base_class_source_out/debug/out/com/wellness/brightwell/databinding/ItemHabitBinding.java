@@ -28,28 +28,28 @@ public final class ItemHabitBinding implements ViewBinding {
   public final ImageButton buttonEdit;
 
   @NonNull
-  public final MaterialCardView cardHabit;
+  public final CheckBox checkBoxHabit;
 
   @NonNull
-  public final CheckBox checkboxHabit;
+  public final TextView textViewHabitDescription;
 
   @NonNull
-  public final TextView textHabitDescription;
+  public final TextView textViewHabitName;
 
   @NonNull
-  public final TextView textHabitName;
+  public final TextView textViewStreak;
 
   private ItemHabitBinding(@NonNull MaterialCardView rootView, @NonNull ImageButton buttonDelete,
-      @NonNull ImageButton buttonEdit, @NonNull MaterialCardView cardHabit,
-      @NonNull CheckBox checkboxHabit, @NonNull TextView textHabitDescription,
-      @NonNull TextView textHabitName) {
+      @NonNull ImageButton buttonEdit, @NonNull CheckBox checkBoxHabit,
+      @NonNull TextView textViewHabitDescription, @NonNull TextView textViewHabitName,
+      @NonNull TextView textViewStreak) {
     this.rootView = rootView;
     this.buttonDelete = buttonDelete;
     this.buttonEdit = buttonEdit;
-    this.cardHabit = cardHabit;
-    this.checkboxHabit = checkboxHabit;
-    this.textHabitDescription = textHabitDescription;
-    this.textHabitName = textHabitName;
+    this.checkBoxHabit = checkBoxHabit;
+    this.textViewHabitDescription = textViewHabitDescription;
+    this.textViewHabitName = textViewHabitName;
+    this.textViewStreak = textViewStreak;
   }
 
   @Override
@@ -91,28 +91,32 @@ public final class ItemHabitBinding implements ViewBinding {
         break missingId;
       }
 
-      MaterialCardView cardHabit = (MaterialCardView) rootView;
-
-      id = R.id.checkboxHabit;
-      CheckBox checkboxHabit = ViewBindings.findChildViewById(rootView, id);
-      if (checkboxHabit == null) {
+      id = R.id.checkBoxHabit;
+      CheckBox checkBoxHabit = ViewBindings.findChildViewById(rootView, id);
+      if (checkBoxHabit == null) {
         break missingId;
       }
 
-      id = R.id.textHabitDescription;
-      TextView textHabitDescription = ViewBindings.findChildViewById(rootView, id);
-      if (textHabitDescription == null) {
+      id = R.id.textViewHabitDescription;
+      TextView textViewHabitDescription = ViewBindings.findChildViewById(rootView, id);
+      if (textViewHabitDescription == null) {
         break missingId;
       }
 
-      id = R.id.textHabitName;
-      TextView textHabitName = ViewBindings.findChildViewById(rootView, id);
-      if (textHabitName == null) {
+      id = R.id.textViewHabitName;
+      TextView textViewHabitName = ViewBindings.findChildViewById(rootView, id);
+      if (textViewHabitName == null) {
         break missingId;
       }
 
-      return new ItemHabitBinding((MaterialCardView) rootView, buttonDelete, buttonEdit, cardHabit,
-          checkboxHabit, textHabitDescription, textHabitName);
+      id = R.id.textViewStreak;
+      TextView textViewStreak = ViewBindings.findChildViewById(rootView, id);
+      if (textViewStreak == null) {
+        break missingId;
+      }
+
+      return new ItemHabitBinding((MaterialCardView) rootView, buttonDelete, buttonEdit,
+          checkBoxHabit, textViewHabitDescription, textViewHabitName, textViewStreak);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

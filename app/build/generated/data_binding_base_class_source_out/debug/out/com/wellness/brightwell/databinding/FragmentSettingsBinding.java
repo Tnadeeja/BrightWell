@@ -5,13 +5,12 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ScrollView;
+import android.widget.SeekBar;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.viewbinding.ViewBinding;
 import androidx.viewbinding.ViewBindings;
-import com.google.android.material.button.MaterialButton;
-import com.google.android.material.card.MaterialCardView;
 import com.google.android.material.switchmaterial.SwitchMaterial;
 import com.wellness.brightwell.R;
 import java.lang.NullPointerException;
@@ -23,34 +22,25 @@ public final class FragmentSettingsBinding implements ViewBinding {
   private final ScrollView rootView;
 
   @NonNull
-  public final MaterialButton buttonChangeInterval;
-
-  @NonNull
-  public final MaterialButton buttonClearData;
-
-  @NonNull
-  public final MaterialCardView cardAbout;
+  public final SeekBar seekBarInterval;
 
   @NonNull
   public final SwitchMaterial switchHydrationReminder;
 
   @NonNull
-  public final TextView textIntervalValue;
+  public final TextView textViewAppVersion;
 
   @NonNull
-  public final TextView textReminderStatus;
+  public final TextView textViewIntervalValue;
 
-  private FragmentSettingsBinding(@NonNull ScrollView rootView,
-      @NonNull MaterialButton buttonChangeInterval, @NonNull MaterialButton buttonClearData,
-      @NonNull MaterialCardView cardAbout, @NonNull SwitchMaterial switchHydrationReminder,
-      @NonNull TextView textIntervalValue, @NonNull TextView textReminderStatus) {
+  private FragmentSettingsBinding(@NonNull ScrollView rootView, @NonNull SeekBar seekBarInterval,
+      @NonNull SwitchMaterial switchHydrationReminder, @NonNull TextView textViewAppVersion,
+      @NonNull TextView textViewIntervalValue) {
     this.rootView = rootView;
-    this.buttonChangeInterval = buttonChangeInterval;
-    this.buttonClearData = buttonClearData;
-    this.cardAbout = cardAbout;
+    this.seekBarInterval = seekBarInterval;
     this.switchHydrationReminder = switchHydrationReminder;
-    this.textIntervalValue = textIntervalValue;
-    this.textReminderStatus = textReminderStatus;
+    this.textViewAppVersion = textViewAppVersion;
+    this.textViewIntervalValue = textViewIntervalValue;
   }
 
   @Override
@@ -80,21 +70,9 @@ public final class FragmentSettingsBinding implements ViewBinding {
     // This is done to optimize the compiled bytecode for size and performance.
     int id;
     missingId: {
-      id = R.id.buttonChangeInterval;
-      MaterialButton buttonChangeInterval = ViewBindings.findChildViewById(rootView, id);
-      if (buttonChangeInterval == null) {
-        break missingId;
-      }
-
-      id = R.id.buttonClearData;
-      MaterialButton buttonClearData = ViewBindings.findChildViewById(rootView, id);
-      if (buttonClearData == null) {
-        break missingId;
-      }
-
-      id = R.id.cardAbout;
-      MaterialCardView cardAbout = ViewBindings.findChildViewById(rootView, id);
-      if (cardAbout == null) {
+      id = R.id.seekBarInterval;
+      SeekBar seekBarInterval = ViewBindings.findChildViewById(rootView, id);
+      if (seekBarInterval == null) {
         break missingId;
       }
 
@@ -104,21 +82,20 @@ public final class FragmentSettingsBinding implements ViewBinding {
         break missingId;
       }
 
-      id = R.id.textIntervalValue;
-      TextView textIntervalValue = ViewBindings.findChildViewById(rootView, id);
-      if (textIntervalValue == null) {
+      id = R.id.textViewAppVersion;
+      TextView textViewAppVersion = ViewBindings.findChildViewById(rootView, id);
+      if (textViewAppVersion == null) {
         break missingId;
       }
 
-      id = R.id.textReminderStatus;
-      TextView textReminderStatus = ViewBindings.findChildViewById(rootView, id);
-      if (textReminderStatus == null) {
+      id = R.id.textViewIntervalValue;
+      TextView textViewIntervalValue = ViewBindings.findChildViewById(rootView, id);
+      if (textViewIntervalValue == null) {
         break missingId;
       }
 
-      return new FragmentSettingsBinding((ScrollView) rootView, buttonChangeInterval,
-          buttonClearData, cardAbout, switchHydrationReminder, textIntervalValue,
-          textReminderStatus);
+      return new FragmentSettingsBinding((ScrollView) rootView, seekBarInterval,
+          switchHydrationReminder, textViewAppVersion, textViewIntervalValue);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

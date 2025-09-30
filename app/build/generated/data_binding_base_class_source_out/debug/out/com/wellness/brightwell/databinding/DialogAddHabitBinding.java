@@ -20,16 +20,17 @@ public final class DialogAddHabitBinding implements ViewBinding {
   private final LinearLayout rootView;
 
   @NonNull
-  public final TextInputEditText editHabitDescription;
+  public final TextInputEditText editTextHabitDescription;
 
   @NonNull
-  public final TextInputEditText editHabitName;
+  public final TextInputEditText editTextHabitName;
 
   private DialogAddHabitBinding(@NonNull LinearLayout rootView,
-      @NonNull TextInputEditText editHabitDescription, @NonNull TextInputEditText editHabitName) {
+      @NonNull TextInputEditText editTextHabitDescription,
+      @NonNull TextInputEditText editTextHabitName) {
     this.rootView = rootView;
-    this.editHabitDescription = editHabitDescription;
-    this.editHabitName = editHabitName;
+    this.editTextHabitDescription = editTextHabitDescription;
+    this.editTextHabitName = editTextHabitName;
   }
 
   @Override
@@ -59,20 +60,20 @@ public final class DialogAddHabitBinding implements ViewBinding {
     // This is done to optimize the compiled bytecode for size and performance.
     int id;
     missingId: {
-      id = R.id.editHabitDescription;
-      TextInputEditText editHabitDescription = ViewBindings.findChildViewById(rootView, id);
-      if (editHabitDescription == null) {
+      id = R.id.editTextHabitDescription;
+      TextInputEditText editTextHabitDescription = ViewBindings.findChildViewById(rootView, id);
+      if (editTextHabitDescription == null) {
         break missingId;
       }
 
-      id = R.id.editHabitName;
-      TextInputEditText editHabitName = ViewBindings.findChildViewById(rootView, id);
-      if (editHabitName == null) {
+      id = R.id.editTextHabitName;
+      TextInputEditText editTextHabitName = ViewBindings.findChildViewById(rootView, id);
+      if (editTextHabitName == null) {
         break missingId;
       }
 
-      return new DialogAddHabitBinding((LinearLayout) rootView, editHabitDescription,
-          editHabitName);
+      return new DialogAddHabitBinding((LinearLayout) rootView, editTextHabitDescription,
+          editTextHabitName);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

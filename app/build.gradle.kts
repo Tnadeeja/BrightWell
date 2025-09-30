@@ -42,7 +42,7 @@ android {
 }
 
 dependencies {
-    // AndroidX Core
+    // Core Android dependencies
     implementation("androidx.core:core-ktx:1.12.0")
     implementation("androidx.appcompat:appcompat:1.6.1")
     implementation("com.google.android.material:material:1.11.0")
@@ -59,8 +59,9 @@ dependencies {
     // Gson for JSON serialization
     implementation("com.google.code.gson:gson:2.10.1")
     
-    // MPAndroidChart for charts (advanced feature option)
-    implementation("com.github.PhilJay:MPAndroidChart:v3.1.0")
+    // Lifecycle components
+    implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:2.7.0")
+    implementation("androidx.lifecycle:lifecycle-livedata-ktx:2.7.0")
     
     // Testing
     testImplementation("junit:junit:4.13.2")

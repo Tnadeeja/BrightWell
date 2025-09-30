@@ -1,347 +1,345 @@
 # BrightWell - Lab Exam 03 Report
 
-## Student Information
-**Name:** [Your Name]  
+**Student Name:** [Your Name]  
 **Student ID:** [Your ID]  
-**Course:** Mobile App Development  
-**Date:** September 30, 2025
+**Course:** Mobile Application Development  
+**Date:** October 1, 2025
 
 ---
 
 ## 1. Application Overview
 
-BrightWell is a comprehensive personal wellness Android application designed to help users manage their daily health routines. The app combines habit tracking, mood journaling, and hydration reminders into a single, user-friendly platform.
+BrightWell is a comprehensive personal wellness Android application designed to help users manage their daily health routines. The app combines habit tracking, mood journaling, and hydration reminders into a single, intuitive interface.
 
-### Purpose
-The application promotes personal wellness by:
-- Encouraging consistent healthy habits
-- Tracking emotional well-being
-- Maintaining proper hydration throughout the day
-- Providing visual feedback on progress
-
----
-
-## 2. Features Implementation
-
-### 2.1 Daily Habit Tracker (Required Feature)
-
-**Implementation Details:**
-- Users can add unlimited wellness habits (e.g., "Drink Water", "Meditate", "Exercise")
-- Each habit includes a name and optional description
-- Habits are displayed in a RecyclerView with Material Design cards
-- Daily completion tracked via checkboxes
-- Progress card shows percentage of habits completed today
-- Edit and delete functionality for each habit
-
-**Technical Approach:**
-- Data stored in SharedPreferences as JSON using Gson
-- `Habit` data class with unique ID, name, description, and completion dates
-- `PreferencesManager` handles all CRUD operations
-- `HabitsAdapter` efficiently displays habits in RecyclerView
-- Date-based completion tracking using "yyyy-MM-dd" format
-
-**Code Highlights:**
-```kotlin
-data class Habit(
-    val id: String = UUID.randomUUID().toString(),
-    val name: String,
-    val description: String = "",
-    val createdAt: Long = System.currentTimeMillis(),
-    val completedDates: MutableSet<String> = mutableSetOf()
-)
-```
+### Key Features
+- **Daily Habit Tracker**: Manage and track wellness habits with completion progress
+- **Mood Journal**: Log emotions with emoji selection and optional notes
+- **Hydration Reminders**: Customizable notifications to stay hydrated
+- **Home-screen Widget**: Quick view of today's habit completion percentage
 
 ---
 
-### 2.2 Mood Journal with Emoji Selector (Required Feature)
+## 2. Technical Implementation
 
-**Implementation Details:**
-- 20 different emojis representing various moods
-- Grid layout emoji selector in dialog
-- Optional text note for each mood entry
-- Chronological list of past mood entries
-- Each entry shows emoji, date, time, and note
-- Share functionality using implicit intents
+### Architecture
+The app follows a clean architecture pattern with clear separation of concerns:
 
-**Technical Approach:**
-- `MoodEntry` data class with emoji, note, and timestamp
-- Custom dialog with GridLayout for emoji selection
-- Visual feedback for selected emoji (background color change)
-- Implicit intent for sharing mood summary
-- Formatted date/time display using SimpleDateFormat
-
-**Code Highlights:**
-```kotlin
-data class MoodEntry(
-    val id: String = UUID.randomUUID().toString(),
-    val emoji: String,
-    val note: String = "",
-    val timestamp: Long = System.currentTimeMillis()
-)
-```
-
----
-
-### 2.3 Hydration Reminder (Required Feature)
-
-**Implementation Details:**
-- Configurable reminder intervals (15 min, 30 min, 1-4 hours)
-- Background notifications using WorkManager
-- Enable/disable toggle in settings
-- Notifications persist after device reboot
-- Tapping notification opens the app
-
-**Technical Approach:**
-- `HydrationWorker` extends Worker for background execution
-- `NotificationScheduler` manages WorkManager scheduling
-- `BootReceiver` reschedules notifications after reboot
-- Notification channel for Android 8.0+ compatibility
-- PendingIntent for app navigation
-
-**Code Highlights:**
-```kotlin
-class HydrationWorker(context: Context, params: WorkerParameters) : Worker(context, params) {
-    override fun doWork(): Result {
-        createNotificationChannel()
-        sendHydrationNotification()
-        return Result.success()
-    }
-}
-```
-
----
-
-### 2.4 Home Screen Widget (Advanced Feature)
-
-**Implementation Details:**
-- Shows today's habit completion percentage
-- Displays completed vs total habits count
-- Dynamic emoji based on progress (😴 0%, 🎉 100%)
-- Gradient background with Material Design
-- Updates when habits are checked/unchecked
-- Tappable to launch the app
-
-**Technical Approach:**
-- `HabitWidgetProvider` extends AppWidgetProvider
-- RemoteViews for widget UI updates
-- Calculates completion percentage from SharedPreferences
-- Broadcast receiver for widget updates
-- XML configuration for widget metadata
-
-**Why This Advanced Feature:**
-- Demonstrates advanced Android development skills
-- Provides real value to users (at-a-glance progress)
-- Shows understanding of app widgets and RemoteViews
-- More impressive than basic sensor integration
-
----
-
-## 3. Technical Architecture
-
-### 3.1 Project Structure
 ```
 com.wellness.brightwell/
-├── data/                    # Data models and storage
-├── ui/                      # UI components (Fragments, Adapters)
-├── notifications/           # Background tasks and notifications
+├── data/                    # Data models and persistence
+│   ├── Habit.kt
+│   ├── MoodEntry.kt
+│   └── PreferencesManager.kt
+├── ui/                      # User interface components
+│   ├── habits/
+│   ├── mood/
+│   └── settings/
+├── worker/                  # Background tasks
+│   ├── HydrationReminderWorker.kt
+│   └── BootReceiver.kt
 ├── widget/                  # Home screen widget
+│   └── HabitWidgetProvider.kt
 ├── utils/                   # Utility classes
+│   ├── DateUtils.kt
+│   └── NotificationScheduler.kt
 └── MainActivity.kt          # Main entry point
 ```
 
-### 3.2 Design Patterns
-- **MVVM-lite**: Separation of data, UI, and logic
-- **Repository Pattern**: PreferencesManager as single source of truth
-- **Adapter Pattern**: RecyclerView adapters for list display
-- **Observer Pattern**: Fragment lifecycle management
+### Data Persistence
+All user data is stored using **SharedPreferences** as required:
+- Habits are serialized to JSON using Gson
+- Mood entries are stored as JSON arrays
+- User settings (reminder intervals, enabled state) use key-value pairs
+- Data persists across app sessions and device reboots
 
-### 3.3 Data Persistence Strategy
-All data stored in SharedPreferences with JSON serialization:
-- **Habits**: List of Habit objects
-- **Mood Entries**: List of MoodEntry objects  
-- **Settings**: Key-value pairs (intervals, enabled states)
-
-**Advantages:**
-- No database setup required
-- Fast read/write operations
-- Automatic backup support
-- Simple implementation
+### Technologies Used
+- **Language**: Kotlin
+- **UI Framework**: Material Design 3
+- **Architecture Components**: Fragments, ViewBinding, LiveData
+- **Background Tasks**: WorkManager for reliable notifications
+- **Data Serialization**: Gson for JSON handling
+- **Layout**: ConstraintLayout for responsive design
 
 ---
 
-## 4. User Interface Design
+## 3. Core Features Implementation
 
-### 4.1 Design Principles
-- **Material Design 3**: Modern, consistent UI components
-- **Responsive Layout**: Adapts to phones and tablets
-- **Intuitive Navigation**: Bottom navigation for easy access
-- **Visual Feedback**: Progress bars, cards, and animations
+### 3.1 Daily Habit Tracker (1 Mark)
+
+**Implementation Details:**
+- Users can add habits with name and description
+- Edit and delete functionality with confirmation dialogs
+- Daily completion tracking with checkboxes
+- Real-time progress bar showing completion percentage
+- Streak counter showing consecutive completion days
+- Data stored in SharedPreferences using Gson
+
+**Key Classes:**
+- `HabitsFragment.kt`: Main UI controller
+- `HabitAdapter.kt`: RecyclerView adapter
+- `Habit.kt`: Data model with completion tracking
+
+**Screenshots:** [See Appendix A]
+
+---
+
+### 3.2 Mood Journal with Emoji Selector (1 Mark)
+
+**Implementation Details:**
+- Grid of 40+ emojis for mood selection
+- Optional text notes for each entry
+- Timestamp automatically recorded
+- Chronological list view of past moods
+- Share functionality using implicit intents (ACTION_SEND)
+- Delete entries with confirmation
+
+**Key Classes:**
+- `MoodFragment.kt`: Main UI controller
+- `MoodAdapter.kt`: RecyclerView adapter for mood history
+- `EmojiAdapter.kt`: Grid adapter for emoji selection
+- `MoodEntry.kt`: Data model with timestamp
+
+**Screenshots:** [See Appendix B]
+
+---
+
+### 3.3 Hydration Reminder (1 Mark)
+
+**Implementation Details:**
+- WorkManager for reliable background notifications
+- Customizable intervals (15 min to 6 hours)
+- Enable/disable toggle in Settings
+- Notification channel for Android 8.0+
+- Permission handling for Android 13+
+- Persists across device reboots using BroadcastReceiver
+
+**Key Classes:**
+- `HydrationReminderWorker.kt`: WorkManager worker
+- `NotificationScheduler.kt`: Scheduling helper
+- `BootReceiver.kt`: Reboot handling
+- `SettingsFragment.kt`: Configuration UI
+
+**Screenshots:** [See Appendix C]
+
+---
+
+## 4. Advanced Feature: Home-screen Widget (2 Marks)
+
+**Implementation Details:**
+- Displays today's habit completion percentage
+- Shows completed/total habit count
+- Updates automatically when habits are completed
+- Tap to open the app (PendingIntent)
+- Responsive design adapts to widget size
+- Uses RemoteViews for efficient updates
+
+**Key Classes:**
+- `HabitWidgetProvider.kt`: AppWidget provider
+- Widget layout: `widget_habit.xml`
+- Widget configuration: `habit_widget_info.xml`
+
+**Technical Highlights:**
+- Efficient update mechanism using static methods
+- Proper PendingIntent flags for Android 12+
+- Material Design styling consistent with app
+
+**Screenshots:** [See Appendix D]
+
+---
+
+## 5. Additional Technical Requirements
+
+### 5.1 Fragments and Activities
+- **MainActivity**: Hosts bottom navigation and fragment container
+- **HabitsFragment**: Habit tracking screen
+- **MoodFragment**: Mood journal screen
+- **SettingsFragment**: App configuration screen
+
+### 5.2 Intents
+**Explicit Intents:**
+- Opening MainActivity from widget
+- Fragment navigation
+
+**Implicit Intents:**
+- Sharing mood summary (ACTION_SEND with text/plain)
+
+### 5.3 State Management
+- All settings persist using SharedPreferences
+- Habit completion data retained across sessions
+- Mood entries saved permanently
+- Hydration reminder settings survive app restarts
+
+### 5.4 Responsive UI
+- ConstraintLayout for flexible layouts
+- Supports portrait and landscape orientations
+- Adapts to phones and tablets
+- Material Design 3 components scale appropriately
+
+---
+
+## 6. User Interface Design
+
+### Design Principles
+- **Clean and Modern**: Material Design 3 guidelines
+- **Intuitive Navigation**: Bottom navigation bar with clear icons
+- **Visual Feedback**: Progress bars, checkboxes, and animations
 - **Accessibility**: Proper content descriptions and touch targets
+- **Consistency**: Unified color scheme and typography
 
-### 4.2 Screen Layouts
-1. **Habits Screen**: Progress card + RecyclerView list
-2. **Mood Screen**: Summary card + mood entries list
-3. **Settings Screen**: Grouped settings with cards
-4. **Dialogs**: Material Design dialogs for input
+### Color Scheme
+- **Primary**: Indigo (#6366F1)
+- **Secondary**: Green (#10B981)
+- **Accent**: Amber (#F59E0B)
+- **Background**: Light gray (#F9FAFB)
 
-### 4.3 Color Scheme
-- Primary: Purple (#6200EE)
-- Secondary: Teal (#03DAC6)
-- Background: Light gray (#F5F5F5)
-- Surface: White (#FFFFFF)
-
----
-
-## 5. Key Technical Decisions
-
-### 5.1 Why WorkManager?
-- More reliable than AlarmManager
-- Respects system battery optimization
-- Handles device reboots automatically
-- Recommended by Google for background tasks
-
-### 5.2 Why Gson for JSON?
-- Simple API for serialization/deserialization
-- Handles complex objects automatically
-- Type-safe with TypeToken
-- Widely used and well-documented
-
-### 5.3 Why ViewBinding?
-- Type-safe view access (no findViewById)
-- Null-safe (views are nullable in binding)
-- Compile-time verification
-- Better performance than Data Binding
+### Typography
+- **Headings**: Bold, 18-24sp
+- **Body**: Regular, 14-16sp
+- **Captions**: 12-14sp
 
 ---
 
-## 6. Challenges and Solutions
-
-### Challenge 1: Widget Updates
-**Problem:** Widget not updating when habits change  
-**Solution:** Broadcast intent to trigger widget update from HabitsFragment
-
-### Challenge 2: Notification Permissions (Android 13+)
-**Problem:** Runtime permission required for notifications  
-**Solution:** Request permission using ActivityResultContracts API
-
-### Challenge 3: Date-based Habit Tracking
-**Problem:** Tracking which dates habits were completed  
-**Solution:** Store completion dates as Set<String> in "yyyy-MM-dd" format
-
----
-
-## 7. Testing Performed
-
-### Functional Testing
-✅ Add, edit, delete habits  
-✅ Check/uncheck habits and verify progress  
-✅ Log mood entries with emojis and notes  
-✅ Share mood summary via different apps  
-✅ Enable/disable hydration reminders  
-✅ Change reminder intervals  
-✅ Receive notifications at correct intervals  
-✅ Widget displays correct progress  
-✅ Widget updates when habits change  
-
-### UI Testing
-✅ Portrait and landscape orientations  
-✅ Different screen sizes (phone, tablet)  
-✅ Navigation between fragments  
-✅ Dialog interactions  
-✅ Button states and feedback  
-
-### Data Persistence Testing
-✅ Data survives app restart  
-✅ Settings persist across sessions  
-✅ Clear data functionality works  
-
----
-
-## 8. Code Quality Measures
-
-### Documentation
-- KDoc comments on all classes and methods
-- Inline comments for complex logic
-- README with setup instructions
-- This comprehensive report
+## 7. Code Quality
 
 ### Organization
-- Logical package structure
-- Single responsibility principle
-- No code duplication
-- Consistent naming conventions
+- Clear package structure by feature
+- Consistent Kotlin naming conventions
+- Proper use of data classes and sealed classes
+- No redundant or duplicate code
+
+### Documentation
+- KDoc comments on all public classes and functions
+- Inline comments explaining complex logic
+- README.md with comprehensive project documentation
+- This report documenting implementation details
 
 ### Best Practices
-- Proper null safety with Kotlin
-- Resource cleanup in onDestroyView
-- Efficient RecyclerView with ViewHolder pattern
-- Proper lifecycle management
-- Material Design guidelines followed
+- Null safety with Kotlin
+- ViewBinding for type-safe view access
+- Proper lifecycle management in fragments
+- Memory leak prevention (clearing binding references in onDestroyView)
+- Coroutines-ready architecture (though not required)
 
 ---
 
-## 9. Future Enhancements
+## 8. Testing and Validation
 
-If this were a production app, potential improvements:
-1. **Database Integration**: Room for better data management
-2. **Charts**: MPAndroidChart for mood/habit trends
-3. **Reminders**: Custom reminders for individual habits
-4. **Themes**: Dark mode support
-5. **Export**: Export data to CSV/JSON
-6. **Cloud Sync**: Firebase for multi-device sync
-7. **Gamification**: Streaks, achievements, rewards
+### Manual Testing Performed
+✅ Add, edit, delete habits  
+✅ Mark habits as complete/incomplete  
+✅ Progress bar updates correctly  
+✅ Streak calculation works  
+✅ Add mood entries with emojis  
+✅ Share mood summary  
+✅ Enable/disable hydration reminders  
+✅ Adjust reminder intervals  
+✅ Notifications appear on schedule  
+✅ Widget displays correct data  
+✅ Widget updates when habits change  
+✅ App survives configuration changes (rotation)  
+✅ Data persists across app restarts  
+
+### Device Testing
+- **Emulator**: Pixel 5 API 34 (Android 14)
+- **Orientations**: Portrait and Landscape
+- **Screen Sizes**: Phone and Tablet layouts
 
 ---
 
-## 10. Conclusion
+## 9. Challenges and Solutions
+
+### Challenge 1: WorkManager Minimum Interval
+**Problem**: WorkManager has a minimum interval of 15 minutes for periodic work.  
+**Solution**: Documented this limitation and set 15 minutes as the minimum selectable interval.
+
+### Challenge 2: Widget Updates
+**Problem**: Widgets don't auto-update when data changes.  
+**Solution**: Implemented a static update method called whenever habits are modified.
+
+### Challenge 3: Android 13+ Notification Permissions
+**Problem**: Runtime permission required for notifications on Android 13+.  
+**Solution**: Implemented proper permission request flow using ActivityResultContracts.
+
+---
+
+## 10. Future Enhancements
+
+While not required for this lab exam, potential improvements include:
+- Dark theme support
+- Habit statistics and charts using MPAndroidChart
+- Export/import data functionality
+- Cloud sync with Firebase
+- Reminder customization (specific times)
+- Habit categories and icons
+- Achievement system and gamification
+
+---
+
+## 11. Conclusion
 
 BrightWell successfully implements all required features for Lab Exam 03:
 - ✅ Daily Habit Tracker with full CRUD operations
-- ✅ Mood Journal with emoji selector and sharing
-- ✅ Hydration Reminders with WorkManager
-- ✅ Home Screen Widget as advanced feature
+- ✅ Mood Journal with emoji selector
+- ✅ Hydration Reminder using WorkManager
+- ✅ Advanced Feature: Home-screen Widget
 - ✅ SharedPreferences for data persistence
-- ✅ Responsive UI with Material Design
-- ✅ Well-documented, organized code
+- ✅ Responsive UI for all screen sizes
+- ✅ Clean, well-documented code
 
-The application demonstrates proficiency in:
-- Android app architecture
-- Fragment-based navigation
+The app demonstrates proficiency in Android development concepts including:
+- Fragment-based architecture
+- Data persistence without databases
 - Background task scheduling
-- Data persistence techniques
-- Material Design implementation
 - Widget development
-
-**Total Development Time:** Approximately 8-10 hours
-
----
-
-## 11. Screenshots
-
-### Main Screens
-1. **Habits Screen** - Shows progress card and habit list
-2. **Mood Journal** - Displays mood entries with emojis
-3. **Settings Screen** - Hydration reminder configuration
-4. **Add Habit Dialog** - Material Design input dialog
-5. **Emoji Selector** - Grid of mood emojis
-6. **Home Screen Widget** - Progress display on home screen
-7. **Notification** - Hydration reminder notification
-
-*(Screenshots should be added here during presentation)*
+- Material Design implementation
+- Intent handling (explicit and implicit)
 
 ---
 
-## 12. References
+## Appendix A: Habit Tracker Screenshots
 
-- Android Developers Documentation: https://developer.android.com
-- Material Design Guidelines: https://material.io/design
-- WorkManager Guide: https://developer.android.com/topic/libraries/architecture/workmanager
-- App Widgets Overview: https://developer.android.com/guide/topics/appwidgets
+[Insert screenshots here showing:]
+1. Habits list with progress bar
+2. Add habit dialog
+3. Edit habit dialog
+4. Completed habits with checkmarks
+5. Streak display
 
 ---
 
-**Declaration:**  
-I hereby declare that this project is my original work and has been completed without plagiarism. All resources and references used have been appropriately cited.
+## Appendix B: Mood Journal Screenshots
 
-**Signature:** _______________  
-**Date:** September 30, 2025
+[Insert screenshots here showing:]
+1. Mood list view
+2. Add mood dialog with emoji grid
+3. Mood entry with note
+4. Share mood summary
+
+---
+
+## Appendix C: Hydration Reminder Screenshots
+
+[Insert screenshots here showing:]
+1. Settings screen
+2. Reminder interval selector
+3. Notification example
+4. Permission request dialog (Android 13+)
+
+---
+
+## Appendix D: Widget Screenshots
+
+[Insert screenshots here showing:]
+1. Widget on home screen
+2. Widget with 0% completion
+3. Widget with partial completion
+4. Widget with 100% completion
+
+---
+
+## Declaration
+
+I declare that this is my original work and has been completed in accordance with the academic integrity policies of the institution. All external resources and references have been properly cited.
+
+**Signature:** ___________________  
+**Date:** October 1, 2025

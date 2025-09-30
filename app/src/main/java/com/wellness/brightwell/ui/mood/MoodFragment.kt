@@ -1,43 +1,46 @@
 package com.wellness.brightwell.ui.mood
 
-import android.app.AlertDialog
 import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.EditText
-import android.widget.GridLayout
-import android.widget.TextView
 import android.widget.Toast
-import androidx.cardview.widget.CardView
-import androidx.core.content.ContextCompat
+import androidx.appcompat.app.AlertDialog
 import androidx.fragment.app.Fragment
+import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.google.android.material.textfield.TextInputEditText
 import com.wellness.brightwell.R
 import com.wellness.brightwell.data.MoodEntry
 import com.wellness.brightwell.data.PreferencesManager
 import com.wellness.brightwell.databinding.FragmentMoodBinding
 
 /**
- * Fragment for mood journaling with emoji selector
- * Allows users to log their mood with an emoji and optional note
+ * Fragment for logging and viewing mood journal entries
+ * Users can select an emoji to represent their mood and add optional notes
  */
 class MoodFragment : Fragment() {
 
     private var _binding: FragmentMoodBinding? = null
     private val binding get() = _binding!!
-    
+
     private lateinit var prefsManager: PreferencesManager
     private lateinit var moodAdapter: MoodAdapter
-    private val moodEntries = mutableListOf<MoodEntry>()
-    
+    private val moods = mutableListOf<MoodEntry>()
+
     // Available mood emojis
     private val moodEmojis = listOf(
-        "😊", "😃", "😄", "😁", "🥰",
-        "😌", "😔", "😢", "😭", "😡",
-        "😤", "😰", "😱", "🤗", "🤔",
-        "😴", "🤒", "🤕", "😷", "🥳"
+        "\uD83D\uDE0A", "\uD83D\uDE03", "\uD83D\uDE04", "\uD83D\uDE01",
+        "\uD83E\uDD70", "\uD83D\uDE0D", "\uD83E\uDD17", "\uD83D\uDE0C",
+        "\uD83D\uDE10", "\uD83D\uDE11", "\uD83D\uDE36", "\uD83D\uDE42",
+        "\uD83D\uDE0F", "\uD83D\uDE12", "\uD83D\uDE44", "\uD83D\uDE2C",
+        "\uD83D\uDE14", "\uD83D\uDE1E", "\uD83D\uDE1F", "\uD83D\uDE22",
+        "\uD83D\uDE2D", "\uD83D\uDE29", "\uD83D\uDE2B", "\uD83D\uDE24",
+        "\uD83D\uDE20", "\uD83D\uDE21", "\uD83E\uDD2C", "\uD83D\uDE31",
+        "\uD83D\uDE28", "\uD83D\uDE30", "\uD83D\uDE25", "\uD83D\uDE13",
+        "\uD83E\uDD12", "\uD83E\uDD15", "\uD83E\uDD22", "\uD83E\uDD2E",
+        "\uD83E\uDD71", "\uD83D\uDE34", "\uD83D\uDE2A", "\uD83E\uDD2F"
     )
 
     override fun onCreateView(
@@ -51,25 +54,38 @@ class MoodFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        
+
+        // Initialize PreferencesManager
         prefsManager = PreferencesManager(requireContext())
+
+        // Set up RecyclerView
         setupRecyclerView()
-        loadMoodEntries()
-        setupClickListeners()
-        updateUI()
+
+        // Load moods from storage
+        loadMoods()
+
+        // Set up FAB to add new mood
+        binding.fabAddMood.setOnClickListener {
+            showAddMoodDialog()
+        }
+
+        // Set up share button
+        binding.buttonShare.setOnClickListener {
+            shareMoodSummary()
+        }
     }
 
     /**
-     * Set up RecyclerView with adapter
+     * Set up the RecyclerView with adapter and layout manager
      */
     private fun setupRecyclerView() {
         moodAdapter = MoodAdapter(
-            moodEntries = moodEntries,
-            onMoodDelete = { entry ->
-                showDeleteConfirmation(entry)
+            moods = moods,
+            onMoodDelete = { mood ->
+                showDeleteConfirmation(mood)
             }
         )
-        
+
         binding.recyclerViewMoods.apply {
             layoutManager = LinearLayoutManager(requireContext())
             adapter = moodAdapter
@@ -77,153 +93,60 @@ class MoodFragment : Fragment() {
     }
 
     /**
-     * Load mood entries from SharedPreferences
+     * Load moods from SharedPreferences and update UI
      */
-    private fun loadMoodEntries() {
-        moodEntries.clear()
-        moodEntries.addAll(prefsManager.getMoodEntries())
+    private fun loadMoods() {
+        moods.clear()
+        moods.addAll(prefsManager.loadMoods())
         moodAdapter.notifyDataSetChanged()
+        updateEmptyState()
     }
 
     /**
-     * Set up click listeners
+     * Show dialog to add a new mood entry
      */
-    private fun setupClickListeners() {
-        binding.fabAddMood.setOnClickListener {
-            showMoodSelectorDialog()
-        }
-        
-        binding.buttonShareMood.setOnClickListener {
-            shareMoodSummary()
-        }
-    }
+    private fun showAddMoodDialog() {
+        val dialogView = layoutInflater.inflate(R.layout.dialog_add_mood, null)
+        val noteInput = dialogView.findViewById<TextInputEditText>(R.id.editTextMoodNote)
+        val emojiGrid = dialogView.findViewById<androidx.recyclerview.widget.RecyclerView>(R.id.recyclerViewEmojis)
 
-    /**
-     * Update UI based on mood entries
-     */
-    private fun updateUI() {
-        if (moodEntries.isEmpty()) {
-            binding.recyclerViewMoods.visibility = View.GONE
-            binding.emptyStateLayout.visibility = View.VISIBLE
-            binding.buttonShareMood.visibility = View.GONE
-        } else {
-            binding.recyclerViewMoods.visibility = View.VISIBLE
-            binding.emptyStateLayout.visibility = View.GONE
-            binding.buttonShareMood.visibility = View.VISIBLE
-            updateMoodSummary()
-        }
-    }
+        var selectedEmoji = moodEmojis[0]
 
-    /**
-     * Update mood summary card
-     */
-    private fun updateMoodSummary() {
-        if (moodEntries.isEmpty()) {
-            binding.moodSummaryCard.visibility = View.GONE
-            return
+        // Set up emoji grid
+        val emojiAdapter = EmojiAdapter(moodEmojis) { emoji ->
+            selectedEmoji = emoji
         }
-        
-        binding.moodSummaryCard.visibility = View.VISIBLE
-        
-        // Get today's mood entries
-        val today = com.wellness.brightwell.utils.DateUtils.getTodayString()
-        val todayMoods = moodEntries.filter { it.getDateKey() == today }
-        
-        if (todayMoods.isNotEmpty()) {
-            val latestMood = todayMoods.first()
-            binding.textCurrentMood.text = "Today's mood: ${latestMood.emoji}"
-            binding.textMoodCount.text = "${todayMoods.size} mood(s) logged today"
-        } else {
-            binding.textCurrentMood.text = "No mood logged today"
-            binding.textMoodCount.text = "Tap + to log your mood"
-        }
-        
-        // Show total entries
-        binding.textTotalEntries.text = "Total entries: ${moodEntries.size}"
-    }
+        emojiGrid.layoutManager = GridLayoutManager(requireContext(), 8)
+        emojiGrid.adapter = emojiAdapter
 
-    /**
-     * Show emoji selector dialog
-     */
-    private fun showMoodSelectorDialog() {
-        val dialogView = LayoutInflater.from(requireContext())
-            .inflate(R.layout.dialog_mood_selector, null)
-        
-        val gridEmojis = dialogView.findViewById<GridLayout>(R.id.gridEmojis)
-        val editNote = dialogView.findViewById<EditText>(R.id.editMoodNote)
-        
-        var selectedEmoji = ""
-        
-        // Create emoji buttons
-        for (emoji in moodEmojis) {
-            val emojiCard = LayoutInflater.from(requireContext())
-                .inflate(R.layout.item_emoji, gridEmojis, false) as CardView
-            
-            val textEmoji = emojiCard.findViewById<TextView>(R.id.textEmoji)
-            textEmoji.text = emoji
-            
-            emojiCard.setOnClickListener {
-                selectedEmoji = emoji
-                // Highlight selected emoji
-                highlightSelectedEmoji(gridEmojis, emojiCard)
-            }
-            
-            gridEmojis.addView(emojiCard)
-        }
-        
-        val dialog = AlertDialog.Builder(requireContext())
-            .setTitle("How are you feeling?")
+        AlertDialog.Builder(requireContext())
+            .setTitle("Log Your Mood")
             .setView(dialogView)
             .setPositiveButton("Save") { _, _ ->
-                if (selectedEmoji.isNotEmpty()) {
-                    val note = editNote.text.toString().trim()
-                    val entry = MoodEntry(
-                        emoji = selectedEmoji,
-                        note = note
-                    )
-                    prefsManager.addMoodEntry(entry)
-                    loadMoodEntries()
-                    updateUI()
-                    Toast.makeText(requireContext(), "Mood logged!", Toast.LENGTH_SHORT).show()
-                } else {
-                    Toast.makeText(requireContext(), "Please select an emoji", Toast.LENGTH_SHORT).show()
-                }
+                val note = noteInput.text.toString().trim()
+                val newMood = MoodEntry(
+                    emoji = selectedEmoji,
+                    note = note
+                )
+                prefsManager.addMood(newMood)
+                loadMoods()
+                Toast.makeText(requireContext(), "Mood logged!", Toast.LENGTH_SHORT).show()
             }
             .setNegativeButton("Cancel", null)
-            .create()
-        
-        dialog.show()
+            .show()
     }
 
     /**
-     * Highlight the selected emoji in the grid
+     * Show confirmation dialog before deleting a mood
+     * @param mood The mood entry to delete
      */
-    private fun highlightSelectedEmoji(gridLayout: GridLayout, selectedCard: CardView) {
-        // Reset all cards
-        for (i in 0 until gridLayout.childCount) {
-            val card = gridLayout.getChildAt(i) as? CardView
-            card?.setCardBackgroundColor(
-                ContextCompat.getColor(requireContext(), R.color.emoji_card_background)
-            )
-        }
-        
-        // Highlight selected
-        selectedCard.setCardBackgroundColor(
-            ContextCompat.getColor(requireContext(), R.color.emoji_card_selected)
-        )
-    }
-
-    /**
-     * Show delete confirmation dialog
-     */
-    private fun showDeleteConfirmation(entry: MoodEntry) {
+    private fun showDeleteConfirmation(mood: MoodEntry) {
         AlertDialog.Builder(requireContext())
             .setTitle("Delete Mood Entry")
             .setMessage("Are you sure you want to delete this mood entry?")
             .setPositiveButton("Delete") { _, _ ->
-                prefsManager.deleteMoodEntry(entry.id)
-                loadMoodEntries()
-                updateUI()
+                prefsManager.deleteMood(mood.id)
+                loadMoods()
                 Toast.makeText(requireContext(), "Mood entry deleted", Toast.LENGTH_SHORT).show()
             }
             .setNegativeButton("Cancel", null)
@@ -231,42 +154,50 @@ class MoodFragment : Fragment() {
     }
 
     /**
-     * Share mood summary using implicit intent
+     * Share a summary of recent moods
      */
     private fun shareMoodSummary() {
-        if (moodEntries.isEmpty()) {
-            Toast.makeText(requireContext(), "No mood entries to share", Toast.LENGTH_SHORT).show()
+        if (moods.isEmpty()) {
+            Toast.makeText(requireContext(), "No moods to share", Toast.LENGTH_SHORT).show()
             return
         }
-        
-        // Create summary text
+
         val summary = buildString {
-            appendLine("My Mood Journal Summary 📊")
+            appendLine("My Mood Journal Summary")
+            appendLine("========================")
             appendLine()
-            appendLine("Total entries: ${moodEntries.size}")
-            appendLine()
-            appendLine("Recent moods:")
-            
-            moodEntries.take(5).forEach { entry ->
-                appendLine("${entry.emoji} - ${entry.getFormattedDate()} at ${entry.getFormattedTime()}")
-                if (entry.note.isNotEmpty()) {
-                    appendLine("  Note: ${entry.note}")
+            moods.take(5).forEach { mood ->
+                appendLine("${mood.emoji} - ${com.wellness.brightwell.utils.DateUtils.formatDateTime(mood.timestamp)}")
+                if (mood.note.isNotEmpty()) {
+                    appendLine("   ${mood.note}")
                 }
                 appendLine()
             }
-            
-            appendLine("Logged with BrightWell Wellness App")
+            appendLine("Tracked with BrightWell")
         }
-        
-        // Create share intent
+
         val shareIntent = Intent().apply {
             action = Intent.ACTION_SEND
-            type = "text/plain"
             putExtra(Intent.EXTRA_TEXT, summary)
-            putExtra(Intent.EXTRA_SUBJECT, "My Mood Journal Summary")
+            type = "text/plain"
         }
-        
-        startActivity(Intent.createChooser(shareIntent, "Share mood summary via"))
+
+        startActivity(Intent.createChooser(shareIntent, "Share Mood Summary"))
+    }
+
+    /**
+     * Show or hide empty state view based on mood count
+     */
+    private fun updateEmptyState() {
+        if (moods.isEmpty()) {
+            binding.recyclerViewMoods.visibility = View.GONE
+            binding.layoutEmpty.visibility = View.VISIBLE
+            binding.buttonShare.isEnabled = false
+        } else {
+            binding.recyclerViewMoods.visibility = View.VISIBLE
+            binding.layoutEmpty.visibility = View.GONE
+            binding.buttonShare.isEnabled = true
+        }
     }
 
     override fun onDestroyView() {

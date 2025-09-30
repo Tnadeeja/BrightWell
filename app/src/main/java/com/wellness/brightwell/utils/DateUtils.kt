@@ -6,57 +6,82 @@ import java.util.Date
 import java.util.Locale
 
 /**
- * Utility object for date-related operations
+ * Utility object for date formatting and manipulation
  */
 object DateUtils {
     
+    private const val DATE_FORMAT = "yyyy-MM-dd"
+    private const val DISPLAY_DATE_FORMAT = "MMM dd, yyyy"
+    private const val TIME_FORMAT = "hh:mm a"
+    private const val DATETIME_FORMAT = "MMM dd, yyyy hh:mm a"
+    
     /**
-     * Get today's date in "yyyy-MM-dd" format
+     * Get today's date as a string in "yyyy-MM-dd" format
+     * @return Today's date string
      */
     fun getTodayString(): String {
-        val sdf = SimpleDateFormat("yyyy-MM-dd", Locale.getDefault())
+        val sdf = SimpleDateFormat(DATE_FORMAT, Locale.getDefault())
         return sdf.format(Date())
     }
 
     /**
-     * Get current date and time formatted
-     */
-    fun getCurrentDateTime(): String {
-        val sdf = SimpleDateFormat("MMM dd, yyyy hh:mm a", Locale.getDefault())
-        return sdf.format(Date())
-    }
-
-    /**
-     * Get dates for the last N days
-     * @param days Number of days to go back
-     * @return List of date strings in "yyyy-MM-dd" format
-     */
-    fun getLastNDays(days: Int): List<String> {
-        val dateList = mutableListOf<String>()
-        val calendar = Calendar.getInstance()
-        val sdf = SimpleDateFormat("yyyy-MM-dd", Locale.getDefault())
-        
-        for (i in 0 until days) {
-            dateList.add(sdf.format(calendar.time))
-            calendar.add(Calendar.DAY_OF_YEAR, -1)
-        }
-        
-        return dateList
-    }
-
-    /**
-     * Format timestamp to readable date
+     * Format a timestamp to a readable date string
+     * @param timestamp Time in milliseconds
+     * @return Formatted date string (e.g., "Jan 15, 2025")
      */
     fun formatDate(timestamp: Long): String {
-        val sdf = SimpleDateFormat("MMM dd, yyyy", Locale.getDefault())
+        val sdf = SimpleDateFormat(DISPLAY_DATE_FORMAT, Locale.getDefault())
         return sdf.format(Date(timestamp))
     }
 
     /**
-     * Format timestamp to readable time
+     * Format a timestamp to a readable time string
+     * @param timestamp Time in milliseconds
+     * @return Formatted time string (e.g., "03:30 PM")
      */
     fun formatTime(timestamp: Long): String {
-        val sdf = SimpleDateFormat("hh:mm a", Locale.getDefault())
+        val sdf = SimpleDateFormat(TIME_FORMAT, Locale.getDefault())
         return sdf.format(Date(timestamp))
+    }
+
+    /**
+     * Format a timestamp to a readable date and time string
+     * @param timestamp Time in milliseconds
+     * @return Formatted datetime string (e.g., "Jan 15, 2025 03:30 PM")
+     */
+    fun formatDateTime(timestamp: Long): String {
+        val sdf = SimpleDateFormat(DATETIME_FORMAT, Locale.getDefault())
+        return sdf.format(Date(timestamp))
+    }
+
+    /**
+     * Get a relative time description (e.g., "Today", "Yesterday", or formatted date)
+     * @param timestamp Time in milliseconds
+     * @return Relative time string
+     */
+    fun getRelativeTimeString(timestamp: Long): String {
+        val calendar = Calendar.getInstance()
+        val today = calendar.get(Calendar.DAY_OF_YEAR)
+        val todayYear = calendar.get(Calendar.YEAR)
+        
+        calendar.timeInMillis = timestamp
+        val day = calendar.get(Calendar.DAY_OF_YEAR)
+        val year = calendar.get(Calendar.YEAR)
+        
+        return when {
+            day == today && year == todayYear -> "Today at ${formatTime(timestamp)}"
+            day == today - 1 && year == todayYear -> "Yesterday at ${formatTime(timestamp)}"
+            else -> formatDateTime(timestamp)
+        }
+    }
+
+    /**
+     * Convert a date string to timestamp
+     * @param dateString Date in "yyyy-MM-dd" format
+     * @return Timestamp in milliseconds
+     */
+    fun dateStringToTimestamp(dateString: String): Long {
+        val sdf = SimpleDateFormat(DATE_FORMAT, Locale.getDefault())
+        return sdf.parse(dateString)?.time ?: 0L
     }
 }

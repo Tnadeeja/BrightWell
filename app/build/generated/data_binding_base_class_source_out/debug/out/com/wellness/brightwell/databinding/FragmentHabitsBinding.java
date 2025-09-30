@@ -9,7 +9,7 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.coordinatorlayout.widget.CoordinatorLayout;
+import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.viewbinding.ViewBinding;
 import androidx.viewbinding.ViewBindings;
@@ -22,47 +22,47 @@ import java.lang.String;
 
 public final class FragmentHabitsBinding implements ViewBinding {
   @NonNull
-  private final CoordinatorLayout rootView;
+  private final ConstraintLayout rootView;
 
   @NonNull
-  public final LinearLayout emptyStateLayout;
+  public final MaterialCardView cardHeader;
 
   @NonNull
   public final FloatingActionButton fabAddHabit;
 
   @NonNull
-  public final ProgressBar progressBar;
+  public final LinearLayout layoutEmpty;
 
   @NonNull
-  public final MaterialCardView progressCard;
+  public final ProgressBar progressBarHabits;
 
   @NonNull
   public final RecyclerView recyclerViewHabits;
 
   @NonNull
-  public final TextView textProgress;
+  public final TextView textViewDate;
 
   @NonNull
-  public final TextView textProgressDetails;
+  public final TextView textViewProgress;
 
-  private FragmentHabitsBinding(@NonNull CoordinatorLayout rootView,
-      @NonNull LinearLayout emptyStateLayout, @NonNull FloatingActionButton fabAddHabit,
-      @NonNull ProgressBar progressBar, @NonNull MaterialCardView progressCard,
-      @NonNull RecyclerView recyclerViewHabits, @NonNull TextView textProgress,
-      @NonNull TextView textProgressDetails) {
+  private FragmentHabitsBinding(@NonNull ConstraintLayout rootView,
+      @NonNull MaterialCardView cardHeader, @NonNull FloatingActionButton fabAddHabit,
+      @NonNull LinearLayout layoutEmpty, @NonNull ProgressBar progressBarHabits,
+      @NonNull RecyclerView recyclerViewHabits, @NonNull TextView textViewDate,
+      @NonNull TextView textViewProgress) {
     this.rootView = rootView;
-    this.emptyStateLayout = emptyStateLayout;
+    this.cardHeader = cardHeader;
     this.fabAddHabit = fabAddHabit;
-    this.progressBar = progressBar;
-    this.progressCard = progressCard;
+    this.layoutEmpty = layoutEmpty;
+    this.progressBarHabits = progressBarHabits;
     this.recyclerViewHabits = recyclerViewHabits;
-    this.textProgress = textProgress;
-    this.textProgressDetails = textProgressDetails;
+    this.textViewDate = textViewDate;
+    this.textViewProgress = textViewProgress;
   }
 
   @Override
   @NonNull
-  public CoordinatorLayout getRoot() {
+  public ConstraintLayout getRoot() {
     return rootView;
   }
 
@@ -87,9 +87,9 @@ public final class FragmentHabitsBinding implements ViewBinding {
     // This is done to optimize the compiled bytecode for size and performance.
     int id;
     missingId: {
-      id = R.id.emptyStateLayout;
-      LinearLayout emptyStateLayout = ViewBindings.findChildViewById(rootView, id);
-      if (emptyStateLayout == null) {
+      id = R.id.cardHeader;
+      MaterialCardView cardHeader = ViewBindings.findChildViewById(rootView, id);
+      if (cardHeader == null) {
         break missingId;
       }
 
@@ -99,15 +99,15 @@ public final class FragmentHabitsBinding implements ViewBinding {
         break missingId;
       }
 
-      id = R.id.progressBar;
-      ProgressBar progressBar = ViewBindings.findChildViewById(rootView, id);
-      if (progressBar == null) {
+      id = R.id.layoutEmpty;
+      LinearLayout layoutEmpty = ViewBindings.findChildViewById(rootView, id);
+      if (layoutEmpty == null) {
         break missingId;
       }
 
-      id = R.id.progressCard;
-      MaterialCardView progressCard = ViewBindings.findChildViewById(rootView, id);
-      if (progressCard == null) {
+      id = R.id.progressBarHabits;
+      ProgressBar progressBarHabits = ViewBindings.findChildViewById(rootView, id);
+      if (progressBarHabits == null) {
         break missingId;
       }
 
@@ -117,20 +117,20 @@ public final class FragmentHabitsBinding implements ViewBinding {
         break missingId;
       }
 
-      id = R.id.textProgress;
-      TextView textProgress = ViewBindings.findChildViewById(rootView, id);
-      if (textProgress == null) {
+      id = R.id.textViewDate;
+      TextView textViewDate = ViewBindings.findChildViewById(rootView, id);
+      if (textViewDate == null) {
         break missingId;
       }
 
-      id = R.id.textProgressDetails;
-      TextView textProgressDetails = ViewBindings.findChildViewById(rootView, id);
-      if (textProgressDetails == null) {
+      id = R.id.textViewProgress;
+      TextView textViewProgress = ViewBindings.findChildViewById(rootView, id);
+      if (textViewProgress == null) {
         break missingId;
       }
 
-      return new FragmentHabitsBinding((CoordinatorLayout) rootView, emptyStateLayout, fabAddHabit,
-          progressBar, progressCard, recyclerViewHabits, textProgress, textProgressDetails);
+      return new FragmentHabitsBinding((ConstraintLayout) rootView, cardHeader, fabAddHabit,
+          layoutEmpty, progressBarHabits, recyclerViewHabits, textViewDate, textViewProgress);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

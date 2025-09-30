@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginVertical="6dp"
+    app:cardCornerRadius="12dp"
+    app:cardElevation="2dp">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="16dp">
+
+        <!-- Water Icon -->
+        <TextView
+            android:id="@+id/textViewIcon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="32sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="💧💧" />
+
+        <!-- Amount -->
+        <TextView
+            android:id="@+id/textViewAmount"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="8dp"
+            android:textColor="@color/text_primary"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toStartOf="@id/buttonDelete"
+            app:layout_constraintStart_toEndOf="@id/textViewIcon"
+            app:layout_constraintTop_toTopOf="@id/textViewIcon"
+            tools:text="500 ml" />
+
+        <!-- Time -->
+        <TextView
+            android:id="@+id/textViewTime"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:textColor="@color/text_secondary"
+            android:textSize="12sp"
+            app:layout_constraintEnd_toEndOf="@id/textViewAmount"
+            app:layout_constraintStart_toStartOf="@id/textViewAmount"
+            app:layout_constraintTop_toBottomOf="@id/textViewAmount"
+            tools:text="3:30 PM" />
+
+        <!-- Glasses Equivalent -->
+        <TextView
+            android:id="@+id/textViewGlasses"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="2dp"
+            android:textColor="@color/text_hint"
+            android:textSize="11sp"
+            app:layout_constraintEnd_toEndOf="@id/textViewAmount"
+            app:layout_constraintStart_toStartOf="@id/textViewAmount"
+            app:layout_constraintTop_toBottomOf="@id/textViewTime"
+            tools:text="2.0 glasses" />
+
+        <!-- Delete Button -->
+        <ImageButton
+            android:id="@+id/buttonDelete"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:contentDescription="@string/delete"
+            android:src="@drawable/ic_delete"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</com.google.android.material.card.MaterialCardView>

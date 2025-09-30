@@ -12,7 +12,7 @@ import com.wellness.brightwell.data.PreferencesManager
 import com.wellness.brightwell.utils.DateUtils
 
 /**
- * Home screen widget showing today's habit completion percentage
+ * Widget provider that displays today's habit completion percentage
  * This is the advanced feature for the lab exam
  */
 class HabitWidgetProvider : AppWidgetProvider() {
@@ -30,12 +30,10 @@ class HabitWidgetProvider : AppWidgetProvider() {
 
     override fun onEnabled(context: Context) {
         // Called when the first widget is created
-        super.onEnabled(context)
     }
 
     override fun onDisabled(context: Context) {
         // Called when the last widget is removed
-        super.onDisabled(context)
     }
 
     companion object {
@@ -48,40 +46,34 @@ class HabitWidgetProvider : AppWidgetProvider() {
             appWidgetId: Int
         ) {
             val prefsManager = PreferencesManager(context)
-            val habits = prefsManager.getHabits()
-            
-            // Calculate today's completion percentage
+            val habits = prefsManager.loadHabits()
             val today = DateUtils.getTodayString()
-            val totalHabits = habits.size
-            val completedHabits = habits.count { it.isCompletedOn(today) }
-            val percentage = if (totalHabits > 0) {
-                (completedHabits * 100) / totalHabits
-            } else {
+
+            // Calculate completion percentage
+            val percentage = if (habits.isEmpty()) {
                 0
+            } else {
+                val completedCount = habits.count { it.isCompletedOn(today) }
+                (completedCount * 100) / habits.size
             }
-            
+
             // Create RemoteViews
             val views = RemoteViews(context.packageName, R.layout.widget_habit)
-            
-            // Update widget content
-            views.setTextViewText(R.id.widgetPercentage, "$percentage%")
-            views.setTextViewText(
-                R.id.widgetDetails,
-                "$completedHabits of $totalHabits habits"
-            )
+
+            // Set the progress and text
             views.setProgressBar(R.id.widgetProgressBar, 100, percentage, false)
-            
-            // Set emoji based on completion percentage
-            val emoji = when {
-                percentage == 0 -> "😴"
-                percentage < 30 -> "😊"
-                percentage < 60 -> "🌟"
-                percentage < 90 -> "🔥"
-                else -> "🎉"
-            }
-            views.setTextViewText(R.id.widgetEmoji, emoji)
-            
-            // Create intent to open app when widget is clicked
+            views.setTextViewText(R.id.widgetTextPercentage, "$percentage%")
+            views.setTextViewText(
+                R.id.widgetTextCompleted,
+                if (habits.isEmpty()) {
+                    "No habits tracked"
+                } else {
+                    val completedCount = habits.count { it.isCompletedOn(today) }
+                    "$completedCount of ${habits.size} completed"
+                }
+            )
+
+            // Set up click intent to open the app
             val intent = Intent(context, MainActivity::class.java)
             val pendingIntent = PendingIntent.getActivity(
                 context,
@@ -90,25 +82,24 @@ class HabitWidgetProvider : AppWidgetProvider() {
                 PendingIntent.FLAG_IMMUTABLE or PendingIntent.FLAG_UPDATE_CURRENT
             )
             views.setOnClickPendingIntent(R.id.widgetContainer, pendingIntent)
-            
+
             // Update the widget
             appWidgetManager.updateAppWidget(appWidgetId, views)
         }
 
         /**
          * Update all widget instances
+         * Call this method whenever habit data changes
          */
-        fun updateAllWidgets(context: Context) {
-            val intent = Intent(context, HabitWidgetProvider::class.java)
-            intent.action = AppWidgetManager.ACTION_APPWIDGET_UPDATE
-            
+        fun updateWidget(context: Context) {
             val appWidgetManager = AppWidgetManager.getInstance(context)
-            val ids = appWidgetManager.getAppWidgetIds(
+            val appWidgetIds = appWidgetManager.getAppWidgetIds(
                 android.content.ComponentName(context, HabitWidgetProvider::class.java)
             )
-            
-            intent.putExtra(AppWidgetManager.EXTRA_APPWIDGET_IDS, ids)
-            context.sendBroadcast(intent)
+
+            for (appWidgetId in appWidgetIds) {
+                updateAppWidget(context, appWidgetManager, appWidgetId)
+            }
         }
     }
 }

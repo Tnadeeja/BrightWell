@@ -2,56 +2,57 @@
 <resources>
     <string name="app_name">BrightWell</string>
     
-    <!-- Bottom Navigation -->
+    <!-- Navigation -->
     <string name="nav_habits">Habits</string>
+    <string name="nav_hydration">Hydration</string>
     <string name="nav_mood">Mood</string>
     <string name="nav_settings">Settings</string>
     
-    <!-- Habits -->
+    <!-- Habits Screen -->
     <string name="habits_title">Daily Habits</string>
-    <string name="habits_subtitle">Track your wellness journey</string>
+    <string name="habits_empty_title">No habits yet</string>
+    <string name="habits_empty_message">Tap the + button to add your first wellness habit</string>
     <string name="add_habit">Add Habit</string>
     <string name="edit_habit">Edit Habit</string>
     <string name="delete_habit">Delete Habit</string>
-    <string name="habit_name_hint">Habit name</string>
-    <string name="habit_description_hint">Description (optional)</string>
-    <string name="no_habits">No habits yet</string>
-    <string name="no_habits_message">Tap the + button to add your first habit</string>
+    <string name="habit_name">Habit Name</string>
+    <string name="habit_description">Description (optional)</string>
+    <string name="today_progress">Today\'s Progress</string>
     
-    <!-- Mood Journal -->
+    <!-- Mood Screen -->
     <string name="mood_title">Mood Journal</string>
-    <string name="mood_subtitle">Track how you\'re feeling</string>
-    <string name="add_mood">Add Mood</string>
-    <string name="select_mood">How are you feeling?</string>
-    <string name="mood_note_hint">Add a note (optional)</string>
-    <string name="no_moods">No mood entries yet</string>
-    <string name="no_moods_message">Tap the + button to log your first mood</string>
+    <string name="mood_empty_title">No mood entries yet</string>
+    <string name="mood_empty_message">Tap the + button to log your first mood</string>
+    <string name="add_mood">Log Mood</string>
+    <string name="select_emoji">Select an emoji that represents your mood</string>
+    <string name="mood_note">Add a note (optional)</string>
     <string name="share_mood">Share Mood Summary</string>
     
-    <!-- Settings -->
+    <!-- Settings Screen -->
     <string name="settings_title">Settings</string>
-    <string name="settings_subtitle">Customize your wellness experience</string>
     <string name="hydration_reminders">Hydration Reminders</string>
-    <string name="enable_reminders">Enable reminders</string>
-    <string name="reminder_interval">Reminder interval</string>
-    <string name="change_interval">Change</string>
-    <string name="about">About BrightWell</string>
-    <string name="data_management">Data Management</string>
-    <string name="clear_all_data">Clear All Data</string>
-    <string name="clear_data_message">Clear all app data including habits, moods, and settings</string>
+    <string name="enable_reminders">Enable Reminders</string>
+    <string name="reminder_interval">Reminder Interval</string>
+    <string name="interval_minutes">%d minutes</string>
+    <string name="about">About</string>
+    <string name="app_version">Version 1.0</string>
+    <string name="app_description">BrightWell helps you track daily wellness habits, log your moods, and stay hydrated throughout the day.</string>
     
     <!-- Widget -->
-    <string name="widget_name">Habit Progress</string>
-    <string name="widget_description">Shows today\'s habit completion percentage</string>
+    <string name="widget_description">Shows today\'s habit completion progress</string>
+    <string name="widget_title">Today\'s Habits</string>
+    <string name="widget_no_habits">No habits tracked</string>
     
     <!-- Notifications -->
-    <string name="notification_title">Time to Hydrate!</string>
+    <string name="notification_title">Time to Hydrate! 💧</string>
     <string name="notification_message">Don\'t forget to drink water and stay healthy!</string>
     
     <!-- Common -->
     <string name="save">Save</string>
     <string name="cancel">Cancel</string>
     <string name="delete">Delete</string>
+    <string name="edit">Edit</string>
+    <string name="add">Add</string>
     <string name="ok">OK</string>
     <string name="yes">Yes</string>
     <string name="no">No</string>

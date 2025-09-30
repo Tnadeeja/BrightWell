@@ -10,19 +10,19 @@
 10
 11    <!-- Permissions for notifications and alarms -->
 12    <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
-12-->E:\My projects\BrightWell\app\src\main\AndroidManifest.xml:6:5-77
+12-->E:\My projects\BrightWell\app\src\main\AndroidManifest.xml:6:5-76
 12-->E:\My projects\BrightWell\app\src\main\AndroidManifest.xml:6:22-74
 13    <uses-permission android:name="android.permission.SCHEDULE_EXACT_ALARM" />
-13-->E:\My projects\BrightWell\app\src\main\AndroidManifest.xml:7:5-79
+13-->E:\My projects\BrightWell\app\src\main\AndroidManifest.xml:7:5-78
 13-->E:\My projects\BrightWell\app\src\main\AndroidManifest.xml:7:22-76
 14    <uses-permission android:name="android.permission.USE_EXACT_ALARM" />
-14-->E:\My projects\BrightWell\app\src\main\AndroidManifest.xml:8:5-74
+14-->E:\My projects\BrightWell\app\src\main\AndroidManifest.xml:8:5-73
 14-->E:\My projects\BrightWell\app\src\main\AndroidManifest.xml:8:22-71
 15    <uses-permission android:name="android.permission.WAKE_LOCK" />
-15-->E:\My projects\BrightWell\app\src\main\AndroidManifest.xml:9:5-68
+15-->E:\My projects\BrightWell\app\src\main\AndroidManifest.xml:9:5-67
 15-->E:\My projects\BrightWell\app\src\main\AndroidManifest.xml:9:22-65
 16    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
-16-->E:\My projects\BrightWell\app\src\main\AndroidManifest.xml:10:5-81
+16-->E:\My projects\BrightWell\app\src\main\AndroidManifest.xml:10:5-80
 16-->E:\My projects\BrightWell\app\src\main\AndroidManifest.xml:10:22-78
 17    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 17-->[androidx.work:work-runtime:2.9.0] C:\Users\Nadeeja Weerasinghe\.gradle\caches\transforms-3\795cfc56b0370abf8ccaac2477cf15fd\transformed\work-runtime-2.9.0\AndroidManifest.xml:24:5-79
@@ -109,11 +109,11 @@
 62-->E:\My projects\BrightWell\app\src\main\AndroidManifest.xml:43:17-58
 63        </receiver>
 64
-65        <!-- Boot Receiver to reschedule notifications after reboot -->
+65        <!-- WorkManager for hydration reminders -->
 66        <receiver
 66-->E:\My projects\BrightWell\app\src\main\AndroidManifest.xml:47:9-54:20
-67            android:name="com.wellness.brightwell.notifications.BootReceiver"
-67-->E:\My projects\BrightWell\app\src\main\AndroidManifest.xml:48:13-55
+67            android:name="com.wellness.brightwell.worker.BootReceiver"
+67-->E:\My projects\BrightWell\app\src\main\AndroidManifest.xml:48:13-48
 68            android:enabled="true"
 68-->E:\My projects\BrightWell\app\src\main\AndroidManifest.xml:49:13-35
 69            android:exported="true" >
@@ -147,11 +147,11 @@
 84                android:value="androidx.startup" />
 84-->[androidx.work:work-runtime:2.9.0] C:\Users\Nadeeja Weerasinghe\.gradle\caches\transforms-3\795cfc56b0370abf8ccaac2477cf15fd\transformed\work-runtime-2.9.0\AndroidManifest.xml:36:17-49
 85            <meta-data
-85-->[androidx.lifecycle:lifecycle-process:2.6.2] C:\Users\Nadeeja Weerasinghe\.gradle\caches\transforms-3\a87653f823cc6292df5b23ce4123ef1b\transformed\jetified-lifecycle-process-2.6.2\AndroidManifest.xml:29:13-31:52
+85-->[androidx.lifecycle:lifecycle-process:2.7.0] C:\Users\Nadeeja Weerasinghe\.gradle\caches\transforms-3\ef673f3be81b63a51df09c1e74d09cf4\transformed\jetified-lifecycle-process-2.7.0\AndroidManifest.xml:29:13-31:52
 86                android:name="androidx.lifecycle.ProcessLifecycleInitializer"
-86-->[androidx.lifecycle:lifecycle-process:2.6.2] C:\Users\Nadeeja Weerasinghe\.gradle\caches\transforms-3\a87653f823cc6292df5b23ce4123ef1b\transformed\jetified-lifecycle-process-2.6.2\AndroidManifest.xml:30:17-78
+86-->[androidx.lifecycle:lifecycle-process:2.7.0] C:\Users\Nadeeja Weerasinghe\.gradle\caches\transforms-3\ef673f3be81b63a51df09c1e74d09cf4\transformed\jetified-lifecycle-process-2.7.0\AndroidManifest.xml:30:17-78
 87                android:value="androidx.startup" />
-87-->[androidx.lifecycle:lifecycle-process:2.6.2] C:\Users\Nadeeja Weerasinghe\.gradle\caches\transforms-3\a87653f823cc6292df5b23ce4123ef1b\transformed\jetified-lifecycle-process-2.6.2\AndroidManifest.xml:31:17-49
+87-->[androidx.lifecycle:lifecycle-process:2.7.0] C:\Users\Nadeeja Weerasinghe\.gradle\caches\transforms-3\ef673f3be81b63a51df09c1e74d09cf4\transformed\jetified-lifecycle-process-2.7.0\AndroidManifest.xml:31:17-49
 88            <meta-data
 88-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\Nadeeja Weerasinghe\.gradle\caches\transforms-3\820e62f0b30c90bc6c88badac0db92dc\transformed\jetified-profileinstaller-1.3.0\AndroidManifest.xml:29:13-31:52
 89                android:name="androidx.profileinstaller.ProfileInstallerInitializer"

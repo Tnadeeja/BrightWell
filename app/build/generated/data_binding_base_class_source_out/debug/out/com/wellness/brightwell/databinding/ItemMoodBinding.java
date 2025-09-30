@@ -21,29 +21,25 @@ public final class ItemMoodBinding implements ViewBinding {
   private final MaterialCardView rootView;
 
   @NonNull
-  public final ImageButton buttonDeleteMood;
+  public final ImageButton buttonDelete;
 
   @NonNull
-  public final TextView textMoodDate;
+  public final TextView textViewEmoji;
 
   @NonNull
-  public final TextView textMoodEmoji;
+  public final TextView textViewNote;
 
   @NonNull
-  public final TextView textMoodNote;
+  public final TextView textViewTimestamp;
 
-  @NonNull
-  public final TextView textMoodTime;
-
-  private ItemMoodBinding(@NonNull MaterialCardView rootView, @NonNull ImageButton buttonDeleteMood,
-      @NonNull TextView textMoodDate, @NonNull TextView textMoodEmoji,
-      @NonNull TextView textMoodNote, @NonNull TextView textMoodTime) {
+  private ItemMoodBinding(@NonNull MaterialCardView rootView, @NonNull ImageButton buttonDelete,
+      @NonNull TextView textViewEmoji, @NonNull TextView textViewNote,
+      @NonNull TextView textViewTimestamp) {
     this.rootView = rootView;
-    this.buttonDeleteMood = buttonDeleteMood;
-    this.textMoodDate = textMoodDate;
-    this.textMoodEmoji = textMoodEmoji;
-    this.textMoodNote = textMoodNote;
-    this.textMoodTime = textMoodTime;
+    this.buttonDelete = buttonDelete;
+    this.textViewEmoji = textViewEmoji;
+    this.textViewNote = textViewNote;
+    this.textViewTimestamp = textViewTimestamp;
   }
 
   @Override
@@ -73,38 +69,32 @@ public final class ItemMoodBinding implements ViewBinding {
     // This is done to optimize the compiled bytecode for size and performance.
     int id;
     missingId: {
-      id = R.id.buttonDeleteMood;
-      ImageButton buttonDeleteMood = ViewBindings.findChildViewById(rootView, id);
-      if (buttonDeleteMood == null) {
+      id = R.id.buttonDelete;
+      ImageButton buttonDelete = ViewBindings.findChildViewById(rootView, id);
+      if (buttonDelete == null) {
         break missingId;
       }
 
-      id = R.id.textMoodDate;
-      TextView textMoodDate = ViewBindings.findChildViewById(rootView, id);
-      if (textMoodDate == null) {
+      id = R.id.textViewEmoji;
+      TextView textViewEmoji = ViewBindings.findChildViewById(rootView, id);
+      if (textViewEmoji == null) {
         break missingId;
       }
 
-      id = R.id.textMoodEmoji;
-      TextView textMoodEmoji = ViewBindings.findChildViewById(rootView, id);
-      if (textMoodEmoji == null) {
+      id = R.id.textViewNote;
+      TextView textViewNote = ViewBindings.findChildViewById(rootView, id);
+      if (textViewNote == null) {
         break missingId;
       }
 
-      id = R.id.textMoodNote;
-      TextView textMoodNote = ViewBindings.findChildViewById(rootView, id);
-      if (textMoodNote == null) {
+      id = R.id.textViewTimestamp;
+      TextView textViewTimestamp = ViewBindings.findChildViewById(rootView, id);
+      if (textViewTimestamp == null) {
         break missingId;
       }
 
-      id = R.id.textMoodTime;
-      TextView textMoodTime = ViewBindings.findChildViewById(rootView, id);
-      if (textMoodTime == null) {
-        break missingId;
-      }
-
-      return new ItemMoodBinding((MaterialCardView) rootView, buttonDeleteMood, textMoodDate,
-          textMoodEmoji, textMoodNote, textMoodTime);
+      return new ItemMoodBinding((MaterialCardView) rootView, buttonDelete, textViewEmoji,
+          textViewNote, textViewTimestamp);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

@@ -1,57 +1,47 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/widgetContainer"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:padding="16dp"
     android:background="@drawable/widget_background"
-    android:gravity="center">
+    android:orientation="vertical"
+    android:padding="16dp">
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Today's Progress"
-        android:textSize="14sp"
-        android:textStyle="bold"
-        android:textColor="#FFFFFF"
-        android:layout_marginBottom="8dp" />
+        android:text="@string/widget_title"
+        android:textColor="@color/white"
+        android:textSize="16sp"
+        android:textStyle="bold" />
 
     <TextView
-        android:id="@+id/widgetEmoji"
+        android:id="@+id/widgetTextPercentage"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="🌟"
-        android:textSize="32sp"
-        android:layout_marginBottom="8dp" />
-
-    <TextView
-        android:id="@+id/widgetPercentage"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
         android:text="0%"
-        android:textSize="36sp"
-        android:textStyle="bold"
-        android:textColor="#FFFFFF"
-        android:layout_marginBottom="4dp" />
+        android:textColor="@color/white"
+        android:textSize="32sp"
+        android:textStyle="bold" />
 
     <ProgressBar
         android:id="@+id/widgetProgressBar"
         style="?android:attr/progressBarStyleHorizontal"
         android:layout_width="match_parent"
         android:layout_height="8dp"
+        android:layout_marginTop="8dp"
         android:max="100"
         android:progress="0"
-        android:progressTint="#FFFFFF"
-        android:layout_marginBottom="8dp" />
+        android:progressTint="@color/white" />
 
     <TextView
-        android:id="@+id/widgetDetails"
+        android:id="@+id/widgetTextCompleted"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="0 of 0 habits"
-        android:textSize="12sp"
-        android:textColor="#FFFFFF" />
+        android:layout_marginTop="8dp"
+        android:text="0 of 0 completed"
+        android:textColor="@color/white"
+        android:textSize="12sp" />
 
 </LinearLayout>

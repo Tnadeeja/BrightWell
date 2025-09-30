@@ -1,94 +1,130 @@
 [
     {
-        "merged": "com.wellness.brightwell.app-merged_res-54:/drawable_widget_background.xml.flat",
-        "source": "com.wellness.brightwell.app-main-56:/drawable/widget_background.xml"
+        "merged": "C:\\Users\\Nadeeja Weerasinghe\\.gradle\\daemon\\8.2\\com.wellness.brightwell.app-merged_res-55:\\drawable_ic_widget_preview.xml.flat",
+        "source": "C:\\Users\\Nadeeja Weerasinghe\\.gradle\\daemon\\8.2\\com.wellness.brightwell.app-main-57:\\drawable\\ic_widget_preview.xml"
     },
     {
-        "merged": "com.wellness.brightwell.app-merged_res-54:/layout_fragment_settings.xml.flat",
-        "source": "com.wellness.brightwell.app-main-56:/layout/fragment_settings.xml"
+        "merged": "C:\\Users\\Nadeeja Weerasinghe\\.gradle\\daemon\\8.2\\com.wellness.brightwell.app-merged_res-55:\\layout_item_habit.xml.flat",
+        "source": "C:\\Users\\Nadeeja Weerasinghe\\.gradle\\daemon\\8.2\\com.wellness.brightwell.app-main-57:\\layout\\item_habit.xml"
     },
     {
-        "merged": "com.wellness.brightwell.app-merged_res-54:/layout_item_emoji.xml.flat",
-        "source": "com.wellness.brightwell.app-main-56:/layout/item_emoji.xml"
+        "merged": "C:\\Users\\Nadeeja Weerasinghe\\.gradle\\daemon\\8.2\\com.wellness.brightwell.app-merged_res-55:\\layout_activity_main.xml.flat",
+        "source": "C:\\Users\\Nadeeja Weerasinghe\\.gradle\\daemon\\8.2\\com.wellness.brightwell.app-main-57:\\layout\\activity_main.xml"
     },
     {
-        "merged": "com.wellness.brightwell.app-merged_res-54:/menu_bottom_navigation_menu.xml.flat",
-        "source": "com.wellness.brightwell.app-main-56:/menu/bottom_navigation_menu.xml"
+        "merged": "C:\\Users\\Nadeeja Weerasinghe\\.gradle\\daemon\\8.2\\com.wellness.brightwell.app-merged_res-55:\\layout_item_mood.xml.flat",
+        "source": "C:\\Users\\Nadeeja Weerasinghe\\.gradle\\daemon\\8.2\\com.wellness.brightwell.app-main-57:\\layout\\item_mood.xml"
     },
     {
-        "merged": "com.wellness.brightwell.app-merged_res-54:/drawable_ic_settings.xml.flat",
-        "source": "com.wellness.brightwell.app-main-56:/drawable/ic_settings.xml"
+        "merged": "C:\\Users\\Nadeeja Weerasinghe\\.gradle\\daemon\\8.2\\com.wellness.brightwell.app-merged_res-55:\\drawable_ic_launcher_foreground.xml.flat",
+        "source": "C:\\Users\\Nadeeja Weerasinghe\\.gradle\\daemon\\8.2\\com.wellness.brightwell.app-main-57:\\drawable\\ic_launcher_foreground.xml"
     },
     {
-        "merged": "com.wellness.brightwell.app-merged_res-54:/drawable_widget_preview.xml.flat",
-        "source": "com.wellness.brightwell.app-main-56:/drawable/widget_preview.xml"
+        "merged": "C:\\Users\\Nadeeja Weerasinghe\\.gradle\\daemon\\8.2\\com.wellness.brightwell.app-merged_res-55:\\drawable_ic_settings.xml.flat",
+        "source": "C:\\Users\\Nadeeja Weerasinghe\\.gradle\\daemon\\8.2\\com.wellness.brightwell.app-main-57:\\drawable\\ic_settings.xml"
     },
     {
-        "merged": "com.wellness.brightwell.app-merged_res-54:/xml_habit_widget_info.xml.flat",
-        "source": "com.wellness.brightwell.app-main-56:/xml/habit_widget_info.xml"
+        "merged": "com.wellness.brightwell.app-merged_res-55:/drawable_ic_water_drop.xml.flat",
+        "source": "com.wellness.brightwell.app-main-57:/drawable/ic_water_drop.xml"
     },
     {
-        "merged": "com.wellness.brightwell.app-merged_res-54:/mipmap-anydpi-v26_ic_launcher_round.xml.flat",
-        "source": "com.wellness.brightwell.app-main-56:/mipmap-anydpi-v26/ic_launcher_round.xml"
+        "merged": "C:\\Users\\Nadeeja Weerasinghe\\.gradle\\daemon\\8.2\\com.wellness.brightwell.app-merged_res-55:\\xml_habit_widget_info.xml.flat",
+        "source": "C:\\Users\\Nadeeja Weerasinghe\\.gradle\\daemon\\8.2\\com.wellness.brightwell.app-main-57:\\xml\\habit_widget_info.xml"
     },
     {
-        "merged": "com.wellness.brightwell.app-merged_res-54:/layout_item_habit.xml.flat",
-        "source": "com.wellness.brightwell.app-main-56:/layout/item_habit.xml"
+        "merged": "C:\\Users\\Nadeeja Weerasinghe\\.gradle\\daemon\\8.2\\com.wellness.brightwell.app-merged_res-55:\\drawable_ic_edit.xml.flat",
+        "source": "C:\\Users\\Nadeeja Weerasinghe\\.gradle\\daemon\\8.2\\com.wellness.brightwell.app-main-57:\\drawable\\ic_edit.xml"
     },
     {
-        "merged": "com.wellness.brightwell.app-merged_res-54:/mipmap-anydpi-v26_ic_launcher.xml.flat",
-        "source": "com.wellness.brightwell.app-main-56:/mipmap-anydpi-v26/ic_launcher.xml"
+        "merged": "C:\\Users\\Nadeeja Weerasinghe\\.gradle\\daemon\\8.2\\com.wellness.brightwell.app-merged_res-55:\\drawable_widget_background.xml.flat",
+        "source": "C:\\Users\\Nadeeja Weerasinghe\\.gradle\\daemon\\8.2\\com.wellness.brightwell.app-main-57:\\drawable\\widget_background.xml"
     },
     {
-        "merged": "com.wellness.brightwell.app-merged_res-54:/layout_item_mood.xml.flat",
-        "source": "com.wellness.brightwell.app-main-56:/layout/item_mood.xml"
+        "merged": "com.wellness.brightwell.app-merged_res-55:/layout_fragment_hydration.xml.flat",
+        "source": "com.wellness.brightwell.app-main-57:/layout/fragment_hydration.xml"
     },
     {
-        "merged": "com.wellness.brightwell.app-merged_res-54:/layout_fragment_mood.xml.flat",
-        "source": "com.wellness.brightwell.app-main-56:/layout/fragment_mood.xml"
+        "merged": "C:\\Users\\Nadeeja Weerasinghe\\.gradle\\daemon\\8.2\\com.wellness.brightwell.app-merged_res-55:\\layout_fragment_mood.xml.flat",
+        "source": "C:\\Users\\Nadeeja Weerasinghe\\.gradle\\daemon\\8.2\\com.wellness.brightwell.app-main-57:\\layout\\fragment_mood.xml"
     },
     {
-        "merged": "com.wellness.brightwell.app-merged_res-54:/layout_fragment_habits.xml.flat",
-        "source": "com.wellness.brightwell.app-main-56:/layout/fragment_habits.xml"
+        "merged": "C:\\Users\\Nadeeja Weerasinghe\\.gradle\\daemon\\8.2\\com.wellness.brightwell.app-merged_res-55:\\mipmap-anydpi-v26_ic_launcher.xml.flat",
+        "source": "C:\\Users\\Nadeeja Weerasinghe\\.gradle\\daemon\\8.2\\com.wellness.brightwell.app-main-57:\\mipmap-anydpi-v26\\ic_launcher.xml"
     },
     {
-        "merged": "com.wellness.brightwell.app-merged_res-54:/drawable_ic_launcher_foreground.xml.flat",
-        "source": "com.wellness.brightwell.app-main-56:/drawable/ic_launcher_foreground.xml"
+        "merged": "C:\\Users\\Nadeeja Weerasinghe\\.gradle\\daemon\\8.2\\com.wellness.brightwell.app-merged_res-55:\\layout_fragment_settings.xml.flat",
+        "source": "C:\\Users\\Nadeeja Weerasinghe\\.gradle\\daemon\\8.2\\com.wellness.brightwell.app-main-57:\\layout\\fragment_settings.xml"
     },
     {
-        "merged": "com.wellness.brightwell.app-merged_res-54:/xml_backup_rules.xml.flat",
-        "source": "com.wellness.brightwell.app-main-56:/xml/backup_rules.xml"
+        "merged": "C:\\Users\\Nadeeja Weerasinghe\\.gradle\\daemon\\8.2\\com.wellness.brightwell.app-merged_res-55:\\drawable_ic_delete.xml.flat",
+        "source": "C:\\Users\\Nadeeja Weerasinghe\\.gradle\\daemon\\8.2\\com.wellness.brightwell.app-main-57:\\drawable\\ic_delete.xml"
     },
     {
-        "merged": "com.wellness.brightwell.app-merged_res-54:/layout_widget_habit.xml.flat",
-        "source": "com.wellness.brightwell.app-main-56:/layout/widget_habit.xml"
+        "merged": "C:\\Users\\Nadeeja Weerasinghe\\.gradle\\daemon\\8.2\\com.wellness.brightwell.app-merged_res-55:\\layout_fragment_habits.xml.flat",
+        "source": "C:\\Users\\Nadeeja Weerasinghe\\.gradle\\daemon\\8.2\\com.wellness.brightwell.app-main-57:\\layout\\fragment_habits.xml"
     },
     {
-        "merged": "com.wellness.brightwell.app-merged_res-54:/layout_activity_main.xml.flat",
-        "source": "com.wellness.brightwell.app-main-56:/layout/activity_main.xml"
+        "merged": "C:\\Users\\Nadeeja Weerasinghe\\.gradle\\daemon\\8.2\\com.wellness.brightwell.app-merged_res-55:\\layout_dialog_add_mood.xml.flat",
+        "source": "C:\\Users\\Nadeeja Weerasinghe\\.gradle\\daemon\\8.2\\com.wellness.brightwell.app-main-57:\\layout\\dialog_add_mood.xml"
     },
     {
-        "merged": "com.wellness.brightwell.app-merged_res-54:/layout_dialog_mood_selector.xml.flat",
-        "source": "com.wellness.brightwell.app-main-56:/layout/dialog_mood_selector.xml"
+        "merged": "C:\\Users\\Nadeeja Weerasinghe\\.gradle\\daemon\\8.2\\com.wellness.brightwell.app-merged_res-55:\\mipmap-anydpi-v26_ic_launcher_round.xml.flat",
+        "source": "C:\\Users\\Nadeeja Weerasinghe\\.gradle\\daemon\\8.2\\com.wellness.brightwell.app-main-57:\\mipmap-anydpi-v26\\ic_launcher_round.xml"
     },
     {
-        "merged": "com.wellness.brightwell.app-merged_res-54:/drawable_ic_mood.xml.flat",
-        "source": "com.wellness.brightwell.app-main-56:/drawable/ic_mood.xml"
+        "merged": "C:\\Users\\Nadeeja Weerasinghe\\.gradle\\daemon\\8.2\\com.wellness.brightwell.app-merged_res-55:\\drawable_ic_water_drop.xml.flat",
+        "source": "C:\\Users\\Nadeeja Weerasinghe\\.gradle\\daemon\\8.2\\com.wellness.brightwell.app-main-57:\\drawable\\ic_water_drop.xml"
     },
     {
-        "merged": "com.wellness.brightwell.app-merged_res-54:/xml_data_extraction_rules.xml.flat",
-        "source": "com.wellness.brightwell.app-main-56:/xml/data_extraction_rules.xml"
+        "merged": "C:\\Users\\Nadeeja Weerasinghe\\.gradle\\daemon\\8.2\\com.wellness.brightwell.app-merged_res-55:\\layout_dialog_add_habit.xml.flat",
+        "source": "C:\\Users\\Nadeeja Weerasinghe\\.gradle\\daemon\\8.2\\com.wellness.brightwell.app-main-57:\\layout\\dialog_add_habit.xml"
     },
     {
-        "merged": "com.wellness.brightwell.app-merged_res-54:/drawable_ic_water.xml.flat",
-        "source": "com.wellness.brightwell.app-main-56:/drawable/ic_water.xml"
+        "merged": "com.wellness.brightwell.app-merged_res-55:/menu_bottom_navigation_menu.xml.flat",
+        "source": "com.wellness.brightwell.app-main-57:/menu/bottom_navigation_menu.xml"
     },
     {
-        "merged": "com.wellness.brightwell.app-merged_res-54:/layout_dialog_add_habit.xml.flat",
-        "source": "com.wellness.brightwell.app-main-56:/layout/dialog_add_habit.xml"
+        "merged": "com.wellness.brightwell.app-merged_res-55:/layout_dialog_custom_amount.xml.flat",
+        "source": "com.wellness.brightwell.app-main-57:/layout/dialog_custom_amount.xml"
     },
     {
-        "merged": "com.wellness.brightwell.app-merged_res-54:/drawable_ic_habits.xml.flat",
-        "source": "com.wellness.brightwell.app-main-56:/drawable/ic_habits.xml"
+        "merged": "C:\\Users\\Nadeeja Weerasinghe\\.gradle\\daemon\\8.2\\com.wellness.brightwell.app-merged_res-55:\\drawable_ic_habits.xml.flat",
+        "source": "C:\\Users\\Nadeeja Weerasinghe\\.gradle\\daemon\\8.2\\com.wellness.brightwell.app-main-57:\\drawable\\ic_habits.xml"
+    },
+    {
+        "merged": "C:\\Users\\Nadeeja Weerasinghe\\.gradle\\daemon\\8.2\\com.wellness.brightwell.app-merged_res-55:\\layout_widget_habit.xml.flat",
+        "source": "C:\\Users\\Nadeeja Weerasinghe\\.gradle\\daemon\\8.2\\com.wellness.brightwell.app-main-57:\\layout\\widget_habit.xml"
+    },
+    {
+        "merged": "C:\\Users\\Nadeeja Weerasinghe\\.gradle\\daemon\\8.2\\com.wellness.brightwell.app-merged_res-55:\\drawable_ic_add.xml.flat",
+        "source": "C:\\Users\\Nadeeja Weerasinghe\\.gradle\\daemon\\8.2\\com.wellness.brightwell.app-main-57:\\drawable\\ic_add.xml"
+    },
+    {
+        "merged": "C:\\Users\\Nadeeja Weerasinghe\\.gradle\\daemon\\8.2\\com.wellness.brightwell.app-merged_res-55:\\menu_bottom_navigation_menu.xml.flat",
+        "source": "C:\\Users\\Nadeeja Weerasinghe\\.gradle\\daemon\\8.2\\com.wellness.brightwell.app-main-57:\\menu\\bottom_navigation_menu.xml"
+    },
+    {
+        "merged": "com.wellness.brightwell.app-merged_res-55:/layout_dialog_set_goal.xml.flat",
+        "source": "com.wellness.brightwell.app-main-57:/layout/dialog_set_goal.xml"
+    },
+    {
+        "merged": "com.wellness.brightwell.app-merged_res-55:/layout_item_hydration.xml.flat",
+        "source": "com.wellness.brightwell.app-main-57:/layout/item_hydration.xml"
+    },
+    {
+        "merged": "C:\\Users\\Nadeeja Weerasinghe\\.gradle\\daemon\\8.2\\com.wellness.brightwell.app-merged_res-55:\\drawable_ic_mood.xml.flat",
+        "source": "C:\\Users\\Nadeeja Weerasinghe\\.gradle\\daemon\\8.2\\com.wellness.brightwell.app-main-57:\\drawable\\ic_mood.xml"
+    },
+    {
+        "merged": "C:\\Users\\Nadeeja Weerasinghe\\.gradle\\daemon\\8.2\\com.wellness.brightwell.app-merged_res-55:\\layout_item_emoji.xml.flat",
+        "source": "C:\\Users\\Nadeeja Weerasinghe\\.gradle\\daemon\\8.2\\com.wellness.brightwell.app-main-57:\\layout\\item_emoji.xml"
+    },
+    {
+        "merged": "C:\\Users\\Nadeeja Weerasinghe\\.gradle\\daemon\\8.2\\com.wellness.brightwell.app-merged_res-55:\\xml_data_extraction_rules.xml.flat",
+        "source": "C:\\Users\\Nadeeja Weerasinghe\\.gradle\\daemon\\8.2\\com.wellness.brightwell.app-main-57:\\xml\\data_extraction_rules.xml"
+    },
+    {
+        "merged": "C:\\Users\\Nadeeja Weerasinghe\\.gradle\\daemon\\8.2\\com.wellness.brightwell.app-merged_res-55:\\xml_backup_rules.xml.flat",
+        "source": "C:\\Users\\Nadeeja Weerasinghe\\.gradle\\daemon\\8.2\\com.wellness.brightwell.app-main-57:\\xml\\backup_rules.xml"
     }
 ]

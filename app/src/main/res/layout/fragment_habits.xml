@@ -1,15 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.coordinatorlayout.widget.CoordinatorLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="?attr/colorSurfaceVariant">
+    android:background="@color/background">
 
-    <androidx.core.widget.NestedScrollView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:fillViewport="true">
+    <!-- Header Card -->
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/cardHeader"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        app:cardCornerRadius="12dp"
+        app:cardElevation="2dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -17,139 +24,115 @@
             android:orientation="vertical"
             android:padding="16dp">
 
-            <!-- Header -->
             <TextView
+                android:id="@+id/textViewDate"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Daily Habits"
-                android:textSize="28sp"
-                android:textStyle="bold"
-                android:textColor="?attr/colorOnSurface"
-                android:layout_marginBottom="8dp" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Track your wellness journey"
+                android:textColor="@color/text_secondary"
                 android:textSize="14sp"
-                android:textColor="?attr/colorOnSurfaceVariant"
-                android:layout_marginBottom="16dp" />
+                tools:text="Oct 01, 2025" />
 
-            <!-- Progress Card -->
-            <com.google.android.material.card.MaterialCardView
-                android:id="@+id/progressCard"
-                android:layout_width="match_parent"
+            <TextView
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="16dp"
-                app:cardElevation="4dp"
-                app:cardCornerRadius="16dp">
+                android:layout_marginTop="4dp"
+                android:text="@string/today_progress"
+                android:textColor="@color/text_primary"
+                android:textSize="18sp"
+                android:textStyle="bold" />
 
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:padding="20dp">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Today's Progress"
-                        android:textSize="16sp"
-                        android:textStyle="bold"
-                        android:textColor="?attr/colorOnSurface"
-                        android:layout_marginBottom="12dp" />
-
-                    <TextView
-                        android:id="@+id/textProgress"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="0%"
-                        android:textSize="48sp"
-                        android:textStyle="bold"
-                        android:textColor="?attr/colorPrimary"
-                        android:layout_gravity="center_horizontal" />
-
-                    <ProgressBar
-                        android:id="@+id/progressBar"
-                        style="?android:attr/progressBarStyleHorizontal"
-                        android:layout_width="match_parent"
-                        android:layout_height="8dp"
-                        android:layout_marginTop="8dp"
-                        android:layout_marginBottom="8dp"
-                        android:max="100"
-                        android:progress="0"
-                        android:progressTint="?attr/colorPrimary" />
-
-                    <TextView
-                        android:id="@+id/textProgressDetails"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="0 of 0 habits completed"
-                        android:textSize="14sp"
-                        android:textColor="?attr/colorOnSurfaceVariant"
-                        android:layout_gravity="center_horizontal" />
-
-                </LinearLayout>
-
-            </com.google.android.material.card.MaterialCardView>
-
-            <!-- Habits List -->
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/recyclerViewHabits"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:clipToPadding="false"
-                android:paddingBottom="80dp" />
-
-            <!-- Empty State -->
             <LinearLayout
-                android:id="@+id/emptyStateLayout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:gravity="center"
-                android:padding="32dp"
-                android:visibility="gone">
+                android:layout_marginTop="12dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <ProgressBar
+                    android:id="@+id/progressBarHabits"
+                    style="?android:attr/progressBarStyleHorizontal"
+                    android:layout_width="0dp"
+                    android:layout_height="8dp"
+                    android:layout_weight="1"
+                    android:max="100"
+                    android:progress="0"
+                    android:progressTint="@color/secondary" />
 
                 <TextView
+                    android:id="@+id/textViewProgress"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="📝"
-                    android:textSize="64sp"
-                    android:layout_marginBottom="16dp" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="No habits yet"
-                    android:textSize="20sp"
+                    android:layout_marginStart="12dp"
+                    android:textColor="@color/secondary"
+                    android:textSize="16sp"
                     android:textStyle="bold"
-                    android:textColor="?attr/colorOnSurface"
-                    android:layout_marginBottom="8dp" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Tap the + button to add your first habit"
-                    android:textSize="14sp"
-                    android:textColor="?attr/colorOnSurfaceVariant"
-                    android:gravity="center" />
-
+                    tools:text="75%" />
             </LinearLayout>
-
         </LinearLayout>
+    </com.google.android.material.card.MaterialCardView>
 
-    </androidx.core.widget.NestedScrollView>
+    <!-- Habits RecyclerView -->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerViewHabits"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="8dp"
+        android:clipToPadding="false"
+        android:paddingHorizontal="16dp"
+        android:paddingBottom="16dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/cardHeader"
+        tools:listitem="@layout/item_habit" />
 
-    <!-- Floating Action Button -->
+    <!-- Empty State -->
+    <LinearLayout
+        android:id="@+id/layoutEmpty"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/cardHeader">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="📋"
+            android:textSize="64sp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="@string/habits_empty_title"
+            android:textColor="@color/text_primary"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="@string/habits_empty_message"
+            android:textColor="@color/text_secondary"
+            android:textSize="14sp" />
+    </LinearLayout>
+
+    <!-- FAB -->
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/fabAddHabit"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="bottom|end"
         android:layout_margin="16dp"
-        android:contentDescription="Add habit"
-        app:srcCompat="@android:drawable/ic_input_add"
-        app:tint="@android:color/white" />
+        android:contentDescription="@string/add_habit"
+        android:src="@drawable/ic_add"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:tint="@color/white" />
 
-</androidx.coordinatorlayout.widget.CoordinatorLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

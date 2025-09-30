@@ -62,9 +62,9 @@
                 android:resource="@xml/habit_widget_info" />
         </receiver>
 
-        <!-- Boot Receiver to reschedule notifications after reboot -->
+        <!-- WorkManager for hydration reminders -->
         <receiver
-            android:name="com.wellness.brightwell.notifications.BootReceiver"
+            android:name="com.wellness.brightwell.worker.BootReceiver"
             android:enabled="true"
             android:exported="true" >
             <intent-filter>

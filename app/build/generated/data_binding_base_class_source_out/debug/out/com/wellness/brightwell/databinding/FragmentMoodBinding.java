@@ -8,12 +8,11 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.coordinatorlayout.widget.CoordinatorLayout;
+import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.viewbinding.ViewBinding;
 import androidx.viewbinding.ViewBindings;
 import com.google.android.material.button.MaterialButton;
-import com.google.android.material.card.MaterialCardView;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.wellness.brightwell.R;
 import java.lang.NullPointerException;
@@ -22,51 +21,38 @@ import java.lang.String;
 
 public final class FragmentMoodBinding implements ViewBinding {
   @NonNull
-  private final CoordinatorLayout rootView;
+  private final ConstraintLayout rootView;
 
   @NonNull
-  public final MaterialButton buttonShareMood;
-
-  @NonNull
-  public final LinearLayout emptyStateLayout;
+  public final MaterialButton buttonShare;
 
   @NonNull
   public final FloatingActionButton fabAddMood;
 
   @NonNull
-  public final MaterialCardView moodSummaryCard;
+  public final LinearLayout layoutEmpty;
 
   @NonNull
   public final RecyclerView recyclerViewMoods;
 
   @NonNull
-  public final TextView textCurrentMood;
+  public final TextView textViewTitle;
 
-  @NonNull
-  public final TextView textMoodCount;
-
-  @NonNull
-  public final TextView textTotalEntries;
-
-  private FragmentMoodBinding(@NonNull CoordinatorLayout rootView,
-      @NonNull MaterialButton buttonShareMood, @NonNull LinearLayout emptyStateLayout,
-      @NonNull FloatingActionButton fabAddMood, @NonNull MaterialCardView moodSummaryCard,
-      @NonNull RecyclerView recyclerViewMoods, @NonNull TextView textCurrentMood,
-      @NonNull TextView textMoodCount, @NonNull TextView textTotalEntries) {
+  private FragmentMoodBinding(@NonNull ConstraintLayout rootView,
+      @NonNull MaterialButton buttonShare, @NonNull FloatingActionButton fabAddMood,
+      @NonNull LinearLayout layoutEmpty, @NonNull RecyclerView recyclerViewMoods,
+      @NonNull TextView textViewTitle) {
     this.rootView = rootView;
-    this.buttonShareMood = buttonShareMood;
-    this.emptyStateLayout = emptyStateLayout;
+    this.buttonShare = buttonShare;
     this.fabAddMood = fabAddMood;
-    this.moodSummaryCard = moodSummaryCard;
+    this.layoutEmpty = layoutEmpty;
     this.recyclerViewMoods = recyclerViewMoods;
-    this.textCurrentMood = textCurrentMood;
-    this.textMoodCount = textMoodCount;
-    this.textTotalEntries = textTotalEntries;
+    this.textViewTitle = textViewTitle;
   }
 
   @Override
   @NonNull
-  public CoordinatorLayout getRoot() {
+  public ConstraintLayout getRoot() {
     return rootView;
   }
 
@@ -91,15 +77,9 @@ public final class FragmentMoodBinding implements ViewBinding {
     // This is done to optimize the compiled bytecode for size and performance.
     int id;
     missingId: {
-      id = R.id.buttonShareMood;
-      MaterialButton buttonShareMood = ViewBindings.findChildViewById(rootView, id);
-      if (buttonShareMood == null) {
-        break missingId;
-      }
-
-      id = R.id.emptyStateLayout;
-      LinearLayout emptyStateLayout = ViewBindings.findChildViewById(rootView, id);
-      if (emptyStateLayout == null) {
+      id = R.id.buttonShare;
+      MaterialButton buttonShare = ViewBindings.findChildViewById(rootView, id);
+      if (buttonShare == null) {
         break missingId;
       }
 
@@ -109,9 +89,9 @@ public final class FragmentMoodBinding implements ViewBinding {
         break missingId;
       }
 
-      id = R.id.moodSummaryCard;
-      MaterialCardView moodSummaryCard = ViewBindings.findChildViewById(rootView, id);
-      if (moodSummaryCard == null) {
+      id = R.id.layoutEmpty;
+      LinearLayout layoutEmpty = ViewBindings.findChildViewById(rootView, id);
+      if (layoutEmpty == null) {
         break missingId;
       }
 
@@ -121,27 +101,14 @@ public final class FragmentMoodBinding implements ViewBinding {
         break missingId;
       }
 
-      id = R.id.textCurrentMood;
-      TextView textCurrentMood = ViewBindings.findChildViewById(rootView, id);
-      if (textCurrentMood == null) {
+      id = R.id.textViewTitle;
+      TextView textViewTitle = ViewBindings.findChildViewById(rootView, id);
+      if (textViewTitle == null) {
         break missingId;
       }
 
-      id = R.id.textMoodCount;
-      TextView textMoodCount = ViewBindings.findChildViewById(rootView, id);
-      if (textMoodCount == null) {
-        break missingId;
-      }
-
-      id = R.id.textTotalEntries;
-      TextView textTotalEntries = ViewBindings.findChildViewById(rootView, id);
-      if (textTotalEntries == null) {
-        break missingId;
-      }
-
-      return new FragmentMoodBinding((CoordinatorLayout) rootView, buttonShareMood,
-          emptyStateLayout, fabAddMood, moodSummaryCard, recyclerViewMoods, textCurrentMood,
-          textMoodCount, textTotalEntries);
+      return new FragmentMoodBinding((ConstraintLayout) rootView, buttonShare, fabAddMood,
+          layoutEmpty, recyclerViewMoods, textViewTitle);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

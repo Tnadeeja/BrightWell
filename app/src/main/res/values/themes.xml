@@ -4,26 +4,43 @@
     <style name="Base.Theme.BrightWell" parent="Theme.Material3.Light.NoActionBar">
         <!-- Primary brand color -->
         <item name="colorPrimary">@color/primary</item>
-        <item name="colorPrimaryVariant">@color/primary_variant</item>
-        <item name="colorOnPrimary">@color/on_primary</item>
+        <item name="colorPrimaryVariant">@color/primary_dark</item>
+        <item name="colorOnPrimary">@color/white</item>
         
         <!-- Secondary brand color -->
         <item name="colorSecondary">@color/secondary</item>
-        <item name="colorSecondaryVariant">@color/secondary_variant</item>
-        <item name="colorOnSecondary">@color/on_secondary</item>
+        <item name="colorSecondaryVariant">@color/secondary_dark</item>
+        <item name="colorOnSecondary">@color/white</item>
         
         <!-- Background colors -->
         <item name="android:colorBackground">@color/background</item>
         <item name="colorSurface">@color/surface</item>
-        <item name="colorSurfaceVariant">@color/surface_variant</item>
-        <item name="colorOnBackground">@color/on_background</item>
-        <item name="colorOnSurface">@color/on_surface</item>
-        <item name="colorOnSurfaceVariant">@color/on_surface_variant</item>
+        <item name="colorOnBackground">@color/text_primary</item>
+        <item name="colorOnSurface">@color/text_primary</item>
         
-        <!-- Status bar -->
+        <!-- Status bar color -->
         <item name="android:statusBarColor">@color/primary</item>
         <item name="android:windowLightStatusBar">false</item>
     </style>
 
     <style name="Theme.BrightWell" parent="Base.Theme.BrightWell" />
+    
+    <!-- Card style -->
+    <style name="CardStyle" parent="Widget.Material3.CardView.Elevated">
+        <item name="cardCornerRadius">12dp</item>
+        <item name="cardElevation">2dp</item>
+        <item name="cardBackgroundColor">@color/card_background</item>
+        <item name="contentPadding">16dp</item>
+    </style>
+    
+    <!-- Button styles -->
+    <style name="ButtonStyle" parent="Widget.Material3.Button">
+        <item name="cornerRadius">8dp</item>
+        <item name="android:textAllCaps">false</item>
+    </style>
+    
+    <style name="ButtonStyle.Outlined" parent="Widget.Material3.Button.OutlinedButton">
+        <item name="cornerRadius">8dp</item>
+        <item name="android:textAllCaps">false</item>
+    </style>
 </resources>

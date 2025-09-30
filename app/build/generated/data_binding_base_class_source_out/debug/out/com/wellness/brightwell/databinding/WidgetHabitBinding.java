@@ -24,26 +24,22 @@ public final class WidgetHabitBinding implements ViewBinding {
   public final LinearLayout widgetContainer;
 
   @NonNull
-  public final TextView widgetDetails;
-
-  @NonNull
-  public final TextView widgetEmoji;
-
-  @NonNull
-  public final TextView widgetPercentage;
-
-  @NonNull
   public final ProgressBar widgetProgressBar;
 
+  @NonNull
+  public final TextView widgetTextCompleted;
+
+  @NonNull
+  public final TextView widgetTextPercentage;
+
   private WidgetHabitBinding(@NonNull LinearLayout rootView, @NonNull LinearLayout widgetContainer,
-      @NonNull TextView widgetDetails, @NonNull TextView widgetEmoji,
-      @NonNull TextView widgetPercentage, @NonNull ProgressBar widgetProgressBar) {
+      @NonNull ProgressBar widgetProgressBar, @NonNull TextView widgetTextCompleted,
+      @NonNull TextView widgetTextPercentage) {
     this.rootView = rootView;
     this.widgetContainer = widgetContainer;
-    this.widgetDetails = widgetDetails;
-    this.widgetEmoji = widgetEmoji;
-    this.widgetPercentage = widgetPercentage;
     this.widgetProgressBar = widgetProgressBar;
+    this.widgetTextCompleted = widgetTextCompleted;
+    this.widgetTextPercentage = widgetTextPercentage;
   }
 
   @Override
@@ -75,32 +71,26 @@ public final class WidgetHabitBinding implements ViewBinding {
     missingId: {
       LinearLayout widgetContainer = (LinearLayout) rootView;
 
-      id = R.id.widgetDetails;
-      TextView widgetDetails = ViewBindings.findChildViewById(rootView, id);
-      if (widgetDetails == null) {
-        break missingId;
-      }
-
-      id = R.id.widgetEmoji;
-      TextView widgetEmoji = ViewBindings.findChildViewById(rootView, id);
-      if (widgetEmoji == null) {
-        break missingId;
-      }
-
-      id = R.id.widgetPercentage;
-      TextView widgetPercentage = ViewBindings.findChildViewById(rootView, id);
-      if (widgetPercentage == null) {
-        break missingId;
-      }
-
       id = R.id.widgetProgressBar;
       ProgressBar widgetProgressBar = ViewBindings.findChildViewById(rootView, id);
       if (widgetProgressBar == null) {
         break missingId;
       }
 
-      return new WidgetHabitBinding((LinearLayout) rootView, widgetContainer, widgetDetails,
-          widgetEmoji, widgetPercentage, widgetProgressBar);
+      id = R.id.widgetTextCompleted;
+      TextView widgetTextCompleted = ViewBindings.findChildViewById(rootView, id);
+      if (widgetTextCompleted == null) {
+        break missingId;
+      }
+
+      id = R.id.widgetTextPercentage;
+      TextView widgetTextPercentage = ViewBindings.findChildViewById(rootView, id);
+      if (widgetTextPercentage == null) {
+        break missingId;
+      }
+
+      return new WidgetHabitBinding((LinearLayout) rootView, widgetContainer, widgetProgressBar,
+          widgetTextCompleted, widgetTextPercentage);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));
