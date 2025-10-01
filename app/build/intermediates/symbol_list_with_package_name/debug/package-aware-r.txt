@@ -3077,6 +3077,7 @@ drawable ic_mtrl_chip_checked_circle
 drawable ic_mtrl_chip_close_circle
 drawable ic_search_black_24
 drawable ic_settings
+drawable ic_stats
 drawable ic_water_drop
 drawable ic_widget_preview
 drawable m3_avd_hide_password
@@ -3407,6 +3408,7 @@ id italic
 id item_touch_helper_previous_elevation
 id jumpToEnd
 id jumpToStart
+id konfettiView
 id labeled
 id layout
 id layoutEmpty
@@ -3486,6 +3488,7 @@ id nav_host_fragment_container
 id nav_hydration
 id nav_mood
 id nav_settings
+id nav_stats
 id navigation_bar_item_active_indicator_view
 id navigation_bar_item_icon_container
 id navigation_bar_item_icon_view
@@ -3623,6 +3626,7 @@ id stretch
 id submenuarrow
 id submit_area
 id supportScrollUp
+id switchDarkMode
 id switchHydrationReminder
 id tabMode
 id tag_accessibility_actions
@@ -3640,11 +3644,24 @@ id tag_unhandled_key_listeners
 id tag_window_insets_animation_callback
 id text
 id text2
+id textAvgHydration
+id textBestDay
+id textCompletedToday
+id textCompletionRate
+id textCurrentStreak
+id textDaysGoalAchieved
 id textEnd
+id textLongestStreak
+id textMoodsThisWeek
+id textMostCommonMood
+id textPerfectDays
 id textSpacerNoButtons
 id textSpacerNoTitle
 id textStart
+id textTodayHydration
 id textTop
+id textTotalHabits
+id textTotalMoods
 id textViewAmount
 id textViewAppVersion
 id textViewDate
@@ -3854,6 +3871,7 @@ layout fragment_habits
 layout fragment_hydration
 layout fragment_mood
 layout fragment_settings
+layout fragment_stats
 layout ime_base_split_test_activity
 layout ime_secondary_split_test_activity
 layout item_emoji

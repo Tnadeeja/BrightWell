@@ -2,6 +2,7 @@ package com.wellness.brightwell
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.app.AppCompatDelegate
 import androidx.fragment.app.Fragment
 import com.wellness.brightwell.data.Habit
 import com.wellness.brightwell.data.PreferencesManager
@@ -10,6 +11,7 @@ import com.wellness.brightwell.ui.habits.HabitsFragment
 import com.wellness.brightwell.ui.hydration.HydrationFragment
 import com.wellness.brightwell.ui.mood.MoodFragment
 import com.wellness.brightwell.ui.settings.SettingsFragment
+import com.wellness.brightwell.ui.stats.StatsFragment
 import com.wellness.brightwell.utils.NotificationScheduler
 
 /**
@@ -23,11 +25,15 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = ActivityMainBinding.inflate(layoutInflater)
-        setContentView(binding.root)
-
+        
         // Initialize PreferencesManager
         prefsManager = PreferencesManager(this)
+        
+        // Apply dark mode setting
+        applyTheme()
+        
+        binding = ActivityMainBinding.inflate(layoutInflater)
+        setContentView(binding.root)
 
         // Set up first launch
         setupFirstLaunch()
@@ -38,6 +44,18 @@ class MainActivity : AppCompatActivity() {
         // Load default fragment
         if (savedInstanceState == null) {
             loadFragment(HabitsFragment())
+        }
+    }
+
+    /**
+     * Apply the saved theme preference
+     */
+    private fun applyTheme() {
+        val isDarkMode = prefsManager.isDarkModeEnabled()
+        if (isDarkMode) {
+            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
+        } else {
+            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
         }
     }
 
@@ -85,6 +103,10 @@ class MainActivity : AppCompatActivity() {
                 }
                 R.id.nav_mood -> {
                     loadFragment(MoodFragment())
+                    true
+                }
+                R.id.nav_stats -> {
+                    loadFragment(StatsFragment())
                     true
                 }
                 R.id.nav_settings -> {

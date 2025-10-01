@@ -19,6 +19,7 @@ import com.wellness.brightwell.R;
 import java.lang.NullPointerException;
 import java.lang.Override;
 import java.lang.String;
+import nl.dionsegijn.konfetti.xml.KonfettiView;
 
 public final class FragmentHabitsBinding implements ViewBinding {
   @NonNull
@@ -29,6 +30,9 @@ public final class FragmentHabitsBinding implements ViewBinding {
 
   @NonNull
   public final FloatingActionButton fabAddHabit;
+
+  @NonNull
+  public final KonfettiView konfettiView;
 
   @NonNull
   public final LinearLayout layoutEmpty;
@@ -47,12 +51,13 @@ public final class FragmentHabitsBinding implements ViewBinding {
 
   private FragmentHabitsBinding(@NonNull ConstraintLayout rootView,
       @NonNull MaterialCardView cardHeader, @NonNull FloatingActionButton fabAddHabit,
-      @NonNull LinearLayout layoutEmpty, @NonNull ProgressBar progressBarHabits,
-      @NonNull RecyclerView recyclerViewHabits, @NonNull TextView textViewDate,
-      @NonNull TextView textViewProgress) {
+      @NonNull KonfettiView konfettiView, @NonNull LinearLayout layoutEmpty,
+      @NonNull ProgressBar progressBarHabits, @NonNull RecyclerView recyclerViewHabits,
+      @NonNull TextView textViewDate, @NonNull TextView textViewProgress) {
     this.rootView = rootView;
     this.cardHeader = cardHeader;
     this.fabAddHabit = fabAddHabit;
+    this.konfettiView = konfettiView;
     this.layoutEmpty = layoutEmpty;
     this.progressBarHabits = progressBarHabits;
     this.recyclerViewHabits = recyclerViewHabits;
@@ -99,6 +104,12 @@ public final class FragmentHabitsBinding implements ViewBinding {
         break missingId;
       }
 
+      id = R.id.konfettiView;
+      KonfettiView konfettiView = ViewBindings.findChildViewById(rootView, id);
+      if (konfettiView == null) {
+        break missingId;
+      }
+
       id = R.id.layoutEmpty;
       LinearLayout layoutEmpty = ViewBindings.findChildViewById(rootView, id);
       if (layoutEmpty == null) {
@@ -130,7 +141,8 @@ public final class FragmentHabitsBinding implements ViewBinding {
       }
 
       return new FragmentHabitsBinding((ConstraintLayout) rootView, cardHeader, fabAddHabit,
-          layoutEmpty, progressBarHabits, recyclerViewHabits, textViewDate, textViewProgress);
+          konfettiView, layoutEmpty, progressBarHabits, recyclerViewHabits, textViewDate,
+          textViewProgress);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

@@ -10,6 +10,7 @@ import android.view.ViewGroup
 import android.widget.SeekBar
 import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
+import androidx.appcompat.app.AppCompatDelegate
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import com.wellness.brightwell.R
@@ -62,6 +63,11 @@ class SettingsFragment : Fragment() {
         // Load current settings
         loadSettings()
 
+        // Set up dark mode switch
+        binding.switchDarkMode.setOnCheckedChangeListener { _, isChecked ->
+            toggleDarkMode(isChecked)
+        }
+
         // Set up hydration reminder switch
         binding.switchHydrationReminder.setOnCheckedChangeListener { _, isChecked ->
             if (isChecked) {
@@ -84,10 +90,30 @@ class SettingsFragment : Fragment() {
     private fun loadSettings() {
         val isEnabled = prefsManager.isHydrationEnabled()
         val interval = prefsManager.getHydrationInterval()
+        val isDarkMode = prefsManager.isDarkModeEnabled()
 
+        binding.switchDarkMode.isChecked = isDarkMode
         binding.switchHydrationReminder.isChecked = isEnabled
         binding.seekBarInterval.progress = intervalToProgress(interval)
         updateIntervalText(interval)
+    }
+
+    /**
+     * Toggle dark mode
+     * @param enabled true for dark mode, false for light mode
+     */
+    private fun toggleDarkMode(enabled: Boolean) {
+        prefsManager.setDarkModeEnabled(enabled)
+        if (enabled) {
+            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
+        } else {
+            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
+        }
+        Toast.makeText(
+            requireContext(),
+            if (enabled) "Dark mode enabled" else "Light mode enabled",
+            Toast.LENGTH_SHORT
+        ).show()
     }
 
     /**

@@ -1,5 +1,6 @@
 package com.wellness.brightwell.ui.habits
 
+import android.graphics.Color
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -14,6 +15,10 @@ import com.wellness.brightwell.data.Habit
 import com.wellness.brightwell.data.PreferencesManager
 import com.wellness.brightwell.databinding.FragmentHabitsBinding
 import com.wellness.brightwell.utils.DateUtils
+import nl.dionsegijn.konfetti.core.Party
+import nl.dionsegijn.konfetti.core.Position
+import nl.dionsegijn.konfetti.core.emitter.Emitter
+import java.util.concurrent.TimeUnit
 
 /**
  * Fragment for managing daily wellness habits
@@ -103,9 +108,9 @@ class HabitsFragment : Fragment() {
     /**
      * Handle habit checkbox toggle
      * @param habit The habit that was checked/unchecked
-     * @param isChecked New checked state
+     * @param isChecked New checked state (unused - we toggle based on current state)
      */
-    private fun handleHabitChecked(habit: Habit, isChecked: Boolean) {
+    private fun handleHabitChecked(habit: Habit, @Suppress("UNUSED_PARAMETER") isChecked: Boolean) {
         val today = DateUtils.getTodayString()
         habit.toggleCompletion(today)
         prefsManager.updateHabit(habit)
@@ -216,6 +221,27 @@ class HabitsFragment : Fragment() {
 
         binding.progressBarHabits.progress = percentage
         binding.textViewProgress.text = "$percentage%"
+        
+        // Celebrate if all habits are completed!
+        if (percentage == 100 && habits.isNotEmpty()) {
+            celebrateCompletion()
+        }
+    }
+
+    /**
+     * Show confetti animation when all habits are completed
+     */
+    private fun celebrateCompletion() {
+        val party = Party(
+            speed = 0f,
+            maxSpeed = 30f,
+            damping = 0.9f,
+            spread = 360,
+            colors = listOf(0xfce18a, 0xff726d, 0xf4306d, 0xb48def),
+            emitter = Emitter(duration = 2, TimeUnit.SECONDS).max(100),
+            position = Position.Relative(0.5, 0.3)
+        )
+        binding.konfettiView.start(party)
     }
 
     /**

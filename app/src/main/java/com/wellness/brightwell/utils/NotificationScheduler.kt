@@ -35,7 +35,7 @@ object NotificationScheduler {
         // Enqueue the work request
         WorkManager.getInstance(context).enqueueUniquePeriodicWork(
             HYDRATION_WORK_NAME,
-            ExistingPeriodicWorkPolicy.REPLACE,
+            ExistingPeriodicWorkPolicy.UPDATE,
             workRequest
         )
     }

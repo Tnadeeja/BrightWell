@@ -25,6 +25,9 @@ public final class FragmentSettingsBinding implements ViewBinding {
   public final SeekBar seekBarInterval;
 
   @NonNull
+  public final SwitchMaterial switchDarkMode;
+
+  @NonNull
   public final SwitchMaterial switchHydrationReminder;
 
   @NonNull
@@ -34,10 +37,11 @@ public final class FragmentSettingsBinding implements ViewBinding {
   public final TextView textViewIntervalValue;
 
   private FragmentSettingsBinding(@NonNull ScrollView rootView, @NonNull SeekBar seekBarInterval,
-      @NonNull SwitchMaterial switchHydrationReminder, @NonNull TextView textViewAppVersion,
-      @NonNull TextView textViewIntervalValue) {
+      @NonNull SwitchMaterial switchDarkMode, @NonNull SwitchMaterial switchHydrationReminder,
+      @NonNull TextView textViewAppVersion, @NonNull TextView textViewIntervalValue) {
     this.rootView = rootView;
     this.seekBarInterval = seekBarInterval;
+    this.switchDarkMode = switchDarkMode;
     this.switchHydrationReminder = switchHydrationReminder;
     this.textViewAppVersion = textViewAppVersion;
     this.textViewIntervalValue = textViewIntervalValue;
@@ -76,6 +80,12 @@ public final class FragmentSettingsBinding implements ViewBinding {
         break missingId;
       }
 
+      id = R.id.switchDarkMode;
+      SwitchMaterial switchDarkMode = ViewBindings.findChildViewById(rootView, id);
+      if (switchDarkMode == null) {
+        break missingId;
+      }
+
       id = R.id.switchHydrationReminder;
       SwitchMaterial switchHydrationReminder = ViewBindings.findChildViewById(rootView, id);
       if (switchHydrationReminder == null) {
@@ -94,7 +104,7 @@ public final class FragmentSettingsBinding implements ViewBinding {
         break missingId;
       }
 
-      return new FragmentSettingsBinding((ScrollView) rootView, seekBarInterval,
+      return new FragmentSettingsBinding((ScrollView) rootView, seekBarInterval, switchDarkMode,
           switchHydrationReminder, textViewAppVersion, textViewIntervalValue);
     }
     String missingId = rootView.getResources().getResourceName(id);

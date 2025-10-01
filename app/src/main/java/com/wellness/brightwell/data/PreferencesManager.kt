@@ -24,6 +24,7 @@ class PreferencesManager(context: Context) {
         private const val KEY_HYDRATION_GOAL = "hydration_goal"
         private const val KEY_HYDRATION_INTERVAL = "hydration_interval"
         private const val KEY_HYDRATION_ENABLED = "hydration_enabled"
+        private const val KEY_DARK_MODE = "dark_mode_enabled"
         private const val KEY_FIRST_LAUNCH = "first_launch"
         
         // Default hydration reminder interval in minutes
@@ -233,5 +234,23 @@ class PreferencesManager(context: Context) {
      */
     fun setHydrationGoal(goal: Int) {
         sharedPreferences.edit().putInt(KEY_HYDRATION_GOAL, goal).apply()
+    }
+
+    // ==================== Theme Management ====================
+
+    /**
+     * Check if dark mode is enabled
+     * @return true if dark mode is enabled
+     */
+    fun isDarkModeEnabled(): Boolean {
+        return sharedPreferences.getBoolean(KEY_DARK_MODE, false)
+    }
+
+    /**
+     * Enable or disable dark mode
+     * @param enabled true to enable dark mode, false to disable
+     */
+    fun setDarkModeEnabled(enabled: Boolean) {
+        sharedPreferences.edit().putBoolean(KEY_DARK_MODE, enabled).apply()
     }
 }
