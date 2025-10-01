@@ -1,9 +1,20 @@
 -- Merging decision tree log ---
+provider#androidx.core.content.FileProvider
+INJECTED from E:\My projects\BrightWell\app\src\main\AndroidManifest.xml:64:9-72:20
+	android:grantUriPermissions
+		ADDED from E:\My projects\BrightWell\app\src\main\AndroidManifest.xml:68:13-47
+	android:authorities
+		INJECTED from E:\My projects\BrightWell\app\src\main\AndroidManifest.xml
+		ADDED from E:\My projects\BrightWell\app\src\main\AndroidManifest.xml:66:13-64
+	android:exported
+		ADDED from E:\My projects\BrightWell\app\src\main\AndroidManifest.xml:67:13-37
+	android:name
+		ADDED from E:\My projects\BrightWell\app\src\main\AndroidManifest.xml:65:13-62
 manifest
-ADDED from E:\My projects\BrightWell\app\src\main\AndroidManifest.xml:2:1-65:12
-INJECTED from E:\My projects\BrightWell\app\src\main\AndroidManifest.xml:2:1-65:12
-INJECTED from E:\My projects\BrightWell\app\src\main\AndroidManifest.xml:2:1-65:12
-INJECTED from E:\My projects\BrightWell\app\src\main\AndroidManifest.xml:2:1-65:12
+ADDED from E:\My projects\BrightWell\app\src\main\AndroidManifest.xml:2:1-76:12
+INJECTED from E:\My projects\BrightWell\app\src\main\AndroidManifest.xml:2:1-76:12
+INJECTED from E:\My projects\BrightWell\app\src\main\AndroidManifest.xml:2:1-76:12
+INJECTED from E:\My projects\BrightWell\app\src\main\AndroidManifest.xml:2:1-76:12
 MERGED from [androidx.databinding:viewbinding:8.2.0] C:\Users\Nadeeja Weerasinghe\.gradle\caches\9.0-milestone-1\transforms\c656eec573e1706c78daa21d670f237c\transformed\jetified-viewbinding-8.2.0\AndroidManifest.xml:2:1-7:12
 MERGED from [androidx.navigation:navigation-common:2.7.6] C:\Users\Nadeeja Weerasinghe\.gradle\caches\9.0-milestone-1\transforms\f262a50332d58d99e2fc5e224a3a87d8\transformed\navigation-common-2.7.6\AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.navigation:navigation-common-ktx:2.7.6] C:\Users\Nadeeja Weerasinghe\.gradle\caches\9.0-milestone-1\transforms\774db13eb7e3bbf3d43ef8b66bd52d72\transformed\navigation-common-ktx-2.7.6\AndroidManifest.xml:2:1-7:12
@@ -108,8 +119,8 @@ MERGED from [androidx.work:work-runtime:2.9.0] C:\Users\Nadeeja Weerasinghe\.gra
 	android:name
 		ADDED from E:\My projects\BrightWell\app\src\main\AndroidManifest.xml:10:22-78
 application
-ADDED from E:\My projects\BrightWell\app\src\main\AndroidManifest.xml:12:5-63:19
-INJECTED from E:\My projects\BrightWell\app\src\main\AndroidManifest.xml:12:5-63:19
+ADDED from E:\My projects\BrightWell\app\src\main\AndroidManifest.xml:12:5-74:19
+INJECTED from E:\My projects\BrightWell\app\src\main\AndroidManifest.xml:12:5-74:19
 MERGED from [com.google.android.material:material:1.11.0] C:\Users\Nadeeja Weerasinghe\.gradle\caches\9.0-milestone-1\transforms\5e00f626b2b950af2f602e73584cc21f\transformed\material-1.11.0\AndroidManifest.xml:22:5-20
 MERGED from [com.google.android.material:material:1.11.0] C:\Users\Nadeeja Weerasinghe\.gradle\caches\9.0-milestone-1\transforms\5e00f626b2b950af2f602e73584cc21f\transformed\material-1.11.0\AndroidManifest.xml:22:5-20
 MERGED from [androidx.constraintlayout:constraintlayout:2.1.4] C:\Users\Nadeeja Weerasinghe\.gradle\caches\9.0-milestone-1\transforms\a01b36b83903ec271a6d7032067adc73\transformed\constraintlayout-2.1.4\AndroidManifest.xml:9:5-20
@@ -212,6 +223,12 @@ action#android.intent.action.BOOT_COMPLETED
 ADDED from E:\My projects\BrightWell\app\src\main\AndroidManifest.xml:59:17-79
 	android:name
 		ADDED from E:\My projects\BrightWell\app\src\main\AndroidManifest.xml:59:25-76
+meta-data#android.support.FILE_PROVIDER_PATHS
+ADDED from E:\My projects\BrightWell\app\src\main\AndroidManifest.xml:69:13-71:54
+	android:resource
+		ADDED from E:\My projects\BrightWell\app\src\main\AndroidManifest.xml:71:17-51
+	android:name
+		ADDED from E:\My projects\BrightWell\app\src\main\AndroidManifest.xml:70:17-67
 uses-sdk
 INJECTED from E:\My projects\BrightWell\app\src\main\AndroidManifest.xml reason: use-sdk injection requested
 INJECTED from E:\My projects\BrightWell\app\src\main\AndroidManifest.xml

@@ -1,9 +1,11 @@
 package com.wellness.brightwell.ui.settings
 
 import android.Manifest
+import android.content.Intent
 import android.content.pm.PackageManager
 import android.os.Build
 import android.os.Bundle
+import android.os.Environment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -12,11 +14,16 @@ import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatDelegate
 import androidx.core.content.ContextCompat
+import androidx.core.content.FileProvider
 import androidx.fragment.app.Fragment
 import com.wellness.brightwell.R
 import com.wellness.brightwell.data.PreferencesManager
 import com.wellness.brightwell.databinding.FragmentSettingsBinding
 import com.wellness.brightwell.utils.NotificationScheduler
+import java.io.File
+import java.io.FileWriter
+import java.text.SimpleDateFormat
+import java.util.*
 
 /**
  * Fragment for app settings
@@ -80,8 +87,176 @@ class SettingsFragment : Fragment() {
         // Set up interval SeekBar
         setupIntervalSeekBar()
 
+        // Set up export buttons
+        setupExportButtons()
+
         // Display app version
         displayAppInfo()
+    }
+
+    /**
+     * Set up export buttons
+     */
+    private fun setupExportButtons() {
+        binding.buttonExportHabits.setOnClickListener {
+            exportHabitsToCSV()
+        }
+
+        binding.buttonExportMoods.setOnClickListener {
+            exportMoodsToCSV()
+        }
+
+        binding.buttonExportHydration.setOnClickListener {
+            exportHydrationToCSV()
+        }
+
+        binding.buttonExportAll.setOnClickListener {
+            exportAllData()
+        }
+    }
+
+    /**
+     * Export habits to CSV
+     */
+    private fun exportHabitsToCSV() {
+        val habits = prefsManager.loadHabits()
+        if (habits.isEmpty()) {
+            Toast.makeText(requireContext(), "No habits to export", Toast.LENGTH_SHORT).show()
+            return
+        }
+
+        val csv = StringBuilder()
+        csv.append("Name,Description,Total Completions,Completion Dates\n")
+
+        habits.forEach { habit ->
+            csv.append("\"${habit.name}\",")
+            csv.append("\"${habit.description}\",")
+            csv.append("${habit.completionDates.size},")
+            csv.append("\"${habit.completionDates.joinToString(";")}\"\n")
+        }
+
+        shareCSV(csv.toString(), "BrightWell_Habits_${getTimestamp()}.csv")
+    }
+
+    /**
+     * Export moods to CSV
+     */
+    private fun exportMoodsToCSV() {
+        val moods = prefsManager.loadMoods()
+        if (moods.isEmpty()) {
+            Toast.makeText(requireContext(), "No moods to export", Toast.LENGTH_SHORT).show()
+            return
+        }
+
+        val csv = StringBuilder()
+        csv.append("Date,Time,Emoji,Note\n")
+
+        moods.forEach { mood ->
+            val date = SimpleDateFormat("yyyy-MM-dd HH:mm", Locale.getDefault()).format(Date(mood.timestamp))
+            csv.append("\"$date\",")
+            csv.append("\"${mood.emoji}\",")
+            csv.append("\"${mood.note}\"\n")
+        }
+
+        shareCSV(csv.toString(), "BrightWell_Moods_${getTimestamp()}.csv")
+    }
+
+    /**
+     * Export hydration to CSV
+     */
+    private fun exportHydrationToCSV() {
+        val entries = prefsManager.loadHydrationEntries()
+        if (entries.isEmpty()) {
+            Toast.makeText(requireContext(), "No hydration data to export", Toast.LENGTH_SHORT).show()
+            return
+        }
+
+        val csv = StringBuilder()
+        csv.append("Date,Time,Amount (ml)\n")
+
+        entries.forEach { entry ->
+            val date = SimpleDateFormat("yyyy-MM-dd HH:mm", Locale.getDefault()).format(Date(entry.timestamp))
+            csv.append("\"$date\",")
+            csv.append("${entry.amount}\n")
+        }
+
+        shareCSV(csv.toString(), "BrightWell_Hydration_${getTimestamp()}.csv")
+    }
+
+    /**
+     * Export all data
+     */
+    private fun exportAllData() {
+        val habits = prefsManager.loadHabits()
+        val moods = prefsManager.loadMoods()
+        val hydration = prefsManager.loadHydrationEntries()
+
+        if (habits.isEmpty() && moods.isEmpty() && hydration.isEmpty()) {
+            Toast.makeText(requireContext(), "No data to export", Toast.LENGTH_SHORT).show()
+            return
+        }
+
+        val csv = StringBuilder()
+        csv.append("=== BRIGHTWELL DATA EXPORT ===\n")
+        csv.append("Export Date: ${SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.getDefault()).format(Date())}\n\n")
+
+        // Habits
+        csv.append("=== HABITS ===\n")
+        csv.append("Name,Description,Total Completions,Completion Dates\n")
+        habits.forEach { habit ->
+            csv.append("\"${habit.name}\",\"${habit.description}\",${habit.completionDates.size},\"${habit.completionDates.joinToString(";")}\"\n")
+        }
+
+        csv.append("\n=== MOODS ===\n")
+        csv.append("Date,Time,Emoji,Note\n")
+        moods.forEach { mood ->
+            val date = SimpleDateFormat("yyyy-MM-dd HH:mm", Locale.getDefault()).format(Date(mood.timestamp))
+            csv.append("\"$date\",\"${mood.emoji}\",\"${mood.note}\"\n")
+        }
+
+        csv.append("\n=== HYDRATION ===\n")
+        csv.append("Date,Time,Amount (ml)\n")
+        hydration.forEach { entry ->
+            val date = SimpleDateFormat("yyyy-MM-dd HH:mm", Locale.getDefault()).format(Date(entry.timestamp))
+            csv.append("\"$date\",${entry.amount}\n")
+        }
+
+        shareCSV(csv.toString(), "BrightWell_Complete_Backup_${getTimestamp()}.csv")
+    }
+
+    /**
+     * Share CSV file
+     */
+    private fun shareCSV(content: String, filename: String) {
+        try {
+            val file = File(requireContext().cacheDir, filename)
+            FileWriter(file).use { it.write(content) }
+
+            val uri = FileProvider.getUriForFile(
+                requireContext(),
+                "${requireContext().packageName}.fileprovider",
+                file
+            )
+
+            val shareIntent = Intent(Intent.ACTION_SEND).apply {
+                type = "text/csv"
+                putExtra(Intent.EXTRA_STREAM, uri)
+                putExtra(Intent.EXTRA_SUBJECT, "BrightWell Data Export")
+                addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION)
+            }
+
+            startActivity(Intent.createChooser(shareIntent, "Export Data"))
+            Toast.makeText(requireContext(), "Data exported successfully!", Toast.LENGTH_SHORT).show()
+        } catch (e: Exception) {
+            Toast.makeText(requireContext(), "Export failed: ${e.message}", Toast.LENGTH_LONG).show()
+        }
+    }
+
+    /**
+     * Get timestamp for filename
+     */
+    private fun getTimestamp(): String {
+        return SimpleDateFormat("yyyyMMdd_HHmmss", Locale.getDefault()).format(Date())
     }
 
     /**

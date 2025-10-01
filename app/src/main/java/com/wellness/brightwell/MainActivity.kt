@@ -12,6 +12,7 @@ import com.wellness.brightwell.data.Habit
 import com.wellness.brightwell.data.PreferencesManager
 import com.wellness.brightwell.databinding.ActivityMainBinding
 import com.wellness.brightwell.ui.achievements.AchievementsFragment
+import com.wellness.brightwell.ui.charts.ChartsFragment
 import com.wellness.brightwell.ui.habits.HabitsFragment
 import com.wellness.brightwell.ui.hydration.HydrationFragment
 import com.wellness.brightwell.ui.mood.MoodFragment
@@ -121,7 +122,7 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         when (item.itemId) {
             R.id.nav_habits -> {
                 loadFragment(HabitsFragment())
-                supportActionBar?.title = "Habits"
+                supportActionBar?.title = "Today"
             }
             R.id.nav_hydration -> {
                 loadFragment(HydrationFragment())
@@ -134,6 +135,10 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
             R.id.nav_stats -> {
                 loadFragment(StatsFragment())
                 supportActionBar?.title = "Statistics"
+            }
+            R.id.nav_charts -> {
+                loadFragment(ChartsFragment())
+                supportActionBar?.title = "Charts & Graphs"
             }
             R.id.nav_achievements -> {
                 loadFragment(AchievementsFragment())

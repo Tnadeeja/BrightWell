@@ -41,6 +41,9 @@ public final class FragmentHabitsBinding implements ViewBinding {
   public final ProgressBar progressBarHabits;
 
   @NonNull
+  public final RecyclerView recyclerViewCalendar;
+
+  @NonNull
   public final RecyclerView recyclerViewHabits;
 
   @NonNull
@@ -52,14 +55,16 @@ public final class FragmentHabitsBinding implements ViewBinding {
   private FragmentHabitsBinding(@NonNull ConstraintLayout rootView,
       @NonNull MaterialCardView cardHeader, @NonNull FloatingActionButton fabAddHabit,
       @NonNull KonfettiView konfettiView, @NonNull LinearLayout layoutEmpty,
-      @NonNull ProgressBar progressBarHabits, @NonNull RecyclerView recyclerViewHabits,
-      @NonNull TextView textViewDate, @NonNull TextView textViewProgress) {
+      @NonNull ProgressBar progressBarHabits, @NonNull RecyclerView recyclerViewCalendar,
+      @NonNull RecyclerView recyclerViewHabits, @NonNull TextView textViewDate,
+      @NonNull TextView textViewProgress) {
     this.rootView = rootView;
     this.cardHeader = cardHeader;
     this.fabAddHabit = fabAddHabit;
     this.konfettiView = konfettiView;
     this.layoutEmpty = layoutEmpty;
     this.progressBarHabits = progressBarHabits;
+    this.recyclerViewCalendar = recyclerViewCalendar;
     this.recyclerViewHabits = recyclerViewHabits;
     this.textViewDate = textViewDate;
     this.textViewProgress = textViewProgress;
@@ -122,6 +127,12 @@ public final class FragmentHabitsBinding implements ViewBinding {
         break missingId;
       }
 
+      id = R.id.recyclerViewCalendar;
+      RecyclerView recyclerViewCalendar = ViewBindings.findChildViewById(rootView, id);
+      if (recyclerViewCalendar == null) {
+        break missingId;
+      }
+
       id = R.id.recyclerViewHabits;
       RecyclerView recyclerViewHabits = ViewBindings.findChildViewById(rootView, id);
       if (recyclerViewHabits == null) {
@@ -141,8 +152,8 @@ public final class FragmentHabitsBinding implements ViewBinding {
       }
 
       return new FragmentHabitsBinding((ConstraintLayout) rootView, cardHeader, fabAddHabit,
-          konfettiView, layoutEmpty, progressBarHabits, recyclerViewHabits, textViewDate,
-          textViewProgress);
+          konfettiView, layoutEmpty, progressBarHabits, recyclerViewCalendar, recyclerViewHabits,
+          textViewDate, textViewProgress);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

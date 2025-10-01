@@ -25,6 +25,11 @@
             android:title="Statistics" />
 
         <item
+            android:id="@+id/nav_charts"
+            android:icon="@drawable/ic_chart"
+            android:title="Charts" />
+
+        <item
             android:id="@+id/nav_achievements"
             android:icon="@drawable/ic_achievement"
             android:title="Achievements" />

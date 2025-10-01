@@ -18,6 +18,8 @@ import com.wellness.brightwell.utils.DateUtils
 import nl.dionsegijn.konfetti.core.Party
 import nl.dionsegijn.konfetti.core.Position
 import nl.dionsegijn.konfetti.core.emitter.Emitter
+import java.text.SimpleDateFormat
+import java.util.*
 import java.util.concurrent.TimeUnit
 
 /**
@@ -31,7 +33,10 @@ class HabitsFragment : Fragment() {
 
     private lateinit var prefsManager: PreferencesManager
     private lateinit var habitAdapter: HabitAdapter
+    private lateinit var calendarAdapter: CalendarDateAdapter
     private val habits = mutableListOf<Habit>()
+    private val calendarDates = mutableListOf<CalendarDate>()
+    private var selectedDate: String = DateUtils.getTodayString()
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -47,6 +52,9 @@ class HabitsFragment : Fragment() {
 
         // Initialize PreferencesManager
         prefsManager = PreferencesManager(requireContext())
+        
+        // Setup calendar
+        setupCalendar()
 
         // Set up RecyclerView
         setupRecyclerView()
@@ -263,6 +271,57 @@ class HabitsFragment : Fragment() {
     private fun updateWidget() {
         // Trigger widget update
         com.wellness.brightwell.widget.HabitWidgetProvider.updateWidget(requireContext())
+    }
+
+    /**
+     * Setup horizontal calendar bar
+     */
+    private fun setupCalendar() {
+        calendarDates.clear()
+        val calendar = Calendar.getInstance()
+        val today = calendar.time
+        val dateFormat = SimpleDateFormat("yyyy-MM-dd", Locale.getDefault())
+        val dayFormat = SimpleDateFormat("EEE", Locale.getDefault())
+        
+        // Generate 30 days (15 before, today, 14 after)
+        calendar.add(Calendar.DAY_OF_YEAR, -15)
+        
+        for (i in 0 until 30) {
+            val date = calendar.time
+            val dateString = dateFormat.format(date)
+            val dayName = dayFormat.format(date)
+            val dayNumber = calendar.get(Calendar.DAY_OF_MONTH)
+            val isToday = dateFormat.format(date) == dateFormat.format(today)
+            
+            calendarDates.add(
+                CalendarDate(
+                    date = date,
+                    dayName = dayName,
+                    dayNumber = dayNumber,
+                    dateString = dateString,
+                    isToday = isToday
+                )
+            )
+            
+            calendar.add(Calendar.DAY_OF_YEAR, 1)
+        }
+        
+        // Setup adapter
+        calendarAdapter = CalendarDateAdapter(calendarDates) { selectedCalendarDate ->
+            selectedDate = selectedCalendarDate.dateString
+            loadHabits() // Reload habits for selected date
+        }
+        
+        binding.recyclerViewCalendar.apply {
+            adapter = calendarAdapter
+            layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false)
+            
+            // Scroll to today
+            val todayPosition = calendarDates.indexOfFirst { it.isToday }
+            if (todayPosition != -1) {
+                scrollToPosition(todayPosition)
+            }
+        }
     }
 
     override fun onDestroyView() {

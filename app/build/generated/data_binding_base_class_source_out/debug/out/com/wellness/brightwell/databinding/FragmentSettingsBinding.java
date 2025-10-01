@@ -11,6 +11,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.viewbinding.ViewBinding;
 import androidx.viewbinding.ViewBindings;
+import com.google.android.material.button.MaterialButton;
 import com.google.android.material.switchmaterial.SwitchMaterial;
 import com.wellness.brightwell.R;
 import java.lang.NullPointerException;
@@ -20,6 +21,18 @@ import java.lang.String;
 public final class FragmentSettingsBinding implements ViewBinding {
   @NonNull
   private final ScrollView rootView;
+
+  @NonNull
+  public final MaterialButton buttonExportAll;
+
+  @NonNull
+  public final MaterialButton buttonExportHabits;
+
+  @NonNull
+  public final MaterialButton buttonExportHydration;
+
+  @NonNull
+  public final MaterialButton buttonExportMoods;
 
   @NonNull
   public final SeekBar seekBarInterval;
@@ -36,10 +49,17 @@ public final class FragmentSettingsBinding implements ViewBinding {
   @NonNull
   public final TextView textViewIntervalValue;
 
-  private FragmentSettingsBinding(@NonNull ScrollView rootView, @NonNull SeekBar seekBarInterval,
-      @NonNull SwitchMaterial switchDarkMode, @NonNull SwitchMaterial switchHydrationReminder,
-      @NonNull TextView textViewAppVersion, @NonNull TextView textViewIntervalValue) {
+  private FragmentSettingsBinding(@NonNull ScrollView rootView,
+      @NonNull MaterialButton buttonExportAll, @NonNull MaterialButton buttonExportHabits,
+      @NonNull MaterialButton buttonExportHydration, @NonNull MaterialButton buttonExportMoods,
+      @NonNull SeekBar seekBarInterval, @NonNull SwitchMaterial switchDarkMode,
+      @NonNull SwitchMaterial switchHydrationReminder, @NonNull TextView textViewAppVersion,
+      @NonNull TextView textViewIntervalValue) {
     this.rootView = rootView;
+    this.buttonExportAll = buttonExportAll;
+    this.buttonExportHabits = buttonExportHabits;
+    this.buttonExportHydration = buttonExportHydration;
+    this.buttonExportMoods = buttonExportMoods;
     this.seekBarInterval = seekBarInterval;
     this.switchDarkMode = switchDarkMode;
     this.switchHydrationReminder = switchHydrationReminder;
@@ -74,6 +94,30 @@ public final class FragmentSettingsBinding implements ViewBinding {
     // This is done to optimize the compiled bytecode for size and performance.
     int id;
     missingId: {
+      id = R.id.buttonExportAll;
+      MaterialButton buttonExportAll = ViewBindings.findChildViewById(rootView, id);
+      if (buttonExportAll == null) {
+        break missingId;
+      }
+
+      id = R.id.buttonExportHabits;
+      MaterialButton buttonExportHabits = ViewBindings.findChildViewById(rootView, id);
+      if (buttonExportHabits == null) {
+        break missingId;
+      }
+
+      id = R.id.buttonExportHydration;
+      MaterialButton buttonExportHydration = ViewBindings.findChildViewById(rootView, id);
+      if (buttonExportHydration == null) {
+        break missingId;
+      }
+
+      id = R.id.buttonExportMoods;
+      MaterialButton buttonExportMoods = ViewBindings.findChildViewById(rootView, id);
+      if (buttonExportMoods == null) {
+        break missingId;
+      }
+
       id = R.id.seekBarInterval;
       SeekBar seekBarInterval = ViewBindings.findChildViewById(rootView, id);
       if (seekBarInterval == null) {
@@ -104,7 +148,8 @@ public final class FragmentSettingsBinding implements ViewBinding {
         break missingId;
       }
 
-      return new FragmentSettingsBinding((ScrollView) rootView, seekBarInterval, switchDarkMode,
+      return new FragmentSettingsBinding((ScrollView) rootView, buttonExportAll, buttonExportHabits,
+          buttonExportHydration, buttonExportMoods, seekBarInterval, switchDarkMode,
           switchHydrationReminder, textViewAppVersion, textViewIntervalValue);
     }
     String missingId = rootView.getResources().getResourceName(id);
