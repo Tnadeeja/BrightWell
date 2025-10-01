@@ -3052,6 +3052,7 @@ drawable design_ic_visibility
 drawable design_ic_visibility_off
 drawable design_password_eye
 drawable design_snackbar_background
+drawable ic_achievement
 drawable ic_add
 drawable ic_arrow_back_black_24
 drawable ic_call_answer
@@ -3065,11 +3066,13 @@ drawable ic_clock_black_24dp
 drawable ic_delete
 drawable ic_edit
 drawable ic_habits
+drawable ic_info
 drawable ic_keyboard_black_24dp
 drawable ic_launcher_foreground
 drawable ic_m3_chip_check
 drawable ic_m3_chip_checked_circle
 drawable ic_m3_chip_close
+drawable ic_menu
 drawable ic_mood
 drawable ic_mtrl_checked_circle
 drawable ic_mtrl_chip_checked_black
@@ -3078,6 +3081,7 @@ drawable ic_mtrl_chip_close_circle
 drawable ic_search_black_24
 drawable ic_settings
 drawable ic_stats
+drawable ic_template
 drawable ic_water_drop
 drawable ic_widget_preview
 drawable m3_avd_hide_password
@@ -3138,6 +3142,7 @@ drawable mtrl_switch_thumb_unchecked_pressed
 drawable mtrl_switch_track
 drawable mtrl_switch_track_decoration
 drawable mtrl_tabs_default_indicator
+drawable nav_header_background
 drawable navigation_empty_icon
 drawable notification_action_background
 drawable notification_bg
@@ -3152,6 +3157,7 @@ drawable notification_template_icon_bg
 drawable notification_template_icon_low_bg
 drawable notification_tile_bg
 drawable notify_panel_notification_icon_bg
+drawable splash_background
 drawable test_level_drawable
 drawable tooltip_frame_dark
 drawable tooltip_frame_light
@@ -3251,7 +3257,6 @@ id beginning
 id bestChoice
 id blocking
 id bottom
-id bottomNavigation
 id bounce
 id bounceBoth
 id bounceEnd
@@ -3271,6 +3276,7 @@ id callMeasure
 id cancel_button
 id cardHeader
 id cardQuickAdd
+id cardView
 id carryVelocity
 id center
 id centerCrop
@@ -3335,6 +3341,7 @@ id dragLeft
 id dragRight
 id dragStart
 id dragUp
+id drawerLayout
 id dropdown_menu
 id easeIn
 id easeInOut
@@ -3398,6 +3405,7 @@ id ifRoom
 id ignore
 id ignoreRequest
 id image
+id imageViewLogo
 id immediateStop
 id included
 id indeterminate
@@ -3482,6 +3490,8 @@ id mtrl_picker_text_input_range_start
 id mtrl_picker_title_text
 id mtrl_view_tag_bottom_padding
 id multiply
+id nav_about
+id nav_achievements
 id nav_controller_view_tag
 id nav_habits
 id nav_host_fragment_container
@@ -3489,6 +3499,8 @@ id nav_hydration
 id nav_mood
 id nav_settings
 id nav_stats
+id nav_templates
+id navigationView
 id navigation_bar_item_active_indicator_view
 id navigation_bar_item_icon_container
 id navigation_bar_item_icon_view
@@ -3542,6 +3554,8 @@ id pin
 id position
 id postLayout
 id pressed
+id progressBar
+id progressBarAchievements
 id progressBarHabits
 id progressBarHydration
 id progress_circular
@@ -3549,10 +3563,12 @@ id progress_horizontal
 id radio
 id ratio
 id rectangles
+id recyclerViewAchievements
 id recyclerViewEmojis
 id recyclerViewHabits
 id recyclerViewHydration
 id recyclerViewMoods
+id recyclerViewTemplates
 id report_drawn
 id reverseSawtooth
 id right
@@ -3647,6 +3663,7 @@ id text2
 id textAvgHydration
 id textBestDay
 id textCompletedToday
+id textCompletionPercentage
 id textCompletionRate
 id textCurrentStreak
 id textDaysGoalAchieved
@@ -3662,20 +3679,28 @@ id textTodayHydration
 id textTop
 id textTotalHabits
 id textTotalMoods
+id textUnlockedCount
 id textViewAmount
+id textViewAppName
 id textViewAppVersion
 id textViewDate
+id textViewDescription
 id textViewEmoji
 id textViewGlasses
+id textViewHabitCount
 id textViewHabitDescription
 id textViewHabitName
 id textViewHistoryTitle
 id textViewIcon
 id textViewIntervalValue
+id textViewLocked
+id textViewName
 id textViewNote
 id textViewPercentage
 id textViewProgress
 id textViewStreak
+id textViewSuccess
+id textViewTagline
 id textViewTime
 id textViewTimestamp
 id textViewTitle
@@ -3693,6 +3718,7 @@ id title
 id titleDividerNoCustom
 id title_template
 id toggle
+id toolbar
 id top
 id topPanel
 id touch_outside
@@ -3710,6 +3736,7 @@ id unlabeled
 id up
 id useLogo
 id vertical_only
+id viewLocked
 id view_offset_helper
 id view_transition
 id view_tree_lifecycle_owner
@@ -3847,6 +3874,7 @@ layout abc_search_view
 layout abc_select_dialog_material
 layout abc_tooltip
 layout activity_main
+layout activity_splash
 layout custom_dialog
 layout design_bottom_navigation_item
 layout design_bottom_sheet_dialog
@@ -3867,17 +3895,21 @@ layout dialog_add_habit
 layout dialog_add_mood
 layout dialog_custom_amount
 layout dialog_set_goal
+layout fragment_achievements
 layout fragment_habits
 layout fragment_hydration
 layout fragment_mood
 layout fragment_settings
 layout fragment_stats
+layout fragment_templates
 layout ime_base_split_test_activity
 layout ime_secondary_split_test_activity
+layout item_achievement
 layout item_emoji
 layout item_habit
 layout item_hydration
 layout item_mood
+layout item_template
 layout m3_alert_dialog
 layout m3_alert_dialog_actions
 layout m3_alert_dialog_title
@@ -3929,6 +3961,7 @@ layout mtrl_picker_text_input_date
 layout mtrl_picker_text_input_date_range
 layout mtrl_search_bar
 layout mtrl_search_view
+layout nav_header
 layout notification_action
 layout notification_action_tombstone
 layout notification_template_custom_big
@@ -3941,6 +3974,7 @@ layout select_dialog_singlechoice_material
 layout support_simple_spinner_dropdown_item
 layout widget_habit
 menu bottom_navigation_menu
+menu drawer_menu
 mipmap ic_launcher
 mipmap ic_launcher_round
 plurals mtrl_badge_content_description
@@ -4129,6 +4163,8 @@ string nav_habits
 string nav_hydration
 string nav_mood
 string nav_settings
+string navigation_drawer_close
+string navigation_drawer_open
 string no
 string notification_message
 string notification_title
@@ -4705,6 +4741,7 @@ style Theme_AppCompat_Light_DialogWhenLarge
 style Theme_AppCompat_Light_NoActionBar
 style Theme_AppCompat_NoActionBar
 style Theme_BrightWell
+style Theme_BrightWell_Splash
 style Theme_Design
 style Theme_Design_BottomSheetDialog
 style Theme_Design_Light

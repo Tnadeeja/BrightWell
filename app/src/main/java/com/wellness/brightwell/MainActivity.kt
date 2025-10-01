@@ -1,24 +1,30 @@
 package com.wellness.brightwell
 
 import android.os.Bundle
+import android.widget.Toast
+import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.app.AppCompatDelegate
+import androidx.core.view.GravityCompat
 import androidx.fragment.app.Fragment
+import com.google.android.material.navigation.NavigationView
 import com.wellness.brightwell.data.Habit
 import com.wellness.brightwell.data.PreferencesManager
 import com.wellness.brightwell.databinding.ActivityMainBinding
+import com.wellness.brightwell.ui.achievements.AchievementsFragment
 import com.wellness.brightwell.ui.habits.HabitsFragment
 import com.wellness.brightwell.ui.hydration.HydrationFragment
 import com.wellness.brightwell.ui.mood.MoodFragment
 import com.wellness.brightwell.ui.settings.SettingsFragment
 import com.wellness.brightwell.ui.stats.StatsFragment
+import com.wellness.brightwell.ui.templates.TemplatesFragment
 import com.wellness.brightwell.utils.NotificationScheduler
 
 /**
- * Main Activity that hosts the bottom navigation and fragments
- * Manages navigation between Habits, Hydration, Mood Journal, and Settings screens
+ * Main Activity that hosts the navigation drawer and fragments
+ * Manages navigation between Habits, Hydration, Mood Journal, Statistics, and Settings screens
  */
-class MainActivity : AppCompatActivity() {
+class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
 
     private lateinit var binding: ActivityMainBinding
     private lateinit var prefsManager: PreferencesManager
@@ -35,15 +41,19 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        // Set up toolbar
+        setSupportActionBar(binding.toolbar)
+
         // Set up first launch
         setupFirstLaunch()
 
-        // Set up bottom navigation
-        setupBottomNavigation()
+        // Set up navigation drawer
+        setupNavigationDrawer()
 
         // Load default fragment
         if (savedInstanceState == null) {
             loadFragment(HabitsFragment())
+            binding.navigationView.setCheckedItem(R.id.nav_habits)
         }
     }
 
@@ -88,33 +98,82 @@ class MainActivity : AppCompatActivity() {
     }
 
     /**
-     * Set up bottom navigation bar
+     * Set up navigation drawer
      */
-    private fun setupBottomNavigation() {
-        binding.bottomNavigation.setOnItemSelectedListener { item ->
-            when (item.itemId) {
-                R.id.nav_habits -> {
-                    loadFragment(HabitsFragment())
-                    true
-                }
-                R.id.nav_hydration -> {
-                    loadFragment(HydrationFragment())
-                    true
-                }
-                R.id.nav_mood -> {
-                    loadFragment(MoodFragment())
-                    true
-                }
-                R.id.nav_stats -> {
-                    loadFragment(StatsFragment())
-                    true
-                }
-                R.id.nav_settings -> {
-                    loadFragment(SettingsFragment())
-                    true
-                }
-                else -> false
+    private fun setupNavigationDrawer() {
+        val toggle = ActionBarDrawerToggle(
+            this,
+            binding.drawerLayout,
+            binding.toolbar,
+            R.string.navigation_drawer_open,
+            R.string.navigation_drawer_close
+        )
+        binding.drawerLayout.addDrawerListener(toggle)
+        toggle.syncState()
+
+        binding.navigationView.setNavigationItemSelectedListener(this)
+    }
+
+    /**
+     * Handle navigation item clicks
+     */
+    override fun onNavigationItemSelected(item: android.view.MenuItem): Boolean {
+        when (item.itemId) {
+            R.id.nav_habits -> {
+                loadFragment(HabitsFragment())
+                supportActionBar?.title = "Habits"
             }
+            R.id.nav_hydration -> {
+                loadFragment(HydrationFragment())
+                supportActionBar?.title = "Hydration"
+            }
+            R.id.nav_mood -> {
+                loadFragment(MoodFragment())
+                supportActionBar?.title = "Mood Journal"
+            }
+            R.id.nav_stats -> {
+                loadFragment(StatsFragment())
+                supportActionBar?.title = "Statistics"
+            }
+            R.id.nav_achievements -> {
+                loadFragment(AchievementsFragment())
+                supportActionBar?.title = "Achievements"
+            }
+            R.id.nav_templates -> {
+                loadFragment(TemplatesFragment())
+                supportActionBar?.title = "Habit Templates"
+            }
+            R.id.nav_settings -> {
+                loadFragment(SettingsFragment())
+                supportActionBar?.title = "Settings"
+            }
+            R.id.nav_about -> {
+                showAboutDialog()
+            }
+        }
+        binding.drawerLayout.closeDrawer(GravityCompat.START)
+        return true
+    }
+
+    /**
+     * Show about dialog
+     */
+    private fun showAboutDialog() {
+        androidx.appcompat.app.AlertDialog.Builder(this)
+            .setTitle("About BrightWell")
+            .setMessage("BrightWell v1.0\n\nYour personal wellness companion for tracking habits, mood, and hydration.\n\nDeveloped for Mobile App Development Lab Exam 03")
+            .setPositiveButton("OK", null)
+            .show()
+    }
+
+    /**
+     * Handle back button press
+     */
+    override fun onBackPressed() {
+        if (binding.drawerLayout.isDrawerOpen(GravityCompat.START)) {
+            binding.drawerLayout.closeDrawer(GravityCompat.START)
+        } else {
+            super.onBackPressed()
         }
     }
 

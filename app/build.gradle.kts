@@ -66,6 +66,9 @@ dependencies {
     // Confetti animation
     implementation("nl.dionsegijn:konfetti-xml:2.0.4")
     
+    // Charts and graphs
+    implementation("com.github.PhilJay:MPAndroidChart:v3.1.0")
+    
     // Testing
     testImplementation("junit:junit:4.13.2")
     androidTestImplementation("androidx.test.ext:junit:1.1.5")

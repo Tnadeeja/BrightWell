@@ -24,6 +24,15 @@
     </style>
 
     <style name="Theme.BrightWell" parent="Base.Theme.BrightWell" />
+
+    <!-- Splash Screen Theme -->
+    <style name="Theme.BrightWell.Splash" parent="Theme.BrightWell">
+        <item name="android:windowBackground">@drawable/splash_background</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowActionBar">false</item>
+        <item name="android:windowFullscreen">true</item>
+        <item name="android:windowContentOverlay">@null</item>
+    </style>
     
     <!-- Card style -->
     <style name="CardStyle" parent="Widget.Material3.CardView.Elevated">
