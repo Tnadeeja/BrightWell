@@ -44,6 +44,18 @@ class HabitAdapter(
     ) : RecyclerView.ViewHolder(binding.root) {
 
         fun bind(habit: Habit) {
+            // Set icon
+            binding.textViewIcon.text = habit.icon
+            
+            // Set color background
+            try {
+                val color = android.graphics.Color.parseColor(habit.color)
+                binding.cardBackground.setBackgroundColor(color)
+                binding.cardBackground.alpha = 0.15f // Light tint
+            } catch (e: Exception) {
+                // If color parsing fails, use default
+            }
+            
             // Set habit name and description
             binding.textViewHabitName.text = habit.name
             
@@ -53,6 +65,10 @@ class HabitAdapter(
             } else {
                 binding.textViewHabitDescription.visibility = android.view.View.GONE
             }
+            
+            // Set category and difficulty
+            binding.textViewCategory.text = habit.category
+            binding.textViewDifficulty.text = habit.difficulty
 
             // Check if habit is completed today
             val today = DateUtils.getTodayString()

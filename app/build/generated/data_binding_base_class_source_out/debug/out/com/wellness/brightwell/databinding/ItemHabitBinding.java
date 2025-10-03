@@ -6,9 +6,11 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.CheckBox;
 import android.widget.ImageButton;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.viewbinding.ViewBinding;
 import androidx.viewbinding.ViewBindings;
 import com.google.android.material.card.MaterialCardView;
@@ -28,7 +30,19 @@ public final class ItemHabitBinding implements ViewBinding {
   public final ImageButton buttonEdit;
 
   @NonNull
+  public final ConstraintLayout cardBackground;
+
+  @NonNull
   public final CheckBox checkBoxHabit;
+
+  @NonNull
+  public final LinearLayout layoutTags;
+
+  @NonNull
+  public final TextView textViewCategory;
+
+  @NonNull
+  public final TextView textViewDifficulty;
 
   @NonNull
   public final TextView textViewHabitDescription;
@@ -37,18 +51,28 @@ public final class ItemHabitBinding implements ViewBinding {
   public final TextView textViewHabitName;
 
   @NonNull
+  public final TextView textViewIcon;
+
+  @NonNull
   public final TextView textViewStreak;
 
   private ItemHabitBinding(@NonNull MaterialCardView rootView, @NonNull ImageButton buttonDelete,
-      @NonNull ImageButton buttonEdit, @NonNull CheckBox checkBoxHabit,
+      @NonNull ImageButton buttonEdit, @NonNull ConstraintLayout cardBackground,
+      @NonNull CheckBox checkBoxHabit, @NonNull LinearLayout layoutTags,
+      @NonNull TextView textViewCategory, @NonNull TextView textViewDifficulty,
       @NonNull TextView textViewHabitDescription, @NonNull TextView textViewHabitName,
-      @NonNull TextView textViewStreak) {
+      @NonNull TextView textViewIcon, @NonNull TextView textViewStreak) {
     this.rootView = rootView;
     this.buttonDelete = buttonDelete;
     this.buttonEdit = buttonEdit;
+    this.cardBackground = cardBackground;
     this.checkBoxHabit = checkBoxHabit;
+    this.layoutTags = layoutTags;
+    this.textViewCategory = textViewCategory;
+    this.textViewDifficulty = textViewDifficulty;
     this.textViewHabitDescription = textViewHabitDescription;
     this.textViewHabitName = textViewHabitName;
+    this.textViewIcon = textViewIcon;
     this.textViewStreak = textViewStreak;
   }
 
@@ -91,9 +115,33 @@ public final class ItemHabitBinding implements ViewBinding {
         break missingId;
       }
 
+      id = R.id.cardBackground;
+      ConstraintLayout cardBackground = ViewBindings.findChildViewById(rootView, id);
+      if (cardBackground == null) {
+        break missingId;
+      }
+
       id = R.id.checkBoxHabit;
       CheckBox checkBoxHabit = ViewBindings.findChildViewById(rootView, id);
       if (checkBoxHabit == null) {
+        break missingId;
+      }
+
+      id = R.id.layoutTags;
+      LinearLayout layoutTags = ViewBindings.findChildViewById(rootView, id);
+      if (layoutTags == null) {
+        break missingId;
+      }
+
+      id = R.id.textViewCategory;
+      TextView textViewCategory = ViewBindings.findChildViewById(rootView, id);
+      if (textViewCategory == null) {
+        break missingId;
+      }
+
+      id = R.id.textViewDifficulty;
+      TextView textViewDifficulty = ViewBindings.findChildViewById(rootView, id);
+      if (textViewDifficulty == null) {
         break missingId;
       }
 
@@ -109,6 +157,12 @@ public final class ItemHabitBinding implements ViewBinding {
         break missingId;
       }
 
+      id = R.id.textViewIcon;
+      TextView textViewIcon = ViewBindings.findChildViewById(rootView, id);
+      if (textViewIcon == null) {
+        break missingId;
+      }
+
       id = R.id.textViewStreak;
       TextView textViewStreak = ViewBindings.findChildViewById(rootView, id);
       if (textViewStreak == null) {
@@ -116,7 +170,8 @@ public final class ItemHabitBinding implements ViewBinding {
       }
 
       return new ItemHabitBinding((MaterialCardView) rootView, buttonDelete, buttonEdit,
-          checkBoxHabit, textViewHabitDescription, textViewHabitName, textViewStreak);
+          cardBackground, checkBoxHabit, layoutTags, textViewCategory, textViewDifficulty,
+          textViewHabitDescription, textViewHabitName, textViewIcon, textViewStreak);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

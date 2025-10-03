@@ -5,14 +5,17 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ArrayAdapter
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.fragment.app.Fragment
+import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.android.material.textfield.TextInputEditText
 import com.wellness.brightwell.R
 import com.wellness.brightwell.data.Habit
 import com.wellness.brightwell.data.PreferencesManager
+import com.wellness.brightwell.databinding.DialogAddHabitEnhancedBinding
 import com.wellness.brightwell.databinding.FragmentHabitsBinding
 import com.wellness.brightwell.utils.DateUtils
 import nl.dionsegijn.konfetti.core.Party
@@ -129,34 +132,126 @@ class HabitsFragment : Fragment() {
     }
 
     /**
-     * Show dialog to add a new habit
+     * Show enhanced dialog to add a new habit with all details
      */
     private fun showAddHabitDialog() {
-        val dialogView = layoutInflater.inflate(R.layout.dialog_add_habit, null)
-        val nameInput = dialogView.findViewById<TextInputEditText>(R.id.editTextHabitName)
-        val descInput = dialogView.findViewById<TextInputEditText>(R.id.editTextHabitDescription)
+        val binding = DialogAddHabitEnhancedBinding.inflate(layoutInflater)
+        val dialog = AlertDialog.Builder(requireContext())
+            .setView(binding.root)
+            .create()
 
-        AlertDialog.Builder(requireContext())
-            .setTitle("Add New Habit")
-            .setView(dialogView)
-            .setPositiveButton("Add") { _, _ ->
-                val name = nameInput.text.toString().trim()
-                val description = descInput.text.toString().trim()
-
-                if (name.isNotEmpty()) {
-                    val newHabit = Habit(
-                        name = name,
-                        description = description
-                    )
-                    prefsManager.addHabit(newHabit)
-                    loadHabits()
-                    Toast.makeText(requireContext(), "Habit added!", Toast.LENGTH_SHORT).show()
-                } else {
-                    Toast.makeText(requireContext(), "Please enter a habit name", Toast.LENGTH_SHORT).show()
+        // Variables to store selections
+        var selectedIcon = "✓"
+        var selectedColor = "#6366F1"
+        
+        // Setup Icon Picker
+        val iconAdapter = IconPickerAdapter(IconPickerAdapter.getDefaultIcons()) { icon ->
+            selectedIcon = icon
+        }
+        binding.recyclerViewIcons.apply {
+            adapter = iconAdapter
+            layoutManager = GridLayoutManager(requireContext(), 6)
+        }
+        
+        // Setup Color Picker
+        val colorAdapter = ColorPickerAdapter(ColorPickerAdapter.getDefaultColors()) { color ->
+            selectedColor = color
+        }
+        binding.recyclerViewColors.apply {
+            adapter = colorAdapter
+            layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false)
+        }
+        
+        // Setup Category Spinner
+        val categories = arrayOf("Health", "Study", "Work", "Finance", "Personal Growth", "Fitness", "Mindfulness", "Hobby")
+        val categoryAdapter = ArrayAdapter(requireContext(), android.R.layout.simple_spinner_item, categories)
+        categoryAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+        binding.spinnerCategory.adapter = categoryAdapter
+        
+        // Setup Frequency Radio Buttons
+        binding.radioGroupFrequency.setOnCheckedChangeListener { _, checkedId ->
+            when (checkedId) {
+                R.id.radioDaily, R.id.radioWeekly -> {
+                    binding.layoutCustomDays.visibility = View.GONE
+                }
+                R.id.radioCustom -> {
+                    binding.layoutCustomDays.visibility = View.VISIBLE
                 }
             }
-            .setNegativeButton("Cancel", null)
-            .show()
+        }
+        
+        // Save Button
+        binding.buttonSave.setOnClickListener {
+            val name = binding.editTextName.text.toString().trim()
+            val description = binding.editTextDescription.text.toString().trim()
+            
+            if (name.isEmpty()) {
+                Toast.makeText(requireContext(), "Please enter a habit name", Toast.LENGTH_SHORT).show()
+                return@setOnClickListener
+            }
+            
+            // Get frequency
+            val frequency = when (binding.radioGroupFrequency.checkedRadioButtonId) {
+                R.id.radioDaily -> "Daily"
+                R.id.radioWeekly -> "Weekly"
+                R.id.radioCustom -> "Custom"
+                else -> "Daily"
+            }
+            
+            // Get custom days if selected
+            val customDays = if (frequency == "Custom") {
+                val days = mutableListOf<String>()
+                if (binding.checkMon.isChecked) days.add("Mon")
+                if (binding.checkTue.isChecked) days.add("Tue")
+                if (binding.checkWed.isChecked) days.add("Wed")
+                if (binding.checkThu.isChecked) days.add("Thu")
+                if (binding.checkFri.isChecked) days.add("Fri")
+                if (binding.checkSat.isChecked) days.add("Sat")
+                if (binding.checkSun.isChecked) days.add("Sun")
+                days
+            } else {
+                listOf("Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun")
+            }
+            
+            // Get reminder enabled
+            val reminderEnabled = binding.switchReminder.isChecked
+            
+            // Get category
+            val category = binding.spinnerCategory.selectedItem.toString()
+            
+            // Get difficulty
+            val difficulty = when (binding.radioGroupDifficulty.checkedRadioButtonId) {
+                R.id.radioEasy -> "Easy"
+                R.id.radioMedium -> "Medium"
+                R.id.radioHard -> "Hard"
+                else -> "Medium"
+            }
+            
+            // Create new habit with all details
+            val newHabit = Habit(
+                name = name,
+                description = description,
+                frequency = frequency,
+                customDays = customDays,
+                reminderEnabled = reminderEnabled,
+                category = category,
+                difficulty = difficulty,
+                color = selectedColor,
+                icon = selectedIcon
+            )
+            
+            prefsManager.addHabit(newHabit)
+            loadHabits()
+            dialog.dismiss()
+            Toast.makeText(requireContext(), "Habit added successfully!", Toast.LENGTH_SHORT).show()
+        }
+        
+        // Cancel Button
+        binding.buttonCancel.setOnClickListener {
+            dialog.dismiss()
+        }
+        
+        dialog.show()
     }
 
     /**

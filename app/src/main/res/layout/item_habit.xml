@@ -9,16 +9,29 @@
     app:cardElevation="2dp">
 
     <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/cardBackground"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:padding="16dp">
+
+        <!-- Icon -->
+        <TextView
+            android:id="@+id/textViewIcon"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:gravity="center"
+            android:text="✓"
+            android:textSize="24sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <!-- Checkbox -->
         <CheckBox
             android:id="@+id/checkBoxHabit"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginStart="8dp"
+            app:layout_constraintStart_toEndOf="@id/textViewIcon"
             app:layout_constraintTop_toTopOf="parent" />
 
         <!-- Habit Name -->
@@ -49,6 +62,43 @@
             app:layout_constraintTop_toBottomOf="@id/textViewHabitName"
             tools:text="Drink 8 glasses of water" />
 
+        <!-- Category and Difficulty -->
+        <LinearLayout
+            android:id="@+id/layoutTags"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:orientation="horizontal"
+            app:layout_constraintEnd_toEndOf="@id/textViewHabitName"
+            app:layout_constraintStart_toStartOf="@id/textViewHabitName"
+            app:layout_constraintTop_toBottomOf="@id/textViewHabitDescription">
+
+            <TextView
+                android:id="@+id/textViewCategory"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/bg_tag"
+                android:paddingHorizontal="8dp"
+                android:paddingVertical="4dp"
+                android:textColor="@color/primary"
+                android:textSize="11sp"
+                android:textStyle="bold"
+                tools:text="Health" />
+
+            <TextView
+                android:id="@+id/textViewDifficulty"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:background="@drawable/bg_tag"
+                android:paddingHorizontal="8dp"
+                android:paddingVertical="4dp"
+                android:textColor="@color/accent"
+                android:textSize="11sp"
+                android:textStyle="bold"
+                tools:text="Medium" />
+        </LinearLayout>
+
         <!-- Streak -->
         <TextView
             android:id="@+id/textViewStreak"
@@ -61,7 +111,7 @@
             android:visibility="gone"
             app:layout_constraintEnd_toEndOf="@id/textViewHabitName"
             app:layout_constraintStart_toStartOf="@id/textViewHabitName"
-            app:layout_constraintTop_toBottomOf="@id/textViewHabitDescription"
+            app:layout_constraintTop_toBottomOf="@id/layoutTags"
             tools:text="🔥 5 day streak"
             tools:visibility="visible" />
 
