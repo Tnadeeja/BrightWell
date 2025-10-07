@@ -96,50 +96,47 @@
                 android:orientation="horizontal"
                 android:padding="24dp">
 
-                <!-- Left: Progress Ring -->
-                <FrameLayout
+                <!-- Left: Progress Section -->
+                <LinearLayout
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1">
+                    android:layout_weight="1"
+                    android:orientation="vertical">
 
+                    <!-- Progress Percentage -->
+                    <TextView
+                        android:id="@+id/textViewProgress"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="sans-serif-medium"
+                        android:textColor="@color/primary"
+                        android:textSize="36sp"
+                        android:textStyle="bold"
+                        tools:text="75%" />
+
+                    <!-- Progress Bar -->
                     <ProgressBar
                         android:id="@+id/progressBarHabits"
                         style="?android:attr/progressBarStyleHorizontal"
-                        android:layout_width="120dp"
-                        android:layout_height="120dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="8dp"
+                        android:layout_marginTop="8dp"
                         android:indeterminate="false"
                         android:max="100"
                         android:progress="0"
-                        android:progressDrawable="@drawable/bg_circular_progress_gradient"
-                        android:progressTint="@color/primary" />
+                        android:progressDrawable="@drawable/bg_progress_bar" />
 
-                    <LinearLayout
+                    <!-- Completed Count -->
+                    <TextView
+                        android:id="@+id/textViewCompletedCount"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:gravity="center"
-                        android:orientation="vertical">
-
-                        <TextView
-                            android:id="@+id/textViewProgress"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:fontFamily="sans-serif-medium"
-                            android:textColor="@color/primary"
-                            android:textSize="36sp"
-                            android:textStyle="bold"
-                            tools:text="75%" />
-
-                        <TextView
-                            android:id="@+id/textViewCompletedCount"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:fontFamily="sans-serif"
-                            android:textColor="@color/text_secondary"
-                            android:textSize="11sp"
-                            tools:text="3/4" />
-                    </LinearLayout>
-                </FrameLayout>
+                        android:layout_marginTop="6dp"
+                        android:fontFamily="sans-serif"
+                        android:textColor="@color/text_secondary"
+                        android:textSize="11sp"
+                        tools:text="3 of 4 completed" />
+                </LinearLayout>
 
                 <!-- Right: Stats Info -->
                 <LinearLayout

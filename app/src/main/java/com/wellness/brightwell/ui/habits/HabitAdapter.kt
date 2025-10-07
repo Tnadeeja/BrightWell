@@ -50,15 +50,16 @@ class HabitAdapter(
             // Set icon
             binding.textViewIcon.text = habit.icon
             
-            // Set clean white card background with tech green icon
-            binding.cardBackground.setBackgroundColor(android.graphics.Color.WHITE)
-            
             // Set icon background to tech green gradient
             binding.textViewIcon.setBackgroundResource(com.wellness.brightwell.R.drawable.icon_background)
             
-            // Use clean dark text on white background
-            binding.textViewHabitName.setTextColor(android.graphics.Color.parseColor("#111827"))
-            binding.textViewHabitDescription.setTextColor(android.graphics.Color.parseColor("#6B7280"))
+            // Use theme-aware text colors
+            binding.textViewHabitName.setTextColor(
+                androidx.core.content.ContextCompat.getColor(binding.root.context, R.color.text_primary)
+            )
+            binding.textViewHabitDescription.setTextColor(
+                androidx.core.content.ContextCompat.getColor(binding.root.context, R.color.text_secondary)
+            )
             
             // Set habit name and description
             binding.textViewHabitName.text = habit.name

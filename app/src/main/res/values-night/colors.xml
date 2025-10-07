@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <!-- Primary Brand Colors (Dark Mode) -->
-    <color name="primary">#818CF8</color>
-    <color name="primary_dark">#6366F1</color>
-    <color name="primary_light">#A5B4FC</color>
+    <color name="primary">#4CAF50</color>
+    <color name="primary_dark">#388E3C</color>
+    <color name="primary_light">#81C784</color>
     
     <!-- Secondary Colors (Dark Mode) -->
     <color name="secondary">#34D399</color>
@@ -17,6 +17,13 @@
     <color name="background">#121212</color>
     <color name="surface">#1E1E1E</color>
     <color name="card_background">#2C2C2C</color>
+    <color name="white">#2A2A2A</color>
+    
+    <!-- Glassmorphism Colors (Dark Mode) -->
+    <color name="glass_white">#F52C2C2C</color>
+    <color name="glass_light">#E62C2C2C</color>
+    <color name="glass_border">#33FFFFFF</color>
+    <color name="glass_shadow">#1A000000</color>
     
     <!-- Text Colors (Dark Mode) -->
     <color name="text_primary">#E5E5E5</color>

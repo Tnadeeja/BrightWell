@@ -4,7 +4,8 @@ package com.wellness.brightwell.databinding;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageButton;
+import android.widget.FrameLayout;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -21,10 +22,19 @@ public final class ItemMoodBinding implements ViewBinding {
   private final MaterialCardView rootView;
 
   @NonNull
-  public final ImageButton buttonDelete;
+  public final FrameLayout buttonDelete;
+
+  @NonNull
+  public final FrameLayout iconContainer;
+
+  @NonNull
+  public final LinearLayout noteLayout;
 
   @NonNull
   public final TextView textViewEmoji;
+
+  @NonNull
+  public final TextView textViewMoodType;
 
   @NonNull
   public final TextView textViewNote;
@@ -32,12 +42,16 @@ public final class ItemMoodBinding implements ViewBinding {
   @NonNull
   public final TextView textViewTimestamp;
 
-  private ItemMoodBinding(@NonNull MaterialCardView rootView, @NonNull ImageButton buttonDelete,
-      @NonNull TextView textViewEmoji, @NonNull TextView textViewNote,
-      @NonNull TextView textViewTimestamp) {
+  private ItemMoodBinding(@NonNull MaterialCardView rootView, @NonNull FrameLayout buttonDelete,
+      @NonNull FrameLayout iconContainer, @NonNull LinearLayout noteLayout,
+      @NonNull TextView textViewEmoji, @NonNull TextView textViewMoodType,
+      @NonNull TextView textViewNote, @NonNull TextView textViewTimestamp) {
     this.rootView = rootView;
     this.buttonDelete = buttonDelete;
+    this.iconContainer = iconContainer;
+    this.noteLayout = noteLayout;
     this.textViewEmoji = textViewEmoji;
+    this.textViewMoodType = textViewMoodType;
     this.textViewNote = textViewNote;
     this.textViewTimestamp = textViewTimestamp;
   }
@@ -70,14 +84,32 @@ public final class ItemMoodBinding implements ViewBinding {
     int id;
     missingId: {
       id = R.id.buttonDelete;
-      ImageButton buttonDelete = ViewBindings.findChildViewById(rootView, id);
+      FrameLayout buttonDelete = ViewBindings.findChildViewById(rootView, id);
       if (buttonDelete == null) {
+        break missingId;
+      }
+
+      id = R.id.iconContainer;
+      FrameLayout iconContainer = ViewBindings.findChildViewById(rootView, id);
+      if (iconContainer == null) {
+        break missingId;
+      }
+
+      id = R.id.noteLayout;
+      LinearLayout noteLayout = ViewBindings.findChildViewById(rootView, id);
+      if (noteLayout == null) {
         break missingId;
       }
 
       id = R.id.textViewEmoji;
       TextView textViewEmoji = ViewBindings.findChildViewById(rootView, id);
       if (textViewEmoji == null) {
+        break missingId;
+      }
+
+      id = R.id.textViewMoodType;
+      TextView textViewMoodType = ViewBindings.findChildViewById(rootView, id);
+      if (textViewMoodType == null) {
         break missingId;
       }
 
@@ -93,8 +125,8 @@ public final class ItemMoodBinding implements ViewBinding {
         break missingId;
       }
 
-      return new ItemMoodBinding((MaterialCardView) rootView, buttonDelete, textViewEmoji,
-          textViewNote, textViewTimestamp);
+      return new ItemMoodBinding((MaterialCardView) rootView, buttonDelete, iconContainer,
+          noteLayout, textViewEmoji, textViewMoodType, textViewNote, textViewTimestamp);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

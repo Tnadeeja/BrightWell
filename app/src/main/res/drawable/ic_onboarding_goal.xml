@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="100dp"
+    android:height="100dp"
+    android:viewportWidth="100"
+    android:viewportHeight="100">
+
+    <!-- Background Circle -->
+    <path
+        android:pathData="M50,50m-45,0a45,45 0,1 1,90 0a45,45 0,1 1,-90 0"
+        android:fillColor="#F59E0B"
+        android:fillType="evenOdd" />
+    
+    <!-- Inner Circle -->
+    <path
+        android:pathData="M50,50m-35,0a35,35 0,1 1,70 0a35,35 0,1 1,-70 0"
+        android:fillColor="#FBBF24"
+        android:fillType="evenOdd" />
+    
+    <!-- Target Circles -->
+    <path
+        android:pathData="M50,50m-25,0a25,25 0,1 1,50 0a25,25 0,1 1,-50 0"
+        android:strokeColor="#FFFFFF"
+        android:strokeWidth="2"
+        android:strokeAlpha="0.8"
+        android:fillType="evenOdd" />
+    
+    <path
+        android:pathData="M50,50m-18,0a18,18 0,1 1,36 0a18,18 0,1 1,-36 0"
+        android:strokeColor="#FFFFFF"
+        android:strokeWidth="2"
+        android:strokeAlpha="0.6"
+        android:fillType="evenOdd" />
+    
+    <path
+        android:pathData="M50,50m-11,0a11,11 0,1 1,22 0a11,11 0,1 1,-22 0"
+        android:strokeColor="#FFFFFF"
+        android:strokeWidth="2"
+        android:strokeAlpha="0.4"
+        android:fillType="evenOdd" />
+    
+    <!-- Center Dot -->
+    <path
+        android:pathData="M50,50m-4,0a4,4 0,1 1,8 0a4,4 0,1 1,-8 0"
+        android:fillColor="#FFFFFF"
+        android:fillAlpha="0.9" />
+    
+    <!-- Arrow pointing to center -->
+    <path
+        android:pathData="M35,35L45,45M40,35L35,35L35,40"
+        android:strokeColor="#FFFFFF"
+        android:strokeWidth="3"
+        android:strokeLineCap="round"
+        android:strokeLineJoin="round"
+        android:strokeAlpha="0.8" />
+    
+    <!-- Decorative Elements -->
+    <path
+        android:pathData="M20,25L22,20L24,25L29,27L24,29L22,34L20,29L15,27Z"
+        android:fillColor="#FFFFFF"
+        android:fillAlpha="0.5" />
+    
+    <path
+        android:pathData="M80,20L81.5,17L83,20L86,21.5L83,23L81.5,26L80,23L77,21.5Z"
+        android:fillColor="#FFFFFF"
+        android:fillAlpha="0.6" />
+    
+    <path
+        android:pathData="M85,75L86.5,72L88,75L91,76.5L88,78L86.5,81L85,78L82,76.5Z"
+        android:fillColor="#FFFFFF"
+        android:fillAlpha="0.4" />
+
+</vector>

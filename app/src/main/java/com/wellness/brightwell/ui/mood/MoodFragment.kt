@@ -64,15 +64,17 @@ class MoodFragment : Fragment() {
         // Load moods from storage
         loadMoods()
 
-        // Set up FAB to add new mood
-        binding.fabAddMood.setOnClickListener {
-            showAddMoodDialog()
-        }
 
         // Set up share button
         binding.buttonShare.setOnClickListener {
             shareMoodSummary()
         }
+        
+        // Set up quick mood buttons
+        setupQuickMoodButtons()
+        
+        // Update stats
+        updateMoodStats()
     }
 
     /**
@@ -183,6 +185,75 @@ class MoodFragment : Fragment() {
         }
 
         startActivity(Intent.createChooser(shareIntent, "Share Mood Summary"))
+    }
+
+    /**
+     * Set up quick mood selector buttons
+     */
+    private fun setupQuickMoodButtons() {
+        binding.buttonMoodExcellent.setOnClickListener { addQuickMood("😊", "Excellent") }
+        binding.buttonMoodGood.setOnClickListener { addQuickMood("🙂", "Good") }
+        binding.buttonMoodNeutral.setOnClickListener { addQuickMood("😐", "Neutral") }
+        binding.buttonMoodBad.setOnClickListener { addQuickMood("😔", "Bad") }
+        binding.buttonMoodTerrible.setOnClickListener { addQuickMood("😢", "Terrible") }
+    }
+    
+    /**
+     * Add a quick mood entry without opening dialog
+     */
+    private fun addQuickMood(emoji: String, moodType: String) {
+        val newMood = MoodEntry(emoji = emoji, note = "")
+        prefsManager.addMood(newMood)
+        loadMoods()
+        updateMoodStats()
+        Toast.makeText(requireContext(), "$moodType mood logged!", Toast.LENGTH_SHORT).show()
+    }
+    
+    /**
+     * Update mood statistics in the header
+     */
+    private fun updateMoodStats() {
+        val today = System.currentTimeMillis()
+        val startOfDay = today - (today % (24 * 60 * 60 * 1000))
+        
+        // Count today's moods
+        val todayMoods = moods.count { it.timestamp >= startOfDay }
+        binding.textViewMoodCount.text = todayMoods.toString()
+        
+        // Calculate streak (simplified - consecutive days with moods)
+        val streak = calculateMoodStreak()
+        binding.textViewStreakCount.text = streak.toString()
+        
+        // Update date
+        binding.textViewDate.text = java.text.SimpleDateFormat("MMM dd, yyyy", java.util.Locale.getDefault()).format(java.util.Date())
+    }
+    
+    /**
+     * Calculate mood logging streak
+     */
+    private fun calculateMoodStreak(): Int {
+        if (moods.isEmpty()) return 0
+        
+        val calendar = java.util.Calendar.getInstance()
+        var streak = 0
+        var currentDay = calendar.timeInMillis
+        
+        // Check each day backwards
+        for (i in 0..30) { // Check last 30 days max
+            val dayStart = currentDay - (currentDay % (24 * 60 * 60 * 1000))
+            val dayEnd = dayStart + (24 * 60 * 60 * 1000)
+            
+            val hasMoodThisDay = moods.any { it.timestamp >= dayStart && it.timestamp < dayEnd }
+            
+            if (hasMoodThisDay) {
+                streak++
+                currentDay -= (24 * 60 * 60 * 1000) // Go to previous day
+            } else {
+                break // Streak broken
+            }
+        }
+        
+        return streak
     }
 
     /**

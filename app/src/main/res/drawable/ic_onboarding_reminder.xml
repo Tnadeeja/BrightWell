@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="100dp"
+    android:height="100dp"
+    android:viewportWidth="100"
+    android:viewportHeight="100">
+
+    <!-- Background Circle -->
+    <path
+        android:pathData="M50,50m-45,0a45,45 0,1 1,90 0a45,45 0,1 1,-90 0"
+        android:fillColor="#8B5CF6"
+        android:fillType="evenOdd" />
+    
+    <!-- Inner Circle -->
+    <path
+        android:pathData="M50,50m-35,0a35,35 0,1 1,70 0a35,35 0,1 1,-70 0"
+        android:fillColor="#A78BFA"
+        android:fillType="evenOdd" />
+    
+    <!-- Clock Face -->
+    <path
+        android:pathData="M50,50m-22,0a22,22 0,1 1,44 0a22,22 0,1 1,-44 0"
+        android:fillColor="#FFFFFF"
+        android:fillAlpha="0.9" />
+    
+    <!-- Clock Numbers (dots) -->
+    <path
+        android:pathData="M50,30m-1.5,0a1.5,1.5 0,1 1,3 0a1.5,1.5 0,1 1,-3 0"
+        android:fillColor="#8B5CF6"
+        android:fillAlpha="0.7" />
+    
+    <path
+        android:pathData="M70,50m-1.5,0a1.5,1.5 0,1 1,3 0a1.5,1.5 0,1 1,-3 0"
+        android:fillColor="#8B5CF6"
+        android:fillAlpha="0.7" />
+    
+    <path
+        android:pathData="M50,70m-1.5,0a1.5,1.5 0,1 1,3 0a1.5,1.5 0,1 1,-3 0"
+        android:fillColor="#8B5CF6"
+        android:fillAlpha="0.7" />
+    
+    <path
+        android:pathData="M30,50m-1.5,0a1.5,1.5 0,1 1,3 0a1.5,1.5 0,1 1,-3 0"
+        android:fillColor="#8B5CF6"
+        android:fillAlpha="0.7" />
+    
+    <!-- Clock Hands -->
+    <!-- Hour Hand (pointing to 9) -->
+    <path
+        android:pathData="M50,50L42,50"
+        android:strokeColor="#8B5CF6"
+        android:strokeWidth="3"
+        android:strokeLineCap="round" />
+    
+    <!-- Minute Hand (pointing to 12) -->
+    <path
+        android:pathData="M50,50L50,35"
+        android:strokeColor="#8B5CF6"
+        android:strokeWidth="2"
+        android:strokeLineCap="round" />
+    
+    <!-- Center Dot -->
+    <path
+        android:pathData="M50,50m-2,0a2,2 0,1 1,4 0a2,2 0,1 1,-4 0"
+        android:fillColor="#8B5CF6" />
+    
+    <!-- Bell Elements -->
+    <path
+        android:pathData="M45,20C45,18 47,16 50,16C53,16 55,18 55,20"
+        android:strokeColor="#FFFFFF"
+        android:strokeWidth="2"
+        android:strokeLineCap="round"
+        android:strokeAlpha="0.8" />
+    
+    <!-- Notification Dots -->
+    <path
+        android:pathData="M75,30L76.5,27L78,30L81,31.5L78,33L76.5,36L75,33L72,31.5Z"
+        android:fillColor="#FFFFFF"
+        android:fillAlpha="0.6" />
+    
+    <path
+        android:pathData="M25,35L26.5,32L28,35L31,36.5L28,38L26.5,41L25,38L22,36.5Z"
+        android:fillColor="#FFFFFF"
+        android:fillAlpha="0.7" />
+    
+    <path
+        android:pathData="M80,65L81.5,62L83,65L86,66.5L83,68L81.5,71L80,68L77,66.5Z"
+        android:fillColor="#FFFFFF"
+        android:fillAlpha="0.5" />
+
+</vector>

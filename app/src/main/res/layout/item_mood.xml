@@ -1,65 +1,115 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!-- Professional Mood Card - Glassmorphism Style -->
 <com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_marginVertical="6dp"
-    app:cardCornerRadius="12dp"
-    app:cardElevation="2dp">
+    android:layout_marginVertical="8dp"
+    android:backgroundTint="@color/white"
+    app:cardCornerRadius="24dp"
+    app:cardElevation="6dp">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="16dp">
+        android:padding="20dp">
 
-        <!-- Emoji -->
-        <TextView
-            android:id="@+id/textViewEmoji"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textSize="40sp"
+        <!-- Gradient Icon Circle -->
+        <FrameLayout
+            android:id="@+id/iconContainer"
+            android:layout_width="64dp"
+            android:layout_height="64dp"
+            android:background="@drawable/bg_icon_circle"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            tools:text="😊" />
+            app:layout_constraintTop_toTopOf="parent">
+
+            <TextView
+                android:id="@+id/textViewEmoji"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:textSize="36sp"
+                tools:text="😊" />
+        </FrameLayout>
+
+        <!-- Mood Type -->
+        <TextView
+            android:id="@+id/textViewMoodType"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="12dp"
+            android:fontFamily="sans-serif-medium"
+            android:textColor="@color/text_primary"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toStartOf="@id/buttonDelete"
+            app:layout_constraintStart_toEndOf="@id/iconContainer"
+            app:layout_constraintTop_toTopOf="@id/iconContainer"
+            tools:text="Excellent" />
 
         <!-- Timestamp -->
         <TextView
             android:id="@+id/textViewTimestamp"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_marginEnd="8dp"
+            android:layout_marginTop="6dp"
+            android:fontFamily="sans-serif"
             android:textColor="@color/text_secondary"
             android:textSize="14sp"
-            app:layout_constraintEnd_toStartOf="@id/buttonDelete"
-            app:layout_constraintStart_toEndOf="@id/textViewEmoji"
-            app:layout_constraintTop_toTopOf="@id/textViewEmoji"
-            tools:text="Today at 3:30 PM" />
+            app:layout_constraintEnd_toEndOf="@id/textViewMoodType"
+            app:layout_constraintStart_toStartOf="@id/textViewMoodType"
+            app:layout_constraintTop_toBottomOf="@id/textViewMoodType"
+            tools:text="3:30 PM" />
 
-        <!-- Note -->
-        <TextView
-            android:id="@+id/textViewNote"
+        <!-- Note with Icon -->
+        <LinearLayout
+            android:id="@+id/noteLayout"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="4dp"
-            android:textColor="@color/text_primary"
-            android:textSize="14sp"
-            app:layout_constraintEnd_toEndOf="@id/textViewTimestamp"
-            app:layout_constraintStart_toStartOf="@id/textViewTimestamp"
-            app:layout_constraintTop_toBottomOf="@id/textViewTimestamp"
-            tools:text="Feeling great today!" />
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            app:layout_constraintEnd_toEndOf="@id/textViewMoodType"
+            app:layout_constraintStart_toStartOf="@id/textViewMoodType"
+            app:layout_constraintTop_toBottomOf="@id/textViewTimestamp">
 
-        <!-- Delete Button -->
-        <ImageButton
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="sans-serif"
+                android:text="💭 "
+                android:textSize="12sp" />
+
+            <TextView
+                android:id="@+id/textViewNote"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="sans-serif"
+                android:textColor="@color/text_hint"
+                android:textSize="12sp"
+                tools:text="Feeling great today!" />
+        </LinearLayout>
+
+        <!-- Professional Delete Button -->
+        <FrameLayout
             android:id="@+id/buttonDelete"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
-            android:background="?attr/selectableItemBackgroundBorderless"
-            android:contentDescription="@string/delete"
-            android:src="@drawable/ic_delete"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:background="@drawable/bg_gradient_red"
+            app:layout_constraintBottom_toBottomOf="@id/iconContainer"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="@id/iconContainer">
+
+            <ImageView
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_gravity="center"
+                android:contentDescription="@string/delete"
+                android:src="@drawable/ic_delete"
+                android:tint="@color/white" />
+        </FrameLayout>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

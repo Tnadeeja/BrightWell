@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="100dp"
+    android:height="100dp"
+    android:viewportWidth="100"
+    android:viewportHeight="100">
+
+    <!-- Background Circle -->
+    <path
+        android:pathData="M50,50m-45,0a45,45 0,1 1,90 0a45,45 0,1 1,-90 0"
+        android:fillColor="#10B981"
+        android:fillType="evenOdd" />
+    
+    <!-- Inner Circle -->
+    <path
+        android:pathData="M50,50m-35,0a35,35 0,1 1,70 0a35,35 0,1 1,-70 0"
+        android:fillColor="#34D399"
+        android:fillType="evenOdd" />
+    
+    <!-- Person Icon -->
+    <!-- Head -->
+    <path
+        android:pathData="M50,50m-12,0a12,12 0,1 1,24 0a12,12 0,1 1,-24 0"
+        android:fillColor="#FFFFFF"
+        android:fillAlpha="0.9" />
+    
+    <!-- Body -->
+    <path
+        android:pathData="M50,62C42,62 36,68 36,76C36,78 38,80 40,80L60,80C62,80 64,78 64,76C64,68 58,62 50,62Z"
+        android:fillColor="#FFFFFF"
+        android:fillAlpha="0.9" />
+    
+    <!-- Decorative Elements -->
+    <path
+        android:pathData="M25,30L27,25L29,30L34,32L29,34L27,39L25,34L20,32Z"
+        android:fillColor="#FFFFFF"
+        android:fillAlpha="0.6" />
+    
+    <path
+        android:pathData="M75,25L76.5,22L78,25L81,26.5L78,28L76.5,31L75,28L72,26.5Z"
+        android:fillColor="#FFFFFF"
+        android:fillAlpha="0.7" />
+    
+    <path
+        android:pathData="M80,70L81.5,67L83,70L86,71.5L83,73L81.5,76L80,73L77,71.5Z"
+        android:fillColor="#FFFFFF"
+        android:fillAlpha="0.5" />
+
+</vector>

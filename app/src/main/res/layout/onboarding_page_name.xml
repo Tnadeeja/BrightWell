@@ -6,13 +6,13 @@
     android:layout_height="match_parent"
     android:padding="32dp">
 
-    <!-- Icon -->
-    <TextView
-        android:id="@+id/iconEmoji"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="👋"
-        android:textSize="100sp"
+    <!-- Modern Vector Illustration -->
+    <ImageView
+        android:id="@+id/iconIllustration"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:src="@drawable/ic_onboarding_profile"
+        android:contentDescription="Profile setup illustration"
         app:layout_constraintBottom_toTopOf="@id/guideline"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

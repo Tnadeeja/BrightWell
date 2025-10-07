@@ -1,6 +1,5 @@
 package com.wellness.brightwell.ui.habits
 
-import android.graphics.Color
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.core.content.ContextCompat
@@ -11,7 +10,7 @@ import java.text.SimpleDateFormat
 import java.util.*
 
 /**
- * Adapter for horizontal calendar date picker
+ * Simple Calendar Adapter - Clean Implementation
  */
 class CalendarDateAdapter(
     private val dates: List<CalendarDate>,
@@ -47,35 +46,21 @@ class CalendarDateAdapter(
     ) : RecyclerView.ViewHolder(binding.root) {
 
         fun bind(date: CalendarDate, isSelected: Boolean) {
+            // Set day name and date number
             binding.textViewDay.text = date.dayName
             binding.textViewDate.text = date.dayNumber.toString()
 
-            // Set colors based on selection and today
-            if (isSelected) {
-                // Selected state - solid primary color
-                binding.viewSelectionOverlay.visibility = android.view.View.VISIBLE
-                binding.viewSelectionOverlay.setBackgroundResource(R.drawable.bg_calendar_selected_modern)
-                binding.textViewDay.setTextColor(Color.WHITE)
-                binding.textViewDate.setTextColor(Color.WHITE)
-            } else if (date.isToday) {
-                // Today state - light green with border
-                binding.viewSelectionOverlay.visibility = android.view.View.VISIBLE
-                binding.viewSelectionOverlay.setBackgroundResource(R.drawable.bg_calendar_today_modern)
-                binding.textViewDay.setTextColor(
-                    ContextCompat.getColor(binding.root.context, R.color.primary)
-                )
-                binding.textViewDate.setTextColor(
-                    ContextCompat.getColor(binding.root.context, R.color.primary)
-                )
+            // Simple logic: if today, use green background and white text
+            if (date.isToday) {
+                // TODAY - Green background, white text
+                binding.root.setBackgroundResource(R.drawable.calendar_today_background)
+                binding.textViewDay.setTextColor(ContextCompat.getColor(binding.root.context, android.R.color.white))
+                binding.textViewDate.setTextColor(ContextCompat.getColor(binding.root.context, android.R.color.white))
             } else {
-                // Default state
-                binding.viewSelectionOverlay.visibility = android.view.View.GONE
-                binding.textViewDay.setTextColor(
-                    ContextCompat.getColor(binding.root.context, R.color.text_hint)
-                )
-                binding.textViewDate.setTextColor(
-                    ContextCompat.getColor(binding.root.context, R.color.text_primary)
-                )
+                // NOT TODAY - White background, dark text
+                binding.root.setBackgroundResource(R.drawable.calendar_item_background)
+                binding.textViewDay.setTextColor(ContextCompat.getColor(binding.root.context, R.color.text_hint))
+                binding.textViewDate.setTextColor(ContextCompat.getColor(binding.root.context, R.color.text_primary))
             }
 
             binding.root.setOnClickListener {

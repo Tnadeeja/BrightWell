@@ -2,11 +2,11 @@
 <resources>
     <!-- 2025 Modern Ultra-Minimal Palette -->
     
-    <!-- Primary Gradient Colors (Neon Green - 60%) -->
-    <color name="primary">#00FF88</color>
-    <color name="primary_dark">#00CC6F</color>
-    <color name="primary_light">#33FFA3</color>
-    <color name="primary_glow">#00FF88</color>
+    <!-- Primary Gradient Colors (Bright Green - 60%) -->
+    <color name="primary">#4CAF50</color>
+    <color name="primary_dark">#388E3C</color>
+    <color name="primary_light">#81C784</color>
+    <color name="primary_glow">#4CAF50</color>
     
     <!-- Secondary Colors (Teal - 30%) -->
     <color name="secondary">#06B6D4</color>

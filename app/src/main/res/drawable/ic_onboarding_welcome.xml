@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="120dp"
+    android:height="120dp"
+    android:viewportWidth="120"
+    android:viewportHeight="120">
+
+    <!-- Background Circle with Gradient -->
+    <path
+        android:pathData="M60,60m-50,0a50,50 0,1 1,100 0a50,50 0,1 1,-100 0"
+        android:fillColor="#4F46E5"
+        android:fillType="evenOdd" />
+    
+    <!-- Inner Circle -->
+    <path
+        android:pathData="M60,60m-40,0a40,40 0,1 1,80 0a40,40 0,1 1,-80 0"
+        android:fillColor="#6366F1"
+        android:fillType="evenOdd" />
+    
+    <!-- Sparkle Elements -->
+    <path
+        android:pathData="M45,35L47,30L49,35L54,37L49,39L47,44L45,39L40,37Z"
+        android:fillColor="#FFFFFF"
+        android:fillAlpha="0.9" />
+    
+    <path
+        android:pathData="M75,45L76.5,42L78,45L81,46.5L78,48L76.5,51L75,48L72,46.5Z"
+        android:fillColor="#FFFFFF"
+        android:fillAlpha="0.7" />
+    
+    <path
+        android:pathData="M35,75L36.5,72L38,75L41,76.5L38,78L36.5,81L35,78L32,76.5Z"
+        android:fillColor="#FFFFFF"
+        android:fillAlpha="0.8" />
+    
+    <!-- Central Star -->
+    <path
+        android:pathData="M60,45L63,54L72,54L65.5,59.5L68.5,68.5L60,63L51.5,68.5L54.5,59.5L48,54L57,54Z"
+        android:fillColor="#FFFFFF"
+        android:fillAlpha="0.95" />
+    
+    <!-- Highlight on star -->
+    <path
+        android:pathData="M60,45L61.5,50L66,50L62.75,52.75L64.25,57.25L60,54.5L55.75,57.25L57.25,52.75L54,50L58.5,50Z"
+        android:fillColor="#F8FAFC"
+        android:fillAlpha="0.6" />
+
+</vector>

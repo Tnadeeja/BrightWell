@@ -225,7 +225,7 @@
                 android:fontFamily="sans-serif-medium"
                 android:text="Custom Amount"
                 android:textAllCaps="false"
-                android:textColor="@color/secondary"
+                android:textColor="#ffff"
                 android:textSize="15sp" />
         </LinearLayout>
     </com.google.android.material.card.MaterialCardView>
