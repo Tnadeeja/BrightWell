@@ -93,23 +93,18 @@
         </LinearLayout>
 
         <!-- Modern Delete Button with Gradient Background -->
-        <FrameLayout
+        <ImageButton
             android:id="@+id/buttonDelete"
             android:layout_width="48dp"
             android:layout_height="48dp"
             android:background="@drawable/bg_gradient_teal"
+            android:contentDescription="@string/delete"
+            android:src="@drawable/ic_delete"
+            android:tint="@color/white"
+            android:scaleType="center"
             app:layout_constraintBottom_toBottomOf="@id/iconContainer"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="@id/iconContainer">
-
-            <ImageButton
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:background="?attr/selectableItemBackgroundBorderless"
-                android:contentDescription="@string/delete"
-                android:src="@drawable/ic_delete"
-                android:tint="@color/white" />
-        </FrameLayout>
+            app:layout_constraintTop_toTopOf="@id/iconContainer" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
