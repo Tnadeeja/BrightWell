@@ -31,6 +31,12 @@
             </intent-filter>
         </activity>
 
+        <!-- Onboarding Activity -->
+        <activity
+            android:name=".OnboardingActivity"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+
         <!-- Main Activity -->
         <activity
             android:name=".MainActivity"

@@ -52,15 +52,15 @@ class CalendarDateAdapter(
 
             // Set colors based on selection and today
             if (isSelected) {
-                binding.cardView.setCardBackgroundColor(
-                    ContextCompat.getColor(binding.root.context, R.color.primary)
-                )
+                // Selected state - solid primary color
+                binding.viewSelectionOverlay.visibility = android.view.View.VISIBLE
+                binding.viewSelectionOverlay.setBackgroundResource(R.drawable.bg_calendar_selected_modern)
                 binding.textViewDay.setTextColor(Color.WHITE)
                 binding.textViewDate.setTextColor(Color.WHITE)
             } else if (date.isToday) {
-                binding.cardView.setCardBackgroundColor(
-                    ContextCompat.getColor(binding.root.context, R.color.primary_light)
-                )
+                // Today state - light green with border
+                binding.viewSelectionOverlay.visibility = android.view.View.VISIBLE
+                binding.viewSelectionOverlay.setBackgroundResource(R.drawable.bg_calendar_today_modern)
                 binding.textViewDay.setTextColor(
                     ContextCompat.getColor(binding.root.context, R.color.primary)
                 )
@@ -68,9 +68,10 @@ class CalendarDateAdapter(
                     ContextCompat.getColor(binding.root.context, R.color.primary)
                 )
             } else {
-                binding.cardView.setCardBackgroundColor(Color.WHITE)
+                // Default state
+                binding.viewSelectionOverlay.visibility = android.view.View.GONE
                 binding.textViewDay.setTextColor(
-                    ContextCompat.getColor(binding.root.context, R.color.text_secondary)
+                    ContextCompat.getColor(binding.root.context, R.color.text_hint)
                 )
                 binding.textViewDate.setTextColor(
                     ContextCompat.getColor(binding.root.context, R.color.text_primary)

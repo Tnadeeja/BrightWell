@@ -14,24 +14,16 @@
         android:layout_height="wrap_content"
         android:padding="16dp">
 
-        <!-- Icon -->
+        <!-- Icon with proper alignment -->
         <TextView
             android:id="@+id/textViewIcon"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
             android:gravity="center"
-            android:text="✓"
+            android:text="💧"
             android:textSize="24sp"
+            android:background="@drawable/icon_background"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <!-- Checkbox -->
-        <CheckBox
-            android:id="@+id/checkBoxHabit"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            app:layout_constraintStart_toEndOf="@id/textViewIcon"
             app:layout_constraintTop_toTopOf="parent" />
 
         <!-- Habit Name -->
@@ -39,65 +31,94 @@
             android:id="@+id/textViewHabitName"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="12dp"
+            android:layout_marginStart="16dp"
             android:layout_marginEnd="8dp"
             android:textColor="@color/text_primary"
             android:textSize="16sp"
             android:textStyle="bold"
-            app:layout_constraintEnd_toStartOf="@id/buttonEdit"
-            app:layout_constraintStart_toEndOf="@id/checkBoxHabit"
-            app:layout_constraintTop_toTopOf="@id/checkBoxHabit"
-            tools:text="Drink Water" />
+            android:maxLines="1"
+            android:ellipsize="end"
+            app:layout_constraintEnd_toStartOf="@id/buttonMenu"
+            app:layout_constraintStart_toEndOf="@id/textViewIcon"
+            app:layout_constraintTop_toTopOf="@id/textViewIcon"
+            tools:text="Mindfulness" />
 
         <!-- Habit Description -->
         <TextView
             android:id="@+id/textViewHabitDescription"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="4dp"
+            android:layout_marginTop="2dp"
             android:textColor="@color/text_secondary"
-            android:textSize="14sp"
+            android:textSize="13sp"
+            android:maxLines="1"
+            android:ellipsize="end"
             app:layout_constraintEnd_toEndOf="@id/textViewHabitName"
             app:layout_constraintStart_toStartOf="@id/textViewHabitName"
             app:layout_constraintTop_toBottomOf="@id/textViewHabitName"
-            tools:text="Drink 8 glasses of water" />
+            tools:text="Daily meditation" />
 
-        <!-- Category and Difficulty -->
+        <!-- Menu Button (3 dots) -->
+        <ImageButton
+            android:id="@+id/buttonMenu"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:layout_marginEnd="8dp"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:contentDescription="Menu"
+            android:src="@drawable/ic_more_vert"
+            android:visibility="visible"
+            app:layout_constraintEnd_toStartOf="@id/checkBoxHabit"
+            app:layout_constraintTop_toTopOf="@id/textViewIcon"
+            app:layout_constraintBottom_toBottomOf="@id/textViewIcon" />
+
+        <!-- Checkbox aligned properly -->
+        <CheckBox
+            android:id="@+id/checkBoxHabit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@id/textViewIcon"
+            app:layout_constraintBottom_toBottomOf="@id/textViewIcon" />
+
+        <!-- Category Tag -->
+        <TextView
+            android:id="@+id/textViewCategory"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:background="@drawable/category_tag"
+            android:paddingHorizontal="8dp"
+            android:paddingVertical="3dp"
+            android:textColor="@color/primary"
+            android:textSize="11sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="@id/textViewHabitName"
+            app:layout_constraintTop_toBottomOf="@id/textViewHabitDescription"
+            tools:text="Mindfulness" />
+
+        <!-- Difficulty Tag -->
+        <TextView
+            android:id="@+id/textViewDifficulty"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:background="@drawable/difficulty_tag"
+            android:paddingHorizontal="8dp"
+            android:paddingVertical="3dp"
+            android:textColor="@color/text_secondary"
+            android:textSize="11sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toEndOf="@id/textViewCategory"
+            app:layout_constraintTop_toTopOf="@id/textViewCategory"
+            tools:text="Medium" />
+
+        <!-- Hidden layout for compatibility -->
         <LinearLayout
             android:id="@+id/layoutTags"
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:orientation="horizontal"
-            app:layout_constraintEnd_toEndOf="@id/textViewHabitName"
-            app:layout_constraintStart_toStartOf="@id/textViewHabitName"
-            app:layout_constraintTop_toBottomOf="@id/textViewHabitDescription">
-
-            <TextView
-                android:id="@+id/textViewCategory"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:background="@drawable/bg_tag"
-                android:paddingHorizontal="8dp"
-                android:paddingVertical="4dp"
-                android:textColor="@color/primary"
-                android:textSize="11sp"
-                android:textStyle="bold"
-                tools:text="Health" />
-
-            <TextView
-                android:id="@+id/textViewDifficulty"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="8dp"
-                android:background="@drawable/bg_tag"
-                android:paddingHorizontal="8dp"
-                android:paddingVertical="4dp"
-                android:textColor="@color/accent"
-                android:textSize="11sp"
-                android:textStyle="bold"
-                tools:text="Medium" />
-        </LinearLayout>
+            android:layout_height="0dp"
+            android:visibility="gone" />
 
         <!-- Streak -->
         <TextView
@@ -115,27 +136,23 @@
             tools:text="🔥 5 day streak"
             tools:visibility="visible" />
 
-        <!-- Edit Button -->
+        <!-- Hidden Edit Button for compatibility -->
         <ImageButton
             android:id="@+id/buttonEdit"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
-            android:background="?attr/selectableItemBackgroundBorderless"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:visibility="gone"
             android:contentDescription="@string/edit"
-            android:src="@drawable/ic_edit"
-            app:layout_constraintEnd_toStartOf="@id/buttonDelete"
-            app:layout_constraintTop_toTopOf="parent" />
+            android:src="@drawable/ic_edit" />
 
-        <!-- Delete Button -->
+        <!-- Hidden Delete Button for compatibility -->
         <ImageButton
             android:id="@+id/buttonDelete"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
-            android:background="?attr/selectableItemBackgroundBorderless"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:visibility="gone"
             android:contentDescription="@string/delete"
-            android:src="@drawable/ic_delete"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            android:src="@drawable/ic_delete" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

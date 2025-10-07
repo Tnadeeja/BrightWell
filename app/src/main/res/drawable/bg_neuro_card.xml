@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Neumorphism Card Background - 2025 Modern Style -->
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- Dark Shadow (bottom-right) -->
+    <item
+        android:left="0dp"
+        android:top="0dp">
+        <shape android:shape="rectangle">
+            <corners android:radius="24dp" />
+            <solid android:color="@color/neuro_shadow_dark" />
+        </shape>
+    </item>
+    
+    <!-- Light Shadow (top-left) -->
+    <item
+        android:bottom="4dp"
+        android:right="4dp">
+        <shape android:shape="rectangle">
+            <corners android:radius="24dp" />
+            <solid android:color="@color/neuro_shadow_light" />
+        </shape>
+    </item>
+    
+    <!-- Main Surface -->
+    <item
+        android:bottom="2dp"
+        android:left="2dp"
+        android:right="2dp"
+        android:top="2dp">
+        <shape android:shape="rectangle">
+            <corners android:radius="24dp" />
+            <solid android:color="@color/white" />
+        </shape>
+    </item>
+</layer-list>

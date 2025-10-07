@@ -72,6 +72,42 @@ class HabitsFragment : Fragment() {
 
         // Update the date display
         updateDateDisplay()
+        
+        // Update greeting
+        updateGreeting()
+        
+        // Update widget stats
+        updateWidgetStats()
+    }
+    
+    /**
+     * Update greeting based on time of day
+     */
+    private fun updateGreeting() {
+        val hour = java.util.Calendar.getInstance().get(java.util.Calendar.HOUR_OF_DAY)
+        val greeting = when (hour) {
+            in 0..11 -> "Good Morning 👋"
+            in 12..16 -> "Good Afternoon 👋"
+            in 17..20 -> "Good Evening 👋"
+            else -> "Good Night 🌙"
+        }
+        binding.textViewGreeting.text = greeting
+    }
+    
+    /**
+     * Update widget statistics
+     */
+    private fun updateWidgetStats() {
+        // Update total habits count
+        binding.textViewTotalHabits.text = habits.size.toString()
+        
+        // Update streak (simplified - just show 0 for now)
+        binding.textViewStreak.text = "0"
+        
+        // Update completed count
+        val today = DateUtils.getTodayString()
+        val completedCount = habits.count { it.isCompletedOn(today) }
+        binding.textViewCompletedCount.text = "$completedCount/${habits.size} done"
     }
 
     /**
@@ -139,10 +175,24 @@ class HabitsFragment : Fragment() {
         val dialog = AlertDialog.Builder(requireContext())
             .setView(binding.root)
             .create()
+            
+        // Make dialog full width with margins and max height
+        dialog.window?.setLayout(
+            ViewGroup.LayoutParams.MATCH_PARENT,
+            ViewGroup.LayoutParams.WRAP_CONTENT
+        )
+        dialog.window?.attributes?.horizontalMargin = 0.05f
+        
+        // Set maximum height to 80% of screen
+        val displayMetrics = resources.displayMetrics
+        val maxHeight = (displayMetrics.heightPixels * 0.8).toInt()
+        dialog.window?.setLayout(
+            ViewGroup.LayoutParams.MATCH_PARENT,
+            maxHeight
+        )
 
         // Variables to store selections
         var selectedIcon = "✓"
-        var selectedColor = "#6366F1"
         
         // Setup Icon Picker
         val iconAdapter = IconPickerAdapter(IconPickerAdapter.getDefaultIcons()) { icon ->
@@ -153,30 +203,18 @@ class HabitsFragment : Fragment() {
             layoutManager = GridLayoutManager(requireContext(), 6)
         }
         
-        // Setup Color Picker
-        val colorAdapter = ColorPickerAdapter(ColorPickerAdapter.getDefaultColors()) { color ->
-            selectedColor = color
-        }
-        binding.recyclerViewColors.apply {
-            adapter = colorAdapter
-            layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false)
-        }
-        
         // Setup Category Spinner
         val categories = arrayOf("Health", "Study", "Work", "Finance", "Personal Growth", "Fitness", "Mindfulness", "Hobby")
         val categoryAdapter = ArrayAdapter(requireContext(), android.R.layout.simple_spinner_item, categories)
         categoryAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
         binding.spinnerCategory.adapter = categoryAdapter
         
-        // Setup Frequency Radio Buttons
-        binding.radioGroupFrequency.setOnCheckedChangeListener { _, checkedId ->
-            when (checkedId) {
-                R.id.radioDaily, R.id.radioWeekly -> {
-                    binding.layoutCustomDays.visibility = View.GONE
-                }
-                R.id.radioCustom -> {
-                    binding.layoutCustomDays.visibility = View.VISIBLE
-                }
+        // Setup Frequency Chips
+        binding.chipGroupFrequency.setOnCheckedStateChangeListener { _, checkedIds ->
+            if (checkedIds.contains(R.id.chipCustom)) {
+                binding.layoutCustomDays.visibility = View.VISIBLE
+            } else {
+                binding.layoutCustomDays.visibility = View.GONE
             }
         }
         
@@ -190,11 +228,11 @@ class HabitsFragment : Fragment() {
                 return@setOnClickListener
             }
             
-            // Get frequency
-            val frequency = when (binding.radioGroupFrequency.checkedRadioButtonId) {
-                R.id.radioDaily -> "Daily"
-                R.id.radioWeekly -> "Weekly"
-                R.id.radioCustom -> "Custom"
+            // Get frequency from chips
+            val frequency = when (binding.chipGroupFrequency.checkedChipId) {
+                R.id.chipDaily -> "Daily"
+                R.id.chipWeekly -> "Weekly"
+                R.id.chipCustom -> "Custom"
                 else -> "Daily"
             }
             
@@ -227,7 +265,7 @@ class HabitsFragment : Fragment() {
                 else -> "Medium"
             }
             
-            // Create new habit with all details
+            // Create new habit with all details (white card background)
             val newHabit = Habit(
                 name = name,
                 description = description,
@@ -236,7 +274,7 @@ class HabitsFragment : Fragment() {
                 reminderEnabled = reminderEnabled,
                 category = category,
                 difficulty = difficulty,
-                color = selectedColor,
+                color = "#FFFFFF", // White background
                 icon = selectedIcon
             )
             
@@ -309,12 +347,13 @@ class HabitsFragment : Fragment() {
     }
 
     /**
-     * Update the progress bar showing today's completion percentage
+     * Update progress bar based on completed habits
      */
     private fun updateProgressBar() {
         if (habits.isEmpty()) {
             binding.progressBarHabits.progress = 0
             binding.textViewProgress.text = "0%"
+            binding.textViewCompletedCount.text = "0/0 done"
             return
         }
 
@@ -324,6 +363,10 @@ class HabitsFragment : Fragment() {
 
         binding.progressBarHabits.progress = percentage
         binding.textViewProgress.text = "$percentage%"
+        binding.textViewCompletedCount.text = "$completedCount/${habits.size} done"
+        
+        // Update widget stats
+        updateWidgetStats()
         
         // Celebrate if all habits are completed!
         if (percentage == 100 && habits.isNotEmpty()) {

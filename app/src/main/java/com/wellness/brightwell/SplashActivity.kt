@@ -33,9 +33,14 @@ class SplashActivity : AppCompatActivity() {
         // Start animations
         startAnimations()
 
-        // Navigate to main activity after delay
+        // Navigate to onboarding or main activity after delay
         Handler(Looper.getMainLooper()).postDelayed({
-            startActivity(Intent(this, MainActivity::class.java))
+            val intent = if (prefsManager.isOnboardingComplete()) {
+                Intent(this, MainActivity::class.java)
+            } else {
+                Intent(this, OnboardingActivity::class.java)
+            }
+            startActivity(intent)
             finish()
             // Add fade transition
             overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out)

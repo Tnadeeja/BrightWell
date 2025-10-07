@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <!-- Base application theme -->
+    <!-- 2025 Modern Ultra-Minimal Theme -->
     <style name="Base.Theme.BrightWell" parent="Theme.Material3.Light.NoActionBar">
         <!-- Primary brand color -->
         <item name="colorPrimary">@color/primary</item>
@@ -12,15 +12,24 @@
         <item name="colorSecondaryVariant">@color/secondary_dark</item>
         <item name="colorOnSecondary">@color/white</item>
         
-        <!-- Background colors -->
+        <!-- Background colors - Ultra Clean White -->
         <item name="android:colorBackground">@color/background</item>
         <item name="colorSurface">@color/surface</item>
         <item name="colorOnBackground">@color/text_primary</item>
         <item name="colorOnSurface">@color/text_primary</item>
         
-        <!-- Status bar color -->
-        <item name="android:statusBarColor">@color/primary</item>
-        <item name="android:windowLightStatusBar">false</item>
+        <!-- Status bar color - Clean white with dark icons -->
+        <item name="android:statusBarColor">@color/white</item>
+        <item name="android:windowLightStatusBar">true</item>
+        
+        <!-- Navigation bar -->
+        <item name="android:navigationBarColor">@color/white</item>
+        <item name="android:windowLightNavigationBar">true</item>
+        
+        <!-- Material Design 3 Shape System -->
+        <item name="shapeAppearanceSmallComponent">@style/ShapeAppearance.BrightWell.SmallComponent</item>
+        <item name="shapeAppearanceMediumComponent">@style/ShapeAppearance.BrightWell.MediumComponent</item>
+        <item name="shapeAppearanceLargeComponent">@style/ShapeAppearance.BrightWell.LargeComponent</item>
     </style>
 
     <style name="Theme.BrightWell" parent="Base.Theme.BrightWell" />
@@ -34,22 +43,85 @@
         <item name="android:windowContentOverlay">@null</item>
     </style>
     
-    <!-- Card style -->
-    <style name="CardStyle" parent="Widget.Material3.CardView.Elevated">
-        <item name="cardCornerRadius">12dp</item>
-        <item name="cardElevation">2dp</item>
-        <item name="cardBackgroundColor">@color/card_background</item>
-        <item name="contentPadding">16dp</item>
+    <!-- Shape Appearances - 2025 Modern Rounded Corners -->
+    <style name="ShapeAppearance.BrightWell.SmallComponent" parent="ShapeAppearance.Material3.SmallComponent">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">16dp</item>
     </style>
     
-    <!-- Button styles -->
+    <style name="ShapeAppearance.BrightWell.MediumComponent" parent="ShapeAppearance.Material3.MediumComponent">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">24dp</item>
+    </style>
+    
+    <style name="ShapeAppearance.BrightWell.LargeComponent" parent="ShapeAppearance.Material3.LargeComponent">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">28dp</item>
+    </style>
+    
+    <!-- Modern Card Styles -->
+    <style name="CardStyle" parent="Widget.Material3.CardView.Elevated">
+        <item name="cardCornerRadius">24dp</item>
+        <item name="cardElevation">8dp</item>
+        <item name="cardBackgroundColor">@color/white</item>
+        <item name="contentPadding">24dp</item>
+    </style>
+    
+    <style name="CardStyle.Glass" parent="CardStyle">
+        <item name="cardCornerRadius">28dp</item>
+        <item name="cardElevation">6dp</item>
+        <item name="strokeWidth">1dp</item>
+        <item name="strokeColor">@color/glass_border</item>
+    </style>
+    
+    <!-- Modern Button Styles -->
     <style name="ButtonStyle" parent="Widget.Material3.Button">
-        <item name="cornerRadius">8dp</item>
+        <item name="cornerRadius">16dp</item>
         <item name="android:textAllCaps">false</item>
+        <item name="android:fontFamily">sans-serif-medium</item>
+        <item name="android:minHeight">56dp</item>
+        <item name="android:paddingStart">24dp</item>
+        <item name="android:paddingEnd">24dp</item>
+    </style>
+    
+    <style name="ButtonStyle.Gradient" parent="ButtonStyle">
+        <item name="backgroundTint">@null</item>
+        <item name="android:background">@drawable/bg_button_gradient</item>
+        <item name="android:textColor">@color/text_on_gradient</item>
     </style>
     
     <style name="ButtonStyle.Outlined" parent="Widget.Material3.Button.OutlinedButton">
-        <item name="cornerRadius">8dp</item>
+        <item name="cornerRadius">16dp</item>
         <item name="android:textAllCaps">false</item>
+        <item name="android:fontFamily">sans-serif-medium</item>
+        <item name="strokeWidth">2dp</item>
+        <item name="android:minHeight">56dp</item>
+    </style>
+    
+    <!-- Modern Dialog Style -->
+    <style name="DialogStyle" parent="Theme.Material3.Light.Dialog">
+        <item name="android:windowBackground">@drawable/bg_dialog_modern</item>
+        <item name="android:windowMinWidthMajor">90%</item>
+        <item name="android:windowMinWidthMinor">90%</item>
+        <item name="cornerRadius">28dp</item>
+    </style>
+    
+    <!-- Text Styles -->
+    <style name="TextAppearance.BrightWell.Headline" parent="TextAppearance.Material3.HeadlineMedium">
+        <item name="android:fontFamily">sans-serif-medium</item>
+        <item name="android:textColor">@color/text_primary</item>
+        <item name="android:textSize">24sp</item>
+    </style>
+    
+    <style name="TextAppearance.BrightWell.Body" parent="TextAppearance.Material3.BodyMedium">
+        <item name="android:fontFamily">sans-serif</item>
+        <item name="android:textColor">@color/text_secondary</item>
+        <item name="android:textSize">15sp</item>
+    </style>
+    
+    <style name="TextAppearance.BrightWell.Caption" parent="TextAppearance.Material3.BodySmall">
+        <item name="android:fontFamily">sans-serif</item>
+        <item name="android:textColor">@color/text_hint</item>
+        <item name="android:textSize">13sp</item>
     </style>
 </resources>

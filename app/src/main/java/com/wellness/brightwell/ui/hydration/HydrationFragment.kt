@@ -1,9 +1,11 @@
 package com.wellness.brightwell.ui.hydration
 
+import android.animation.ObjectAnimator
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.animation.DecelerateInterpolator
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.fragment.app.Fragment
@@ -92,13 +94,35 @@ class HydrationFragment : Fragment() {
     }
 
     /**
-     * Set up quick add buttons for common water amounts
+     * Set up quick add buttons for common water amounts with animations
      */
     private fun setupQuickAddButtons() {
-        binding.button250ml.setOnClickListener { addWater(250) }
-        binding.button500ml.setOnClickListener { addWater(500) }
-        binding.button750ml.setOnClickListener { addWater(750) }
-        binding.button1000ml.setOnClickListener { addWater(1000) }
+        // Add scale animation to buttons
+        val buttons = listOf(
+            binding.button250ml to 250,
+            binding.button500ml to 500,
+            binding.button750ml to 750,
+            binding.button1000ml to 1000
+        )
+
+        buttons.forEach { (button, amount) ->
+            button.setOnClickListener {
+                // Scale animation on click
+                it.animate()
+                    .scaleX(0.95f)
+                    .scaleY(0.95f)
+                    .setDuration(100)
+                    .withEndAction {
+                        it.animate()
+                            .scaleX(1f)
+                            .scaleY(1f)
+                            .setDuration(100)
+                            .start()
+                        addWater(amount)
+                    }
+                    .start()
+            }
+        }
     }
 
     /**
@@ -238,14 +262,21 @@ class HydrationFragment : Fragment() {
     }
 
     /**
-     * Update the progress display
+     * Update the progress display with smooth animations
      */
     private fun updateProgress() {
         val total = getTodayTotal()
         val percentage = ((total.toFloat() / dailyGoal) * 100).toInt().coerceAtMost(100)
 
         binding.progressBarHydration.max = dailyGoal
-        binding.progressBarHydration.progress = total
+        
+        // Animate progress bar
+        ObjectAnimator.ofInt(binding.progressBarHydration, "progress", binding.progressBarHydration.progress, total)
+            .apply {
+                duration = 500
+                interpolator = DecelerateInterpolator()
+                start()
+            }
         
         binding.textViewProgress.text = "$total ml / $dailyGoal ml"
         binding.textViewPercentage.text = "$percentage%"
@@ -255,7 +286,7 @@ class HydrationFragment : Fragment() {
         val totalGlasses = dailyGoal / 250
         binding.textViewGlasses.text = "💧 $glasses / $totalGlasses glasses"
 
-        // Change color based on progress
+        // Change color based on progress with animation
         val color = when {
             percentage >= 100 -> requireContext().getColor(R.color.success)
             percentage >= 75 -> requireContext().getColor(R.color.secondary)
@@ -263,6 +294,20 @@ class HydrationFragment : Fragment() {
             else -> requireContext().getColor(R.color.primary)
         }
         binding.textViewPercentage.setTextColor(color)
+        
+        // Add scale animation to percentage when it changes
+        binding.textViewPercentage.animate()
+            .scaleX(1.1f)
+            .scaleY(1.1f)
+            .setDuration(200)
+            .withEndAction {
+                binding.textViewPercentage.animate()
+                    .scaleX(1f)
+                    .scaleY(1f)
+                    .setDuration(200)
+                    .start()
+            }
+            .start()
     }
 
     /**

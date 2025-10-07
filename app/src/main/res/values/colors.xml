@@ -1,27 +1,52 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <!-- Primary Brand Colors -->
-    <color name="primary">#6366F1</color>
-    <color name="primary_dark">#4F46E5</color>
-    <color name="primary_light">#818CF8</color>
+    <!-- 2025 Modern Ultra-Minimal Palette -->
     
-    <!-- Secondary Colors -->
-    <color name="secondary">#10B981</color>
-    <color name="secondary_dark">#059669</color>
-    <color name="secondary_light">#34D399</color>
+    <!-- Primary Gradient Colors (Neon Green - 60%) -->
+    <color name="primary">#00FF88</color>
+    <color name="primary_dark">#00CC6F</color>
+    <color name="primary_light">#33FFA3</color>
+    <color name="primary_glow">#00FF88</color>
     
-    <!-- Accent Colors -->
-    <color name="accent">#F59E0B</color>
+    <!-- Secondary Colors (Teal - 30%) -->
+    <color name="secondary">#06B6D4</color>
+    <color name="secondary_dark">#0891B2</color>
+    <color name="secondary_light">#22D3EE</color>
     
-    <!-- Background Colors -->
-    <color name="background">#F9FAFB</color>
+    <!-- Accent Colors (Sky Blue - 10%) -->
+    <color name="accent">#38BDF8</color>
+    <color name="accent_glow">#7DD3FC</color>
+    
+    <!-- Background Colors - Ultra Clean White -->
+    <color name="background">#FFFFFF</color>
+    <color name="background_secondary">#FAFAFA</color>
     <color name="surface">#FFFFFF</color>
     <color name="card_background">#FFFFFF</color>
     
-    <!-- Text Colors -->
-    <color name="text_primary">#111827</color>
-    <color name="text_secondary">#6B7280</color>
-    <color name="text_hint">#9CA3AF</color>
+    <!-- Glassmorphism Colors -->
+    <color name="glass_white">#F5FFFFFF</color>
+    <color name="glass_light">#E6FFFFFF</color>
+    <color name="glass_border">#33FFFFFF</color>
+    <color name="glass_shadow">#1A000000</color>
+    
+    <!-- Neumorphism Colors -->
+    <color name="neuro_light">#FFFFFF</color>
+    <color name="neuro_shadow_dark">#D1D5DB</color>
+    <color name="neuro_shadow_light">#FFFFFF</color>
+    
+    <!-- Text Colors - High Contrast on White -->
+    <color name="text_primary">#0F172A</color>
+    <color name="text_secondary">#64748B</color>
+    <color name="text_hint">#94A3B8</color>
+    <color name="text_on_gradient">#FFFFFF</color>
+    
+    <!-- Gradient Colors -->
+    <color name="gradient_green_start">#00FF88</color>
+    <color name="gradient_green_end">#00CC6F</color>
+    <color name="gradient_teal_start">#06B6D4</color>
+    <color name="gradient_teal_end">#0891B2</color>
+    <color name="gradient_blue_start">#38BDF8</color>
+    <color name="gradient_blue_end">#0EA5E9</color>
     
     <!-- Status Colors -->
     <color name="success">#10B981</color>
@@ -35,5 +60,9 @@
     <color name="transparent">#00000000</color>
     
     <!-- Divider -->
-    <color name="divider">#E5E7EB</color>
+    <color name="divider">#F1F5F9</color>
+    
+    <!-- Interactive States -->
+    <color name="hover_overlay">#0A000000</color>
+    <color name="pressed_overlay">#14000000</color>
 </resources>

@@ -1,8 +1,12 @@
 package com.wellness.brightwell.ui.hydration
 
+import android.animation.ObjectAnimator
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import android.view.animation.DecelerateInterpolator
+import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
+import com.wellness.brightwell.R
 import com.wellness.brightwell.data.HydrationEntry
 import com.wellness.brightwell.databinding.ItemHydrationBinding
 import com.wellness.brightwell.utils.DateUtils
@@ -40,7 +44,7 @@ class HydrationAdapter(
     ) : RecyclerView.ViewHolder(binding.root) {
 
         fun bind(entry: HydrationEntry) {
-            // Display amount
+            // Display amount with animation
             binding.textViewAmount.text = "${entry.amount} ml"
 
             // Display time
@@ -54,18 +58,53 @@ class HydrationAdapter(
             }
             binding.textViewGlasses.text = glassesText
 
-            // Set up delete button
+            // Set up delete button with scale animation
             binding.buttonDelete.setOnClickListener {
-                onEntryDelete(entry)
+                // Scale animation on click
+                it.animate()
+                    .scaleX(0.9f)
+                    .scaleY(0.9f)
+                    .setDuration(100)
+                    .withEndAction {
+                        it.animate()
+                            .scaleX(1f)
+                            .scaleY(1f)
+                            .setDuration(100)
+                            .start()
+                        onEntryDelete(entry)
+                    }
+                    .start()
             }
 
             // Show water drop icon based on amount
             val icon = when {
-                entry.amount >= 1000 -> "💧💧💧"
-                entry.amount >= 500 -> "💧💧"
+                entry.amount >= 1000 -> "💧"
+                entry.amount >= 500 -> "💧"
                 else -> "💧"
             }
             binding.textViewIcon.text = icon
+
+            // Set dynamic gradient background for icon based on position
+            val gradients = listOf(
+                R.drawable.bg_icon_circle,
+                R.drawable.bg_icon_circle_teal,
+                R.drawable.bg_icon_circle_blue
+            )
+            val gradientIndex = adapterPosition % gradients.size
+            binding.iconContainer.background = ContextCompat.getDrawable(
+                binding.root.context,
+                gradients[gradientIndex]
+            )
+
+            // Add entrance animation
+            binding.root.alpha = 0f
+            binding.root.translationY = 50f
+            binding.root.animate()
+                .alpha(1f)
+                .translationY(0f)
+                .setDuration(300)
+                .setInterpolator(DecelerateInterpolator())
+                .start()
         }
     }
 }

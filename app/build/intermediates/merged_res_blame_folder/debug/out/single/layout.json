@@ -1,19 +1,31 @@
 [
     {
+        "merged": "com.wellness.brightwell.app-mergeDebugResources-54:/layout/onboarding_page_goal.xml",
+        "source": "com.wellness.brightwell.app-main-57:/layout/onboarding_page_goal.xml"
+    },
+    {
+        "merged": "com.wellness.brightwell.app-mergeDebugResources-54:/layout/activity_onboarding.xml",
+        "source": "com.wellness.brightwell.app-main-57:/layout/activity_onboarding.xml"
+    },
+    {
         "merged": "C:\\Users\\Nadeeja Weerasinghe\\.gradle\\daemon\\9.0-milestone-1\\com.wellness.brightwell.app-mergeDebugResources-54:\\layout\\item_mood.xml",
         "source": "C:\\Users\\Nadeeja Weerasinghe\\.gradle\\daemon\\9.0-milestone-1\\com.wellness.brightwell.app-main-57:\\layout\\item_mood.xml"
+    },
+    {
+        "merged": "com.wellness.brightwell.app-mergeDebugResources-54:/layout/onboarding_page_reminder.xml",
+        "source": "com.wellness.brightwell.app-main-57:/layout/onboarding_page_reminder.xml"
     },
     {
         "merged": "C:\\Users\\Nadeeja Weerasinghe\\.gradle\\daemon\\9.0-milestone-1\\com.wellness.brightwell.app-mergeDebugResources-54:\\layout\\item_template.xml",
         "source": "C:\\Users\\Nadeeja Weerasinghe\\.gradle\\daemon\\9.0-milestone-1\\com.wellness.brightwell.app-main-57:\\layout\\item_template.xml"
     },
     {
-        "merged": "com.wellness.brightwell.app-mergeDebugResources-54:/layout/fragment_habits.xml",
-        "source": "com.wellness.brightwell.app-main-57:/layout/fragment_habits.xml"
-    },
-    {
         "merged": "C:\\Users\\Nadeeja Weerasinghe\\.gradle\\daemon\\9.0-milestone-1\\com.wellness.brightwell.app-mergeDebugResources-54:\\layout\\item_icon_picker.xml",
         "source": "C:\\Users\\Nadeeja Weerasinghe\\.gradle\\daemon\\9.0-milestone-1\\com.wellness.brightwell.app-main-57:\\layout\\item_icon_picker.xml"
+    },
+    {
+        "merged": "com.wellness.brightwell.app-mergeDebugResources-54:/layout/onboarding_page_welcome.xml",
+        "source": "com.wellness.brightwell.app-main-57:/layout/onboarding_page_welcome.xml"
     },
     {
         "merged": "C:\\Users\\Nadeeja Weerasinghe\\.gradle\\daemon\\9.0-milestone-1\\com.wellness.brightwell.app-mergeDebugResources-54:\\layout\\activity_main.xml",
@@ -28,16 +40,16 @@
         "source": "C:\\Users\\Nadeeja Weerasinghe\\.gradle\\daemon\\9.0-milestone-1\\com.wellness.brightwell.app-main-57:\\layout\\item_hydration.xml"
     },
     {
-        "merged": "com.wellness.brightwell.app-mergeDebugResources-54:/layout/activity_main.xml",
-        "source": "com.wellness.brightwell.app-main-57:/layout/activity_main.xml"
-    },
-    {
         "merged": "C:\\Users\\Nadeeja Weerasinghe\\.gradle\\daemon\\9.0-milestone-1\\com.wellness.brightwell.app-mergeDebugResources-54:\\layout\\dialog_set_goal.xml",
         "source": "C:\\Users\\Nadeeja Weerasinghe\\.gradle\\daemon\\9.0-milestone-1\\com.wellness.brightwell.app-main-57:\\layout\\dialog_set_goal.xml"
     },
     {
         "merged": "C:\\Users\\Nadeeja Weerasinghe\\.gradle\\daemon\\9.0-milestone-1\\com.wellness.brightwell.app-mergeDebugResources-54:\\layout\\fragment_charts.xml",
         "source": "C:\\Users\\Nadeeja Weerasinghe\\.gradle\\daemon\\9.0-milestone-1\\com.wellness.brightwell.app-main-57:\\layout\\fragment_charts.xml"
+    },
+    {
+        "merged": "com.wellness.brightwell.app-mergeDebugResources-54:/layout/onboarding_page_name.xml",
+        "source": "com.wellness.brightwell.app-main-57:/layout/onboarding_page_name.xml"
     },
     {
         "merged": "C:\\Users\\Nadeeja Weerasinghe\\.gradle\\daemon\\9.0-milestone-1\\com.wellness.brightwell.app-mergeDebugResources-54:\\layout\\fragment_hydration.xml",
@@ -62,10 +74,6 @@
     {
         "merged": "C:\\Users\\Nadeeja Weerasinghe\\.gradle\\daemon\\9.0-milestone-1\\com.wellness.brightwell.app-mergeDebugResources-54:\\layout\\fragment_calendar.xml",
         "source": "C:\\Users\\Nadeeja Weerasinghe\\.gradle\\daemon\\9.0-milestone-1\\com.wellness.brightwell.app-main-57:\\layout\\fragment_calendar.xml"
-    },
-    {
-        "merged": "com.wellness.brightwell.app-mergeDebugResources-54:/layout/item_habit.xml",
-        "source": "com.wellness.brightwell.app-main-57:/layout/item_habit.xml"
     },
     {
         "merged": "C:\\Users\\Nadeeja Weerasinghe\\.gradle\\daemon\\9.0-milestone-1\\com.wellness.brightwell.app-mergeDebugResources-54:\\layout\\fragment_templates.xml",

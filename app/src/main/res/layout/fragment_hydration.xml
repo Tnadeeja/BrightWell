@@ -1,19 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<!-- 2025 Modern Ultra-Minimal Hydration Tracker -->
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/background">
+    android:background="@color/background"
+    android:fillViewport="true">
 
-    <!-- Header Card -->
+<androidx.constraintlayout.widget.ConstraintLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingTop="8dp"
+    android:paddingBottom="20dp">
+
+    <!-- Header Card - Neumorphism Style -->
     <com.google.android.material.card.MaterialCardView
         android:id="@+id/cardHeader"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_margin="16dp"
-        app:cardCornerRadius="12dp"
-        app:cardElevation="2dp"
+        android:layout_margin="20dp"
+        android:backgroundTint="@color/white"
+        app:cardCornerRadius="28dp"
+        app:cardElevation="8dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
@@ -22,13 +31,14 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:padding="16dp">
+            android:padding="24dp">
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center_vertical"
-                android:orientation="horizontal">
+                android:orientation="horizontal"
+                android:paddingBottom="8dp">
 
                 <LinearLayout
                     android:layout_width="0dp"
@@ -40,39 +50,45 @@
                         android:id="@+id/textViewDate"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:fontFamily="sans-serif"
                         android:textColor="@color/text_secondary"
-                        android:textSize="14sp"
+                        android:textSize="13sp"
                         tools:text="Oct 01, 2025" />
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="4dp"
+                        android:layout_marginTop="6dp"
+                        android:fontFamily="sans-serif-medium"
                         android:text="Hydration Tracker"
                         android:textColor="@color/text_primary"
-                        android:textSize="18sp"
+                        android:textSize="24sp"
                         android:textStyle="bold" />
                 </LinearLayout>
 
                 <com.google.android.material.button.MaterialButton
                     android:id="@+id/buttonSetGoal"
-                    style="@style/Widget.Material3.Button.OutlinedButton"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_height="48dp"
+                    android:background="@drawable/bg_button_outlined"
+                    android:fontFamily="sans-serif-medium"
+                    android:paddingHorizontal="20dp"
                     android:text="Set Goal"
                     android:textAllCaps="false"
-                    android:textSize="12sp" />
+                    android:textColor="@color/white"
+                    android:textSize="14sp" />
             </LinearLayout>
 
-            <!-- Progress Display -->
+            <!-- Progress Display with Modern Styling -->
             <TextView
                 android:id="@+id/textViewPercentage"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:layout_marginTop="16dp"
+                android:layout_marginTop="24dp"
+                android:fontFamily="sans-serif-medium"
                 android:textColor="@color/primary"
-                android:textSize="48sp"
+                android:textSize="64sp"
                 android:textStyle="bold"
                 tools:text="75%" />
 
@@ -80,20 +96,21 @@
                 android:id="@+id/progressBarHydration"
                 style="?android:attr/progressBarStyleHorizontal"
                 android:layout_width="match_parent"
-                android:layout_height="12dp"
-                android:layout_marginTop="8dp"
+                android:layout_height="16dp"
+                android:layout_marginTop="16dp"
                 android:max="2000"
                 android:progress="1500"
-                android:progressTint="@color/primary" />
+                android:progressDrawable="@drawable/bg_progress_bar" />
 
             <TextView
                 android:id="@+id/textViewProgress"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:layout_marginTop="8dp"
-                android:textColor="@color/text_secondary"
-                android:textSize="14sp"
+                android:layout_marginTop="12dp"
+                android:fontFamily="sans-serif-medium"
+                android:textColor="@color/text_primary"
+                android:textSize="16sp"
                 tools:text="1500 ml / 2000 ml" />
 
             <TextView
@@ -101,21 +118,25 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:layout_marginTop="4dp"
+                android:layout_marginTop="6dp"
+                android:fontFamily="sans-serif"
                 android:textColor="@color/text_secondary"
                 android:textSize="14sp"
                 tools:text="💧 6 / 8 glasses" />
         </LinearLayout>
     </com.google.android.material.card.MaterialCardView>
 
-    <!-- Quick Add Buttons -->
+    <!-- Quick Add Buttons - Glassmorphism Style -->
     <com.google.android.material.card.MaterialCardView
         android:id="@+id/cardQuickAdd"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_margin="16dp"
-        app:cardCornerRadius="12dp"
-        app:cardElevation="2dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginTop="16dp"
+        android:backgroundTint="@color/white"
+        app:cardCornerRadius="28dp"
+        app:cardElevation="8dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/cardHeader">
@@ -124,68 +145,88 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:padding="16dp">
+            android:padding="24dp">
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:fontFamily="sans-serif-medium"
                 android:text="Quick Add"
                 android:textColor="@color/text_primary"
-                android:textSize="16sp"
+                android:textSize="18sp"
                 android:textStyle="bold" />
 
             <GridLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="12dp"
+                android:layout_marginTop="16dp"
                 android:columnCount="2"
                 android:rowCount="2">
 
                 <com.google.android.material.button.MaterialButton
                     android:id="@+id/button250ml"
                     android:layout_width="0dp"
-                    android:layout_height="wrap_content"
+                    android:layout_height="56dp"
                     android:layout_columnWeight="1"
-                    android:layout_margin="4dp"
+                    android:layout_margin="6dp"
+                    android:background="@drawable/bg_gradient_green"
+                    android:fontFamily="sans-serif-medium"
                     android:text="💧 250ml"
-                    android:textAllCaps="false" />
+                    android:textAllCaps="false"
+                    android:textColor="@color/text_on_gradient"
+                    android:textSize="15sp" />
 
                 <com.google.android.material.button.MaterialButton
                     android:id="@+id/button500ml"
                     android:layout_width="0dp"
-                    android:layout_height="wrap_content"
+                    android:layout_height="56dp"
                     android:layout_columnWeight="1"
-                    android:layout_margin="4dp"
+                    android:layout_margin="6dp"
+                    android:background="@drawable/bg_gradient_teal"
+                    android:fontFamily="sans-serif-medium"
                     android:text="💧 500ml"
-                    android:textAllCaps="false" />
+                    android:textAllCaps="false"
+                    android:textColor="@color/text_on_gradient"
+                    android:textSize="15sp" />
 
                 <com.google.android.material.button.MaterialButton
                     android:id="@+id/button750ml"
                     android:layout_width="0dp"
-                    android:layout_height="wrap_content"
+                    android:layout_height="56dp"
                     android:layout_columnWeight="1"
-                    android:layout_margin="4dp"
+                    android:layout_margin="6dp"
+                    android:background="@drawable/bg_gradient_blue"
+                    android:fontFamily="sans-serif-medium"
                     android:text="💧 750ml"
-                    android:textAllCaps="false" />
+                    android:textAllCaps="false"
+                    android:textColor="@color/text_on_gradient"
+                    android:textSize="15sp" />
 
                 <com.google.android.material.button.MaterialButton
                     android:id="@+id/button1000ml"
                     android:layout_width="0dp"
-                    android:layout_height="wrap_content"
+                    android:layout_height="56dp"
                     android:layout_columnWeight="1"
-                    android:layout_margin="4dp"
+                    android:layout_margin="6dp"
+                    android:background="@drawable/bg_gradient_green"
+                    android:fontFamily="sans-serif-medium"
                     android:text="💧 1000ml"
-                    android:textAllCaps="false" />
+                    android:textAllCaps="false"
+                    android:textColor="@color/text_on_gradient"
+                    android:textSize="15sp" />
             </GridLayout>
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/buttonCustomAmount"
-                style="@style/Widget.Material3.Button.OutlinedButton"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
+                android:layout_height="56dp"
+                android:layout_marginTop="12dp"
+                android:background="@drawable/bg_button_outlined"
+                android:fontFamily="sans-serif-medium"
                 android:text="Custom Amount"
-                android:textAllCaps="false" />
+                android:textAllCaps="false"
+                android:textColor="@color/secondary"
+                android:textSize="15sp" />
         </LinearLayout>
     </com.google.android.material.card.MaterialCardView>
 
@@ -194,11 +235,12 @@
         android:id="@+id/textViewHistoryTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="24dp"
+        android:fontFamily="sans-serif-medium"
         android:text="Today's History"
         android:textColor="@color/text_primary"
-        android:textSize="16sp"
+        android:textSize="18sp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/cardQuickAdd" />
@@ -206,26 +248,27 @@
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerViewHydration"
         android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginTop="8dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
         android:clipToPadding="false"
-        android:paddingHorizontal="16dp"
-        android:paddingBottom="16dp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:nestedScrollingEnabled="false"
+        android:paddingHorizontal="20dp"
+        android:paddingBottom="20dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/textViewHistoryTitle"
+        tools:itemCount="3"
         tools:listitem="@layout/item_hydration" />
 
-    <!-- Empty State -->
+    <!-- Empty State - Modern Design -->
     <LinearLayout
         android:id="@+id/layoutEmpty"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
         android:gravity="center"
         android:orientation="vertical"
         android:visibility="gone"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/textViewHistoryTitle">
@@ -234,24 +277,28 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="💧"
-            android:textSize="64sp" />
+            android:textSize="80sp" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
+            android:layout_marginTop="20dp"
+            android:fontFamily="sans-serif-medium"
             android:text="No water logged yet"
             android:textColor="@color/text_primary"
-            android:textSize="20sp"
+            android:textSize="22sp"
             android:textStyle="bold" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
+            android:layout_marginTop="10dp"
+            android:fontFamily="sans-serif"
             android:text="Tap a button above to start tracking"
             android:textColor="@color/text_secondary"
-            android:textSize="14sp" />
+            android:textSize="15sp" />
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.core.widget.NestedScrollView>

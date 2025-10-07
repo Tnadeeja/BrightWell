@@ -1,29 +1,95 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!-- 2025 Modern Dialog - Custom Amount -->
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical"
-    android:padding="16dp">
+    android:padding="24dp"
+    android:background="@drawable/bg_glass_card">
 
+    <!-- Icon Header -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:paddingBottom="20dp">
+
+        <View
+            android:layout_width="56dp"
+            android:layout_height="56dp"
+            android:background="@drawable/bg_icon_circle" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="-42dp"
+            android:text="💧"
+            android:textSize="32sp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:fontFamily="sans-serif-medium"
+            android:text="Add Custom Amount"
+            android:textColor="@color/text_primary"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+    <!-- Input Field with Modern Styling -->
     <com.google.android.material.textfield.TextInputLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Amount (ml)">
+        android:hint="Amount (ml)"
+        app:boxBackgroundColor="@color/white"
+        app:boxBackgroundMode="outline"
+        app:boxCornerRadiusBottomEnd="16dp"
+        app:boxCornerRadiusBottomStart="16dp"
+        app:boxCornerRadiusTopEnd="16dp"
+        app:boxCornerRadiusTopStart="16dp"
+        app:boxStrokeColor="@color/secondary"
+        app:boxStrokeWidth="2dp"
+        app:hintTextColor="@color/secondary">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/editTextAmount"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:fontFamily="sans-serif-medium"
             android:inputType="number"
-            android:maxLines="1" />
+            android:maxLines="1"
+            android:padding="16dp"
+            android:textColor="@color/text_primary"
+            android:textSize="16sp" />
     </com.google.android.material.textfield.TextInputLayout>
 
-    <TextView
-        android:layout_width="wrap_content"
+    <!-- Info Card -->
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:text="Enter amount between 1-5000 ml"
-        android:textColor="@color/text_hint"
-        android:textSize="12sp" />
+        android:layout_marginTop="16dp"
+        android:background="@drawable/bg_gradient_teal"
+        android:orientation="horizontal"
+        android:padding="16dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="ℹ️"
+            android:textSize="20sp" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="12dp"
+            android:layout_weight="1"
+            android:fontFamily="sans-serif"
+            android:text="Enter amount between 1-5000 ml"
+            android:textColor="@color/text_on_gradient"
+            android:textSize="13sp" />
+    </LinearLayout>
 
 </LinearLayout>

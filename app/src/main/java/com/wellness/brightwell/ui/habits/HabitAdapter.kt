@@ -1,8 +1,11 @@
 package com.wellness.brightwell.ui.habits
 
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
+import android.widget.PopupMenu
 import androidx.recyclerview.widget.RecyclerView
+import com.wellness.brightwell.R
 import com.wellness.brightwell.data.Habit
 import com.wellness.brightwell.databinding.ItemHabitBinding
 import com.wellness.brightwell.utils.DateUtils
@@ -47,14 +50,15 @@ class HabitAdapter(
             // Set icon
             binding.textViewIcon.text = habit.icon
             
-            // Set color background
-            try {
-                val color = android.graphics.Color.parseColor(habit.color)
-                binding.cardBackground.setBackgroundColor(color)
-                binding.cardBackground.alpha = 0.15f // Light tint
-            } catch (e: Exception) {
-                // If color parsing fails, use default
-            }
+            // Set clean white card background with tech green icon
+            binding.cardBackground.setBackgroundColor(android.graphics.Color.WHITE)
+            
+            // Set icon background to tech green gradient
+            binding.textViewIcon.setBackgroundResource(com.wellness.brightwell.R.drawable.icon_background)
+            
+            // Use clean dark text on white background
+            binding.textViewHabitName.setTextColor(android.graphics.Color.parseColor("#111827"))
+            binding.textViewHabitDescription.setTextColor(android.graphics.Color.parseColor("#6B7280"))
             
             // Set habit name and description
             binding.textViewHabitName.text = habit.name
@@ -83,14 +87,9 @@ class HabitAdapter(
                 onHabitChecked(habit, isChecked)
             }
 
-            // Set up edit button
-            binding.buttonEdit.setOnClickListener {
-                onHabitEdit(habit)
-            }
-
-            // Set up delete button
-            binding.buttonDelete.setOnClickListener {
-                onHabitDelete(habit)
+            // Set up menu button click
+            binding.buttonMenu.setOnClickListener { view ->
+                showPopupMenu(view, habit)
             }
 
             // Show streak information
@@ -101,6 +100,30 @@ class HabitAdapter(
             } else {
                 binding.textViewStreak.visibility = android.view.View.GONE
             }
+        }
+        
+        /**
+         * Show popup menu with edit/delete options
+         */
+        private fun showPopupMenu(view: View, habit: Habit) {
+            val popup = PopupMenu(view.context, view)
+            popup.menuInflater.inflate(R.menu.habit_menu, popup.menu)
+            
+            popup.setOnMenuItemClickListener { menuItem ->
+                when (menuItem.itemId) {
+                    R.id.action_edit -> {
+                        onHabitEdit(habit)
+                        true
+                    }
+                    R.id.action_delete -> {
+                        onHabitDelete(habit)
+                        true
+                    }
+                    else -> false
+                }
+            }
+            
+            popup.show()
         }
 
         /**

@@ -1,19 +1,27 @@
 [
     {
-        "merged": "C:\\Users\\Nadeeja Weerasinghe\\.gradle\\daemon\\9.0-milestone-1\\com.wellness.brightwell.app-merged_res-55:\\menu_drawer_menu.xml.flat",
-        "source": "C:\\Users\\Nadeeja Weerasinghe\\.gradle\\daemon\\9.0-milestone-1\\com.wellness.brightwell.app-main-57:\\menu\\drawer_menu.xml"
+        "merged": "C:\\Users\\Nadeeja Weerasinghe\\.gradle\\daemon\\9.0-milestone-1\\com.wellness.brightwell.app-merged_res-55:\\anim_scale_up.xml.flat",
+        "source": "C:\\Users\\Nadeeja Weerasinghe\\.gradle\\daemon\\9.0-milestone-1\\com.wellness.brightwell.app-main-57:\\anim\\scale_up.xml"
+    },
+    {
+        "merged": "C:\\Users\\Nadeeja Weerasinghe\\.gradle\\daemon\\9.0-milestone-1\\com.wellness.brightwell.app-merged_res-55:\\drawable_ic_trophy.xml.flat",
+        "source": "C:\\Users\\Nadeeja Weerasinghe\\.gradle\\daemon\\9.0-milestone-1\\com.wellness.brightwell.app-main-57:\\drawable\\ic_trophy.xml"
+    },
+    {
+        "merged": "C:\\Users\\Nadeeja Weerasinghe\\.gradle\\daemon\\9.0-milestone-1\\com.wellness.brightwell.app-merged_res-55:\\drawable_ic_delete_modern.xml.flat",
+        "source": "C:\\Users\\Nadeeja Weerasinghe\\.gradle\\daemon\\9.0-milestone-1\\com.wellness.brightwell.app-main-57:\\drawable\\ic_delete_modern.xml"
     },
     {
         "merged": "C:\\Users\\Nadeeja Weerasinghe\\.gradle\\daemon\\9.0-milestone-1\\com.wellness.brightwell.app-merged_res-55:\\xml_habit_widget_info.xml.flat",
         "source": "C:\\Users\\Nadeeja Weerasinghe\\.gradle\\daemon\\9.0-milestone-1\\com.wellness.brightwell.app-main-57:\\xml\\habit_widget_info.xml"
     },
     {
-        "merged": "C:\\Users\\Nadeeja Weerasinghe\\.gradle\\daemon\\9.0-milestone-1\\com.wellness.brightwell.app-merged_res-55:\\xml_file_paths.xml.flat",
-        "source": "C:\\Users\\Nadeeja Weerasinghe\\.gradle\\daemon\\9.0-milestone-1\\com.wellness.brightwell.app-main-57:\\xml\\file_paths.xml"
+        "merged": "C:\\Users\\Nadeeja Weerasinghe\\.gradle\\daemon\\9.0-milestone-1\\com.wellness.brightwell.app-merged_res-55:\\drawable_ic_chevron_right.xml.flat",
+        "source": "C:\\Users\\Nadeeja Weerasinghe\\.gradle\\daemon\\9.0-milestone-1\\com.wellness.brightwell.app-main-57:\\drawable\\ic_chevron_right.xml"
     },
     {
-        "merged": "C:\\Users\\Nadeeja Weerasinghe\\.gradle\\daemon\\9.0-milestone-1\\com.wellness.brightwell.app-merged_res-55:\\layout_widget_habit.xml.flat",
-        "source": "C:\\Users\\Nadeeja Weerasinghe\\.gradle\\daemon\\9.0-milestone-1\\com.wellness.brightwell.app-main-57:\\layout\\widget_habit.xml"
+        "merged": "C:\\Users\\Nadeeja Weerasinghe\\.gradle\\daemon\\9.0-milestone-1\\com.wellness.brightwell.app-merged_res-55:\\drawable_bg_calendar_item_default.xml.flat",
+        "source": "C:\\Users\\Nadeeja Weerasinghe\\.gradle\\daemon\\9.0-milestone-1\\com.wellness.brightwell.app-main-57:\\drawable\\bg_calendar_item_default.xml"
     },
     {
         "merged": "C:\\Users\\Nadeeja Weerasinghe\\.gradle\\daemon\\9.0-milestone-1\\com.wellness.brightwell.app-merged_res-55:\\layout_item_template.xml.flat",
@@ -24,76 +32,120 @@
         "source": "C:\\Users\\Nadeeja Weerasinghe\\.gradle\\daemon\\9.0-milestone-1\\com.wellness.brightwell.app-main-57:\\xml\\backup_rules.xml"
     },
     {
-        "merged": "C:\\Users\\Nadeeja Weerasinghe\\.gradle\\daemon\\9.0-milestone-1\\com.wellness.brightwell.app-merged_res-55:\\layout_fragment_charts.xml.flat",
-        "source": "C:\\Users\\Nadeeja Weerasinghe\\.gradle\\daemon\\9.0-milestone-1\\com.wellness.brightwell.app-main-57:\\layout\\fragment_charts.xml"
-    },
-    {
-        "merged": "C:\\Users\\Nadeeja Weerasinghe\\.gradle\\daemon\\9.0-milestone-1\\com.wellness.brightwell.app-merged_res-55:\\layout_item_calendar_date.xml.flat",
-        "source": "C:\\Users\\Nadeeja Weerasinghe\\.gradle\\daemon\\9.0-milestone-1\\com.wellness.brightwell.app-main-57:\\layout\\item_calendar_date.xml"
-    },
-    {
-        "merged": "C:\\Users\\Nadeeja Weerasinghe\\.gradle\\daemon\\9.0-milestone-1\\com.wellness.brightwell.app-merged_res-55:\\drawable_ic_menu.xml.flat",
-        "source": "C:\\Users\\Nadeeja Weerasinghe\\.gradle\\daemon\\9.0-milestone-1\\com.wellness.brightwell.app-main-57:\\drawable\\ic_menu.xml"
-    },
-    {
         "merged": "C:\\Users\\Nadeeja Weerasinghe\\.gradle\\daemon\\9.0-milestone-1\\com.wellness.brightwell.app-merged_res-55:\\mipmap-anydpi-v26_ic_launcher_round.xml.flat",
         "source": "C:\\Users\\Nadeeja Weerasinghe\\.gradle\\daemon\\9.0-milestone-1\\com.wellness.brightwell.app-main-57:\\mipmap-anydpi-v26\\ic_launcher_round.xml"
+    },
+    {
+        "merged": "C:\\Users\\Nadeeja Weerasinghe\\.gradle\\daemon\\9.0-milestone-1\\com.wellness.brightwell.app-merged_res-55:\\drawable_bg_calendar_item_today.xml.flat",
+        "source": "C:\\Users\\Nadeeja Weerasinghe\\.gradle\\daemon\\9.0-milestone-1\\com.wellness.brightwell.app-main-57:\\drawable\\bg_calendar_item_today.xml"
+    },
+    {
+        "merged": "C:\\Users\\Nadeeja Weerasinghe\\.gradle\\daemon\\9.0-milestone-1\\com.wellness.brightwell.app-merged_res-55:\\drawable_modern_gradient_background.xml.flat",
+        "source": "C:\\Users\\Nadeeja Weerasinghe\\.gradle\\daemon\\9.0-milestone-1\\com.wellness.brightwell.app-main-57:\\drawable\\modern_gradient_background.xml"
+    },
+    {
+        "merged": "C:\\Users\\Nadeeja Weerasinghe\\.gradle\\daemon\\9.0-milestone-1\\com.wellness.brightwell.app-merged_res-55:\\drawable_modern_icon_background.xml.flat",
+        "source": "C:\\Users\\Nadeeja Weerasinghe\\.gradle\\daemon\\9.0-milestone-1\\com.wellness.brightwell.app-main-57:\\drawable\\modern_icon_background.xml"
+    },
+    {
+        "merged": "C:\\Users\\Nadeeja Weerasinghe\\.gradle\\daemon\\9.0-milestone-1\\com.wellness.brightwell.app-merged_res-55:\\drawable_fab_tech_green.xml.flat",
+        "source": "C:\\Users\\Nadeeja Weerasinghe\\.gradle\\daemon\\9.0-milestone-1\\com.wellness.brightwell.app-main-57:\\drawable\\fab_tech_green.xml"
+    },
+    {
+        "merged": "C:\\Users\\Nadeeja Weerasinghe\\.gradle\\daemon\\9.0-milestone-1\\com.wellness.brightwell.app-merged_res-55:\\drawable_ic_check_modern.xml.flat",
+        "source": "C:\\Users\\Nadeeja Weerasinghe\\.gradle\\daemon\\9.0-milestone-1\\com.wellness.brightwell.app-main-57:\\drawable\\ic_check_modern.xml"
     },
     {
         "merged": "C:\\Users\\Nadeeja Weerasinghe\\.gradle\\daemon\\9.0-milestone-1\\com.wellness.brightwell.app-merged_res-55:\\drawable_ic_settings.xml.flat",
         "source": "C:\\Users\\Nadeeja Weerasinghe\\.gradle\\daemon\\9.0-milestone-1\\com.wellness.brightwell.app-main-57:\\drawable\\ic_settings.xml"
     },
     {
-        "merged": "C:\\Users\\Nadeeja Weerasinghe\\.gradle\\daemon\\9.0-milestone-1\\com.wellness.brightwell.app-merged_res-55:\\drawable_splash_background.xml.flat",
-        "source": "C:\\Users\\Nadeeja Weerasinghe\\.gradle\\daemon\\9.0-milestone-1\\com.wellness.brightwell.app-main-57:\\drawable\\splash_background.xml"
-    },
-    {
         "merged": "C:\\Users\\Nadeeja Weerasinghe\\.gradle\\daemon\\9.0-milestone-1\\com.wellness.brightwell.app-merged_res-55:\\layout_item_emoji.xml.flat",
         "source": "C:\\Users\\Nadeeja Weerasinghe\\.gradle\\daemon\\9.0-milestone-1\\com.wellness.brightwell.app-main-57:\\layout\\item_emoji.xml"
     },
     {
-        "merged": "C:\\Users\\Nadeeja Weerasinghe\\.gradle\\daemon\\9.0-milestone-1\\com.wellness.brightwell.app-merged_res-55:\\drawable_bg_gradient_primary.xml.flat",
-        "source": "C:\\Users\\Nadeeja Weerasinghe\\.gradle\\daemon\\9.0-milestone-1\\com.wellness.brightwell.app-main-57:\\drawable\\bg_gradient_primary.xml"
+        "merged": "C:\\Users\\Nadeeja Weerasinghe\\.gradle\\daemon\\9.0-milestone-1\\com.wellness.brightwell.app-merged_res-55:\\drawable_ic_trending_up.xml.flat",
+        "source": "C:\\Users\\Nadeeja Weerasinghe\\.gradle\\daemon\\9.0-milestone-1\\com.wellness.brightwell.app-main-57:\\drawable\\ic_trending_up.xml"
+    },
+    {
+        "merged": "C:\\Users\\Nadeeja Weerasinghe\\.gradle\\daemon\\9.0-milestone-1\\com.wellness.brightwell.app-merged_res-55:\\drawable_circle_green.xml.flat",
+        "source": "C:\\Users\\Nadeeja Weerasinghe\\.gradle\\daemon\\9.0-milestone-1\\com.wellness.brightwell.app-main-57:\\drawable\\circle_green.xml"
     },
     {
         "merged": "C:\\Users\\Nadeeja Weerasinghe\\.gradle\\daemon\\9.0-milestone-1\\com.wellness.brightwell.app-merged_res-55:\\layout_fragment_habits.xml.flat",
         "source": "C:\\Users\\Nadeeja Weerasinghe\\.gradle\\daemon\\9.0-milestone-1\\com.wellness.brightwell.app-main-57:\\layout\\fragment_habits.xml"
     },
     {
-        "merged": "C:\\Users\\Nadeeja Weerasinghe\\.gradle\\daemon\\9.0-milestone-1\\com.wellness.brightwell.app-merged_res-55:\\drawable_ic_mood.xml.flat",
-        "source": "C:\\Users\\Nadeeja Weerasinghe\\.gradle\\daemon\\9.0-milestone-1\\com.wellness.brightwell.app-main-57:\\drawable\\ic_mood.xml"
+        "merged": "C:\\Users\\Nadeeja Weerasinghe\\.gradle\\daemon\\9.0-milestone-1\\com.wellness.brightwell.app-merged_res-55:\\drawable_icon_grid_background.xml.flat",
+        "source": "C:\\Users\\Nadeeja Weerasinghe\\.gradle\\daemon\\9.0-milestone-1\\com.wellness.brightwell.app-main-57:\\drawable\\icon_grid_background.xml"
+    },
+    {
+        "merged": "C:\\Users\\Nadeeja Weerasinghe\\.gradle\\daemon\\9.0-milestone-1\\com.wellness.brightwell.app-merged_res-55:\\menu_habit_menu.xml.flat",
+        "source": "C:\\Users\\Nadeeja Weerasinghe\\.gradle\\daemon\\9.0-milestone-1\\com.wellness.brightwell.app-main-57:\\menu\\habit_menu.xml"
+    },
+    {
+        "merged": "C:\\Users\\Nadeeja Weerasinghe\\.gradle\\daemon\\9.0-milestone-1\\com.wellness.brightwell.app-merged_res-55:\\drawable_bg_circular_progress_gradient.xml.flat",
+        "source": "C:\\Users\\Nadeeja Weerasinghe\\.gradle\\daemon\\9.0-milestone-1\\com.wellness.brightwell.app-main-57:\\drawable\\bg_circular_progress_gradient.xml"
+    },
+    {
+        "merged": "C:\\Users\\Nadeeja Weerasinghe\\.gradle\\daemon\\9.0-milestone-1\\com.wellness.brightwell.app-merged_res-55:\\drawable_bg_icon_circle.xml.flat",
+        "source": "C:\\Users\\Nadeeja Weerasinghe\\.gradle\\daemon\\9.0-milestone-1\\com.wellness.brightwell.app-main-57:\\drawable\\bg_icon_circle.xml"
+    },
+    {
+        "merged": "C:\\Users\\Nadeeja Weerasinghe\\.gradle\\daemon\\9.0-milestone-1\\com.wellness.brightwell.app-merged_res-55:\\drawable_modern_progress_background.xml.flat",
+        "source": "C:\\Users\\Nadeeja Weerasinghe\\.gradle\\daemon\\9.0-milestone-1\\com.wellness.brightwell.app-main-57:\\drawable\\modern_progress_background.xml"
     },
     {
         "merged": "C:\\Users\\Nadeeja Weerasinghe\\.gradle\\daemon\\9.0-milestone-1\\com.wellness.brightwell.app-merged_res-55:\\drawable_ic_template.xml.flat",
         "source": "C:\\Users\\Nadeeja Weerasinghe\\.gradle\\daemon\\9.0-milestone-1\\com.wellness.brightwell.app-main-57:\\drawable\\ic_template.xml"
     },
     {
-        "merged": "C:\\Users\\Nadeeja Weerasinghe\\.gradle\\daemon\\9.0-milestone-1\\com.wellness.brightwell.app-merged_res-55:\\drawable_bg_glass_fab.xml.flat",
-        "source": "C:\\Users\\Nadeeja Weerasinghe\\.gradle\\daemon\\9.0-milestone-1\\com.wellness.brightwell.app-main-57:\\drawable\\bg_glass_fab.xml"
+        "merged": "C:\\Users\\Nadeeja Weerasinghe\\.gradle\\daemon\\9.0-milestone-1\\com.wellness.brightwell.app-merged_res-55:\\drawable_bg_calendar_selected_modern.xml.flat",
+        "source": "C:\\Users\\Nadeeja Weerasinghe\\.gradle\\daemon\\9.0-milestone-1\\com.wellness.brightwell.app-main-57:\\drawable\\bg_calendar_selected_modern.xml"
     },
     {
-        "merged": "C:\\Users\\Nadeeja Weerasinghe\\.gradle\\daemon\\9.0-milestone-1\\com.wellness.brightwell.app-merged_res-55:\\drawable_ic_add.xml.flat",
-        "source": "C:\\Users\\Nadeeja Weerasinghe\\.gradle\\daemon\\9.0-milestone-1\\com.wellness.brightwell.app-main-57:\\drawable\\ic_add.xml"
+        "merged": "C:\\Users\\Nadeeja Weerasinghe\\.gradle\\daemon\\9.0-milestone-1\\com.wellness.brightwell.app-merged_res-55:\\drawable_setting_item_background.xml.flat",
+        "source": "C:\\Users\\Nadeeja Weerasinghe\\.gradle\\daemon\\9.0-milestone-1\\com.wellness.brightwell.app-main-57:\\drawable\\setting_item_background.xml"
     },
     {
         "merged": "C:\\Users\\Nadeeja Weerasinghe\\.gradle\\daemon\\9.0-milestone-1\\com.wellness.brightwell.app-merged_res-55:\\drawable_ic_edit.xml.flat",
         "source": "C:\\Users\\Nadeeja Weerasinghe\\.gradle\\daemon\\9.0-milestone-1\\com.wellness.brightwell.app-main-57:\\drawable\\ic_edit.xml"
     },
     {
-        "merged": "C:\\Users\\Nadeeja Weerasinghe\\.gradle\\daemon\\9.0-milestone-1\\com.wellness.brightwell.app-merged_res-55:\\layout_activity_main.xml.flat",
-        "source": "C:\\Users\\Nadeeja Weerasinghe\\.gradle\\daemon\\9.0-milestone-1\\com.wellness.brightwell.app-main-57:\\layout\\activity_main.xml"
+        "merged": "com.wellness.brightwell.app-merged_res-55:/drawable_indicator_inactive.xml.flat",
+        "source": "com.wellness.brightwell.app-main-57:/drawable/indicator_inactive.xml"
     },
     {
         "merged": "C:\\Users\\Nadeeja Weerasinghe\\.gradle\\daemon\\9.0-milestone-1\\com.wellness.brightwell.app-merged_res-55:\\drawable_ic_achievement.xml.flat",
         "source": "C:\\Users\\Nadeeja Weerasinghe\\.gradle\\daemon\\9.0-milestone-1\\com.wellness.brightwell.app-main-57:\\drawable\\ic_achievement.xml"
     },
     {
+        "merged": "C:\\Users\\Nadeeja Weerasinghe\\.gradle\\daemon\\9.0-milestone-1\\com.wellness.brightwell.app-merged_res-55:\\drawable_ic_fire_streak.xml.flat",
+        "source": "C:\\Users\\Nadeeja Weerasinghe\\.gradle\\daemon\\9.0-milestone-1\\com.wellness.brightwell.app-main-57:\\drawable\\ic_fire_streak.xml"
+    },
+    {
+        "merged": "C:\\Users\\Nadeeja Weerasinghe\\.gradle\\daemon\\9.0-milestone-1\\com.wellness.brightwell.app-merged_res-55:\\drawable_modern_dialog_backdrop.xml.flat",
+        "source": "C:\\Users\\Nadeeja Weerasinghe\\.gradle\\daemon\\9.0-milestone-1\\com.wellness.brightwell.app-main-57:\\drawable\\modern_dialog_backdrop.xml"
+    },
+    {
+        "merged": "C:\\Users\\Nadeeja Weerasinghe\\.gradle\\daemon\\9.0-milestone-1\\com.wellness.brightwell.app-merged_res-55:\\drawable_ic_chevron_left.xml.flat",
+        "source": "C:\\Users\\Nadeeja Weerasinghe\\.gradle\\daemon\\9.0-milestone-1\\com.wellness.brightwell.app-main-57:\\drawable\\ic_chevron_left.xml"
+    },
+    {
         "merged": "C:\\Users\\Nadeeja Weerasinghe\\.gradle\\daemon\\9.0-milestone-1\\com.wellness.brightwell.app-merged_res-55:\\layout_item_color_picker.xml.flat",
         "source": "C:\\Users\\Nadeeja Weerasinghe\\.gradle\\daemon\\9.0-milestone-1\\com.wellness.brightwell.app-main-57:\\layout\\item_color_picker.xml"
     },
     {
+        "merged": "com.wellness.brightwell.app-merged_res-55:/layout_activity_onboarding.xml.flat",
+        "source": "com.wellness.brightwell.app-main-57:/layout/activity_onboarding.xml"
+    },
+    {
         "merged": "C:\\Users\\Nadeeja Weerasinghe\\.gradle\\daemon\\9.0-milestone-1\\com.wellness.brightwell.app-merged_res-55:\\layout_fragment_settings.xml.flat",
         "source": "C:\\Users\\Nadeeja Weerasinghe\\.gradle\\daemon\\9.0-milestone-1\\com.wellness.brightwell.app-main-57:\\layout\\fragment_settings.xml"
+    },
+    {
+        "merged": "C:\\Users\\Nadeeja Weerasinghe\\.gradle\\daemon\\9.0-milestone-1\\com.wellness.brightwell.app-merged_res-55:\\drawable_modern_nav_header_background.xml.flat",
+        "source": "C:\\Users\\Nadeeja Weerasinghe\\.gradle\\daemon\\9.0-milestone-1\\com.wellness.brightwell.app-main-57:\\drawable\\modern_nav_header_background.xml"
     },
     {
         "merged": "C:\\Users\\Nadeeja Weerasinghe\\.gradle\\daemon\\9.0-milestone-1\\com.wellness.brightwell.app-merged_res-55:\\layout_item_icon_picker.xml.flat",
@@ -108,44 +160,60 @@
         "source": "C:\\Users\\Nadeeja Weerasinghe\\.gradle\\daemon\\9.0-milestone-1\\com.wellness.brightwell.app-main-57:\\drawable\\ic_delete.xml"
     },
     {
-        "merged": "C:\\Users\\Nadeeja Weerasinghe\\.gradle\\daemon\\9.0-milestone-1\\com.wellness.brightwell.app-merged_res-55:\\layout_item_mood.xml.flat",
-        "source": "C:\\Users\\Nadeeja Weerasinghe\\.gradle\\daemon\\9.0-milestone-1\\com.wellness.brightwell.app-main-57:\\layout\\item_mood.xml"
-    },
-    {
-        "merged": "C:\\Users\\Nadeeja Weerasinghe\\.gradle\\daemon\\9.0-milestone-1\\com.wellness.brightwell.app-merged_res-55:\\drawable_bg_tag.xml.flat",
-        "source": "C:\\Users\\Nadeeja Weerasinghe\\.gradle\\daemon\\9.0-milestone-1\\com.wellness.brightwell.app-main-57:\\drawable\\bg_tag.xml"
+        "merged": "C:\\Users\\Nadeeja Weerasinghe\\.gradle\\daemon\\9.0-milestone-1\\com.wellness.brightwell.app-merged_res-55:\\drawable_ic_habit_name.xml.flat",
+        "source": "C:\\Users\\Nadeeja Weerasinghe\\.gradle\\daemon\\9.0-milestone-1\\com.wellness.brightwell.app-main-57:\\drawable\\ic_habit_name.xml"
     },
     {
         "merged": "C:\\Users\\Nadeeja Weerasinghe\\.gradle\\daemon\\9.0-milestone-1\\com.wellness.brightwell.app-merged_res-55:\\drawable_widget_background.xml.flat",
         "source": "C:\\Users\\Nadeeja Weerasinghe\\.gradle\\daemon\\9.0-milestone-1\\com.wellness.brightwell.app-main-57:\\drawable\\widget_background.xml"
     },
     {
-        "merged": "com.wellness.brightwell.app-merged_res-55:/layout_item_habit.xml.flat",
-        "source": "com.wellness.brightwell.app-main-57:/layout/item_habit.xml"
+        "merged": "C:\\Users\\Nadeeja Weerasinghe\\.gradle\\daemon\\9.0-milestone-1\\com.wellness.brightwell.app-merged_res-55:\\drawable_ic_target.xml.flat",
+        "source": "C:\\Users\\Nadeeja Weerasinghe\\.gradle\\daemon\\9.0-milestone-1\\com.wellness.brightwell.app-main-57:\\drawable\\ic_target.xml"
     },
     {
         "merged": "C:\\Users\\Nadeeja Weerasinghe\\.gradle\\daemon\\9.0-milestone-1\\com.wellness.brightwell.app-merged_res-55:\\layout_dialog_custom_amount.xml.flat",
         "source": "C:\\Users\\Nadeeja Weerasinghe\\.gradle\\daemon\\9.0-milestone-1\\com.wellness.brightwell.app-main-57:\\layout\\dialog_custom_amount.xml"
     },
     {
-        "merged": "C:\\Users\\Nadeeja Weerasinghe\\.gradle\\daemon\\9.0-milestone-1\\com.wellness.brightwell.app-merged_res-55:\\layout_item_achievement.xml.flat",
-        "source": "C:\\Users\\Nadeeja Weerasinghe\\.gradle\\daemon\\9.0-milestone-1\\com.wellness.brightwell.app-main-57:\\layout\\item_achievement.xml"
+        "merged": "C:\\Users\\Nadeeja Weerasinghe\\.gradle\\daemon\\9.0-milestone-1\\com.wellness.brightwell.app-merged_res-55:\\drawable_bg_gradient_blue.xml.flat",
+        "source": "C:\\Users\\Nadeeja Weerasinghe\\.gradle\\daemon\\9.0-milestone-1\\com.wellness.brightwell.app-main-57:\\drawable\\bg_gradient_blue.xml"
     },
     {
-        "merged": "C:\\Users\\Nadeeja Weerasinghe\\.gradle\\daemon\\9.0-milestone-1\\com.wellness.brightwell.app-merged_res-55:\\layout_dialog_set_goal.xml.flat",
-        "source": "C:\\Users\\Nadeeja Weerasinghe\\.gradle\\daemon\\9.0-milestone-1\\com.wellness.brightwell.app-main-57:\\layout\\dialog_set_goal.xml"
+        "merged": "C:\\Users\\Nadeeja Weerasinghe\\.gradle\\daemon\\9.0-milestone-1\\com.wellness.brightwell.app-merged_res-55:\\drawable_bg_circular_progress.xml.flat",
+        "source": "C:\\Users\\Nadeeja Weerasinghe\\.gradle\\daemon\\9.0-milestone-1\\com.wellness.brightwell.app-main-57:\\drawable\\bg_circular_progress.xml"
+    },
+    {
+        "merged": "C:\\Users\\Nadeeja Weerasinghe\\.gradle\\daemon\\9.0-milestone-1\\com.wellness.brightwell.app-merged_res-55:\\drawable_title_icon_background.xml.flat",
+        "source": "C:\\Users\\Nadeeja Weerasinghe\\.gradle\\daemon\\9.0-milestone-1\\com.wellness.brightwell.app-main-57:\\drawable\\title_icon_background.xml"
+    },
+    {
+        "merged": "C:\\Users\\Nadeeja Weerasinghe\\.gradle\\daemon\\9.0-milestone-1\\com.wellness.brightwell.app-merged_res-55:\\drawable_bg_gradient_green.xml.flat",
+        "source": "C:\\Users\\Nadeeja Weerasinghe\\.gradle\\daemon\\9.0-milestone-1\\com.wellness.brightwell.app-main-57:\\drawable\\bg_gradient_green.xml"
+    },
+    {
+        "merged": "C:\\Users\\Nadeeja Weerasinghe\\.gradle\\daemon\\9.0-milestone-1\\com.wellness.brightwell.app-merged_res-55:\\anim_fade_in.xml.flat",
+        "source": "C:\\Users\\Nadeeja Weerasinghe\\.gradle\\daemon\\9.0-milestone-1\\com.wellness.brightwell.app-main-57:\\anim\\fade_in.xml"
+    },
+    {
+        "merged": "C:\\Users\\Nadeeja Weerasinghe\\.gradle\\daemon\\9.0-milestone-1\\com.wellness.brightwell.app-merged_res-55:\\drawable_bg_calendar_today_modern.xml.flat",
+        "source": "C:\\Users\\Nadeeja Weerasinghe\\.gradle\\daemon\\9.0-milestone-1\\com.wellness.brightwell.app-main-57:\\drawable\\bg_calendar_today_modern.xml"
+    },
+    {
+        "merged": "C:\\Users\\Nadeeja Weerasinghe\\.gradle\\daemon\\9.0-milestone-1\\com.wellness.brightwell.app-merged_res-55:\\drawable_difficulty_tag.xml.flat",
+        "source": "C:\\Users\\Nadeeja Weerasinghe\\.gradle\\daemon\\9.0-milestone-1\\com.wellness.brightwell.app-main-57:\\drawable\\difficulty_tag.xml"
     },
     {
         "merged": "C:\\Users\\Nadeeja Weerasinghe\\.gradle\\daemon\\9.0-milestone-1\\com.wellness.brightwell.app-merged_res-55:\\layout_dialog_add_mood.xml.flat",
         "source": "C:\\Users\\Nadeeja Weerasinghe\\.gradle\\daemon\\9.0-milestone-1\\com.wellness.brightwell.app-main-57:\\layout\\dialog_add_mood.xml"
     },
     {
-        "merged": "com.wellness.brightwell.app-merged_res-55:/layout_activity_main.xml.flat",
-        "source": "com.wellness.brightwell.app-main-57:/layout/activity_main.xml"
+        "merged": "C:\\Users\\Nadeeja Weerasinghe\\.gradle\\daemon\\9.0-milestone-1\\com.wellness.brightwell.app-merged_res-55:\\drawable_bg_gradient_teal.xml.flat",
+        "source": "C:\\Users\\Nadeeja Weerasinghe\\.gradle\\daemon\\9.0-milestone-1\\com.wellness.brightwell.app-main-57:\\drawable\\bg_gradient_teal.xml"
     },
     {
-        "merged": "C:\\Users\\Nadeeja Weerasinghe\\.gradle\\daemon\\9.0-milestone-1\\com.wellness.brightwell.app-merged_res-55:\\drawable_bg_glass_button.xml.flat",
-        "source": "C:\\Users\\Nadeeja Weerasinghe\\.gradle\\daemon\\9.0-milestone-1\\com.wellness.brightwell.app-main-57:\\drawable\\bg_glass_button.xml"
+        "merged": "C:\\Users\\Nadeeja Weerasinghe\\.gradle\\daemon\\9.0-milestone-1\\com.wellness.brightwell.app-merged_res-55:\\drawable_dialog_background.xml.flat",
+        "source": "C:\\Users\\Nadeeja Weerasinghe\\.gradle\\daemon\\9.0-milestone-1\\com.wellness.brightwell.app-main-57:\\drawable\\dialog_background.xml"
     },
     {
         "merged": "C:\\Users\\Nadeeja Weerasinghe\\.gradle\\daemon\\9.0-milestone-1\\com.wellness.brightwell.app-merged_res-55:\\drawable_ic_stats.xml.flat",
@@ -156,6 +224,10 @@
         "source": "C:\\Users\\Nadeeja Weerasinghe\\.gradle\\daemon\\9.0-milestone-1\\com.wellness.brightwell.app-main-57:\\drawable\\bg_glass_card.xml"
     },
     {
+        "merged": "C:\\Users\\Nadeeja Weerasinghe\\.gradle\\daemon\\9.0-milestone-1\\com.wellness.brightwell.app-merged_res-55:\\drawable_spinner_background.xml.flat",
+        "source": "C:\\Users\\Nadeeja Weerasinghe\\.gradle\\daemon\\9.0-milestone-1\\com.wellness.brightwell.app-main-57:\\drawable\\spinner_background.xml"
+    },
+    {
         "merged": "C:\\Users\\Nadeeja Weerasinghe\\.gradle\\daemon\\9.0-milestone-1\\com.wellness.brightwell.app-merged_res-55:\\layout_fragment_stats.xml.flat",
         "source": "C:\\Users\\Nadeeja Weerasinghe\\.gradle\\daemon\\9.0-milestone-1\\com.wellness.brightwell.app-main-57:\\layout\\fragment_stats.xml"
     },
@@ -164,60 +236,40 @@
         "source": "C:\\Users\\Nadeeja Weerasinghe\\.gradle\\daemon\\9.0-milestone-1\\com.wellness.brightwell.app-main-57:\\drawable\\ic_launcher_foreground.xml"
     },
     {
-        "merged": "C:\\Users\\Nadeeja Weerasinghe\\.gradle\\daemon\\9.0-milestone-1\\com.wellness.brightwell.app-merged_res-55:\\drawable_bg_gradient_accent.xml.flat",
-        "source": "C:\\Users\\Nadeeja Weerasinghe\\.gradle\\daemon\\9.0-milestone-1\\com.wellness.brightwell.app-main-57:\\drawable\\bg_gradient_accent.xml"
-    },
-    {
-        "merged": "C:\\Users\\Nadeeja Weerasinghe\\.gradle\\daemon\\9.0-milestone-1\\com.wellness.brightwell.app-merged_res-55:\\drawable_ic_info.xml.flat",
-        "source": "C:\\Users\\Nadeeja Weerasinghe\\.gradle\\daemon\\9.0-milestone-1\\com.wellness.brightwell.app-main-57:\\drawable\\ic_info.xml"
-    },
-    {
         "merged": "C:\\Users\\Nadeeja Weerasinghe\\.gradle\\daemon\\9.0-milestone-1\\com.wellness.brightwell.app-merged_res-55:\\layout_dialog_add_habit_enhanced.xml.flat",
         "source": "C:\\Users\\Nadeeja Weerasinghe\\.gradle\\daemon\\9.0-milestone-1\\com.wellness.brightwell.app-main-57:\\layout\\dialog_add_habit_enhanced.xml"
     },
     {
-        "merged": "C:\\Users\\Nadeeja Weerasinghe\\.gradle\\daemon\\9.0-milestone-1\\com.wellness.brightwell.app-merged_res-55:\\drawable_ic_widget_preview.xml.flat",
-        "source": "C:\\Users\\Nadeeja Weerasinghe\\.gradle\\daemon\\9.0-milestone-1\\com.wellness.brightwell.app-main-57:\\drawable\\ic_widget_preview.xml"
-    },
-    {
-        "merged": "C:\\Users\\Nadeeja Weerasinghe\\.gradle\\daemon\\9.0-milestone-1\\com.wellness.brightwell.app-merged_res-55:\\layout_dialog_add_habit.xml.flat",
-        "source": "C:\\Users\\Nadeeja Weerasinghe\\.gradle\\daemon\\9.0-milestone-1\\com.wellness.brightwell.app-main-57:\\layout\\dialog_add_habit.xml"
+        "merged": "C:\\Users\\Nadeeja Weerasinghe\\.gradle\\daemon\\9.0-milestone-1\\com.wellness.brightwell.app-merged_res-55:\\drawable_modern_outlined_button.xml.flat",
+        "source": "C:\\Users\\Nadeeja Weerasinghe\\.gradle\\daemon\\9.0-milestone-1\\com.wellness.brightwell.app-main-57:\\drawable\\modern_outlined_button.xml"
     },
     {
         "merged": "C:\\Users\\Nadeeja Weerasinghe\\.gradle\\daemon\\9.0-milestone-1\\com.wellness.brightwell.app-merged_res-55:\\layout_item_hydration.xml.flat",
         "source": "C:\\Users\\Nadeeja Weerasinghe\\.gradle\\daemon\\9.0-milestone-1\\com.wellness.brightwell.app-main-57:\\layout\\item_hydration.xml"
     },
     {
+        "merged": "C:\\Users\\Nadeeja Weerasinghe\\.gradle\\daemon\\9.0-milestone-1\\com.wellness.brightwell.app-merged_res-55:\\drawable_circle_yellow.xml.flat",
+        "source": "C:\\Users\\Nadeeja Weerasinghe\\.gradle\\daemon\\9.0-milestone-1\\com.wellness.brightwell.app-main-57:\\drawable\\circle_yellow.xml"
+    },
+    {
         "merged": "C:\\Users\\Nadeeja Weerasinghe\\.gradle\\daemon\\9.0-milestone-1\\com.wellness.brightwell.app-merged_res-55:\\mipmap-anydpi-v26_ic_launcher.xml.flat",
         "source": "C:\\Users\\Nadeeja Weerasinghe\\.gradle\\daemon\\9.0-milestone-1\\com.wellness.brightwell.app-main-57:\\mipmap-anydpi-v26\\ic_launcher.xml"
     },
     {
-        "merged": "C:\\Users\\Nadeeja Weerasinghe\\.gradle\\daemon\\9.0-milestone-1\\com.wellness.brightwell.app-merged_res-55:\\drawable_ic_habits.xml.flat",
-        "source": "C:\\Users\\Nadeeja Weerasinghe\\.gradle\\daemon\\9.0-milestone-1\\com.wellness.brightwell.app-main-57:\\drawable\\ic_habits.xml"
+        "merged": "com.wellness.brightwell.app-merged_res-55:/layout_onboarding_page_welcome.xml.flat",
+        "source": "com.wellness.brightwell.app-main-57:/layout/onboarding_page_welcome.xml"
     },
     {
-        "merged": "C:\\Users\\Nadeeja Weerasinghe\\.gradle\\daemon\\9.0-milestone-1\\com.wellness.brightwell.app-merged_res-55:\\menu_bottom_navigation_menu.xml.flat",
-        "source": "C:\\Users\\Nadeeja Weerasinghe\\.gradle\\daemon\\9.0-milestone-1\\com.wellness.brightwell.app-main-57:\\menu\\bottom_navigation_menu.xml"
+        "merged": "C:\\Users\\Nadeeja Weerasinghe\\.gradle\\daemon\\9.0-milestone-1\\com.wellness.brightwell.app-merged_res-55:\\drawable_modern_category_tag.xml.flat",
+        "source": "C:\\Users\\Nadeeja Weerasinghe\\.gradle\\daemon\\9.0-milestone-1\\com.wellness.brightwell.app-main-57:\\drawable\\modern_category_tag.xml"
     },
     {
         "merged": "C:\\Users\\Nadeeja Weerasinghe\\.gradle\\daemon\\9.0-milestone-1\\com.wellness.brightwell.app-merged_res-55:\\layout_fragment_hydration.xml.flat",
         "source": "C:\\Users\\Nadeeja Weerasinghe\\.gradle\\daemon\\9.0-milestone-1\\com.wellness.brightwell.app-main-57:\\layout\\fragment_hydration.xml"
     },
     {
-        "merged": "C:\\Users\\Nadeeja Weerasinghe\\.gradle\\daemon\\9.0-milestone-1\\com.wellness.brightwell.app-merged_res-55:\\drawable_bg_gradient_background.xml.flat",
-        "source": "C:\\Users\\Nadeeja Weerasinghe\\.gradle\\daemon\\9.0-milestone-1\\com.wellness.brightwell.app-main-57:\\drawable\\bg_gradient_background.xml"
-    },
-    {
-        "merged": "C:\\Users\\Nadeeja Weerasinghe\\.gradle\\daemon\\9.0-milestone-1\\com.wellness.brightwell.app-merged_res-55:\\layout_fragment_mood.xml.flat",
-        "source": "C:\\Users\\Nadeeja Weerasinghe\\.gradle\\daemon\\9.0-milestone-1\\com.wellness.brightwell.app-main-57:\\layout\\fragment_mood.xml"
-    },
-    {
-        "merged": "C:\\Users\\Nadeeja Weerasinghe\\.gradle\\daemon\\9.0-milestone-1\\com.wellness.brightwell.app-merged_res-55:\\layout_fragment_calendar.xml.flat",
-        "source": "C:\\Users\\Nadeeja Weerasinghe\\.gradle\\daemon\\9.0-milestone-1\\com.wellness.brightwell.app-main-57:\\layout\\fragment_calendar.xml"
-    },
-    {
-        "merged": "C:\\Users\\Nadeeja Weerasinghe\\.gradle\\daemon\\9.0-milestone-1\\com.wellness.brightwell.app-merged_res-55:\\layout_fragment_achievements.xml.flat",
-        "source": "C:\\Users\\Nadeeja Weerasinghe\\.gradle\\daemon\\9.0-milestone-1\\com.wellness.brightwell.app-main-57:\\layout\\fragment_achievements.xml"
+        "merged": "com.wellness.brightwell.app-merged_res-55:/drawable_indicator_active.xml.flat",
+        "source": "com.wellness.brightwell.app-main-57:/drawable/indicator_active.xml"
     },
     {
         "merged": "C:\\Users\\Nadeeja Weerasinghe\\.gradle\\daemon\\9.0-milestone-1\\com.wellness.brightwell.app-merged_res-55:\\layout_fragment_templates.xml.flat",
@@ -228,12 +280,248 @@
         "source": "C:\\Users\\Nadeeja Weerasinghe\\.gradle\\daemon\\9.0-milestone-1\\com.wellness.brightwell.app-main-57:\\drawable\\ic_calendar.xml"
     },
     {
+        "merged": "C:\\Users\\Nadeeja Weerasinghe\\.gradle\\daemon\\9.0-milestone-1\\com.wellness.brightwell.app-merged_res-55:\\layout_item_habit.xml.flat",
+        "source": "C:\\Users\\Nadeeja Weerasinghe\\.gradle\\daemon\\9.0-milestone-1\\com.wellness.brightwell.app-main-57:\\layout\\item_habit.xml"
+    },
+    {
+        "merged": "C:\\Users\\Nadeeja Weerasinghe\\.gradle\\daemon\\9.0-milestone-1\\com.wellness.brightwell.app-merged_res-55:\\drawable_ic_add_habit_modern.xml.flat",
+        "source": "C:\\Users\\Nadeeja Weerasinghe\\.gradle\\daemon\\9.0-milestone-1\\com.wellness.brightwell.app-main-57:\\drawable\\ic_add_habit_modern.xml"
+    },
+    {
+        "merged": "C:\\Users\\Nadeeja Weerasinghe\\.gradle\\daemon\\9.0-milestone-1\\com.wellness.brightwell.app-merged_res-55:\\xml_data_extraction_rules.xml.flat",
+        "source": "C:\\Users\\Nadeeja Weerasinghe\\.gradle\\daemon\\9.0-milestone-1\\com.wellness.brightwell.app-main-57:\\xml\\data_extraction_rules.xml"
+    },
+    {
+        "merged": "com.wellness.brightwell.app-merged_res-55:/layout_onboarding_page_goal.xml.flat",
+        "source": "com.wellness.brightwell.app-main-57:/layout/onboarding_page_goal.xml"
+    },
+    {
+        "merged": "C:\\Users\\Nadeeja Weerasinghe\\.gradle\\daemon\\9.0-milestone-1\\com.wellness.brightwell.app-merged_res-55:\\drawable_icon_background.xml.flat",
+        "source": "C:\\Users\\Nadeeja Weerasinghe\\.gradle\\daemon\\9.0-milestone-1\\com.wellness.brightwell.app-main-57:\\drawable\\icon_background.xml"
+    },
+    {
+        "merged": "C:\\Users\\Nadeeja Weerasinghe\\.gradle\\daemon\\9.0-milestone-1\\com.wellness.brightwell.app-merged_res-55:\\menu_drawer_menu.xml.flat",
+        "source": "C:\\Users\\Nadeeja Weerasinghe\\.gradle\\daemon\\9.0-milestone-1\\com.wellness.brightwell.app-main-57:\\menu\\drawer_menu.xml"
+    },
+    {
+        "merged": "C:\\Users\\Nadeeja Weerasinghe\\.gradle\\daemon\\9.0-milestone-1\\com.wellness.brightwell.app-merged_res-55:\\xml_file_paths.xml.flat",
+        "source": "C:\\Users\\Nadeeja Weerasinghe\\.gradle\\daemon\\9.0-milestone-1\\com.wellness.brightwell.app-main-57:\\xml\\file_paths.xml"
+    },
+    {
+        "merged": "C:\\Users\\Nadeeja Weerasinghe\\.gradle\\daemon\\9.0-milestone-1\\com.wellness.brightwell.app-merged_res-55:\\layout_widget_habit.xml.flat",
+        "source": "C:\\Users\\Nadeeja Weerasinghe\\.gradle\\daemon\\9.0-milestone-1\\com.wellness.brightwell.app-main-57:\\layout\\widget_habit.xml"
+    },
+    {
+        "merged": "C:\\Users\\Nadeeja Weerasinghe\\.gradle\\daemon\\9.0-milestone-1\\com.wellness.brightwell.app-merged_res-55:\\drawable_bg_professional_card.xml.flat",
+        "source": "C:\\Users\\Nadeeja Weerasinghe\\.gradle\\daemon\\9.0-milestone-1\\com.wellness.brightwell.app-main-57:\\drawable\\bg_professional_card.xml"
+    },
+    {
+        "merged": "C:\\Users\\Nadeeja Weerasinghe\\.gradle\\daemon\\9.0-milestone-1\\com.wellness.brightwell.app-merged_res-55:\\drawable_bg_widget_card.xml.flat",
+        "source": "C:\\Users\\Nadeeja Weerasinghe\\.gradle\\daemon\\9.0-milestone-1\\com.wellness.brightwell.app-main-57:\\drawable\\bg_widget_card.xml"
+    },
+    {
+        "merged": "C:\\Users\\Nadeeja Weerasinghe\\.gradle\\daemon\\9.0-milestone-1\\com.wellness.brightwell.app-merged_res-55:\\drawable_bg_widget_gradient_border.xml.flat",
+        "source": "C:\\Users\\Nadeeja Weerasinghe\\.gradle\\daemon\\9.0-milestone-1\\com.wellness.brightwell.app-main-57:\\drawable\\bg_widget_gradient_border.xml"
+    },
+    {
+        "merged": "C:\\Users\\Nadeeja Weerasinghe\\.gradle\\daemon\\9.0-milestone-1\\com.wellness.brightwell.app-merged_res-55:\\layout_fragment_charts.xml.flat",
+        "source": "C:\\Users\\Nadeeja Weerasinghe\\.gradle\\daemon\\9.0-milestone-1\\com.wellness.brightwell.app-main-57:\\layout\\fragment_charts.xml"
+    },
+    {
+        "merged": "C:\\Users\\Nadeeja Weerasinghe\\.gradle\\daemon\\9.0-milestone-1\\com.wellness.brightwell.app-merged_res-55:\\drawable_tech_green_gradient.xml.flat",
+        "source": "C:\\Users\\Nadeeja Weerasinghe\\.gradle\\daemon\\9.0-milestone-1\\com.wellness.brightwell.app-main-57:\\drawable\\tech_green_gradient.xml"
+    },
+    {
+        "merged": "C:\\Users\\Nadeeja Weerasinghe\\.gradle\\daemon\\9.0-milestone-1\\com.wellness.brightwell.app-merged_res-55:\\layout_item_calendar_date.xml.flat",
+        "source": "C:\\Users\\Nadeeja Weerasinghe\\.gradle\\daemon\\9.0-milestone-1\\com.wellness.brightwell.app-main-57:\\layout\\item_calendar_date.xml"
+    },
+    {
+        "merged": "C:\\Users\\Nadeeja Weerasinghe\\.gradle\\daemon\\9.0-milestone-1\\com.wellness.brightwell.app-merged_res-55:\\drawable_ic_menu.xml.flat",
+        "source": "C:\\Users\\Nadeeja Weerasinghe\\.gradle\\daemon\\9.0-milestone-1\\com.wellness.brightwell.app-main-57:\\drawable\\ic_menu.xml"
+    },
+    {
+        "merged": "C:\\Users\\Nadeeja Weerasinghe\\.gradle\\daemon\\9.0-milestone-1\\com.wellness.brightwell.app-merged_res-55:\\drawable_ic_more_vert.xml.flat",
+        "source": "C:\\Users\\Nadeeja Weerasinghe\\.gradle\\daemon\\9.0-milestone-1\\com.wellness.brightwell.app-main-57:\\drawable\\ic_more_vert.xml"
+    },
+    {
+        "merged": "C:\\Users\\Nadeeja Weerasinghe\\.gradle\\daemon\\9.0-milestone-1\\com.wellness.brightwell.app-merged_res-55:\\drawable_modern_ripple_effect.xml.flat",
+        "source": "C:\\Users\\Nadeeja Weerasinghe\\.gradle\\daemon\\9.0-milestone-1\\com.wellness.brightwell.app-main-57:\\drawable\\modern_ripple_effect.xml"
+    },
+    {
+        "merged": "C:\\Users\\Nadeeja Weerasinghe\\.gradle\\daemon\\9.0-milestone-1\\com.wellness.brightwell.app-merged_res-55:\\drawable_bg_calendar_selected.xml.flat",
+        "source": "C:\\Users\\Nadeeja Weerasinghe\\.gradle\\daemon\\9.0-milestone-1\\com.wellness.brightwell.app-main-57:\\drawable\\bg_calendar_selected.xml"
+    },
+    {
+        "merged": "C:\\Users\\Nadeeja Weerasinghe\\.gradle\\daemon\\9.0-milestone-1\\com.wellness.brightwell.app-merged_res-55:\\drawable_bg_calendar_default.xml.flat",
+        "source": "C:\\Users\\Nadeeja Weerasinghe\\.gradle\\daemon\\9.0-milestone-1\\com.wellness.brightwell.app-main-57:\\drawable\\bg_calendar_default.xml"
+    },
+    {
+        "merged": "C:\\Users\\Nadeeja Weerasinghe\\.gradle\\daemon\\9.0-milestone-1\\com.wellness.brightwell.app-merged_res-55:\\drawable_cancel_button_background.xml.flat",
+        "source": "C:\\Users\\Nadeeja Weerasinghe\\.gradle\\daemon\\9.0-milestone-1\\com.wellness.brightwell.app-main-57:\\drawable\\cancel_button_background.xml"
+    },
+    {
+        "merged": "C:\\Users\\Nadeeja Weerasinghe\\.gradle\\daemon\\9.0-milestone-1\\com.wellness.brightwell.app-merged_res-55:\\drawable_modern_progress_fill.xml.flat",
+        "source": "C:\\Users\\Nadeeja Weerasinghe\\.gradle\\daemon\\9.0-milestone-1\\com.wellness.brightwell.app-main-57:\\drawable\\modern_progress_fill.xml"
+    },
+    {
+        "merged": "C:\\Users\\Nadeeja Weerasinghe\\.gradle\\daemon\\9.0-milestone-1\\com.wellness.brightwell.app-merged_res-55:\\drawable_splash_background.xml.flat",
+        "source": "C:\\Users\\Nadeeja Weerasinghe\\.gradle\\daemon\\9.0-milestone-1\\com.wellness.brightwell.app-main-57:\\drawable\\splash_background.xml"
+    },
+    {
+        "merged": "C:\\Users\\Nadeeja Weerasinghe\\.gradle\\daemon\\9.0-milestone-1\\com.wellness.brightwell.app-merged_res-55:\\drawable_category_tag.xml.flat",
+        "source": "C:\\Users\\Nadeeja Weerasinghe\\.gradle\\daemon\\9.0-milestone-1\\com.wellness.brightwell.app-main-57:\\drawable\\category_tag.xml"
+    },
+    {
+        "merged": "C:\\Users\\Nadeeja Weerasinghe\\.gradle\\daemon\\9.0-milestone-1\\com.wellness.brightwell.app-merged_res-55:\\drawable_bg_calendar_item_selected.xml.flat",
+        "source": "C:\\Users\\Nadeeja Weerasinghe\\.gradle\\daemon\\9.0-milestone-1\\com.wellness.brightwell.app-main-57:\\drawable\\bg_calendar_item_selected.xml"
+    },
+    {
+        "merged": "C:\\Users\\Nadeeja Weerasinghe\\.gradle\\daemon\\9.0-milestone-1\\com.wellness.brightwell.app-merged_res-55:\\drawable_bg_icon_circle_blue.xml.flat",
+        "source": "C:\\Users\\Nadeeja Weerasinghe\\.gradle\\daemon\\9.0-milestone-1\\com.wellness.brightwell.app-main-57:\\drawable\\bg_icon_circle_blue.xml"
+    },
+    {
+        "merged": "C:\\Users\\Nadeeja Weerasinghe\\.gradle\\daemon\\9.0-milestone-1\\com.wellness.brightwell.app-merged_res-55:\\drawable_modern_card_background.xml.flat",
+        "source": "C:\\Users\\Nadeeja Weerasinghe\\.gradle\\daemon\\9.0-milestone-1\\com.wellness.brightwell.app-main-57:\\drawable\\modern_card_background.xml"
+    },
+    {
+        "merged": "C:\\Users\\Nadeeja Weerasinghe\\.gradle\\daemon\\9.0-milestone-1\\com.wellness.brightwell.app-merged_res-55:\\drawable_modern_button_background.xml.flat",
+        "source": "C:\\Users\\Nadeeja Weerasinghe\\.gradle\\daemon\\9.0-milestone-1\\com.wellness.brightwell.app-main-57:\\drawable\\modern_button_background.xml"
+    },
+    {
+        "merged": "C:\\Users\\Nadeeja Weerasinghe\\.gradle\\daemon\\9.0-milestone-1\\com.wellness.brightwell.app-merged_res-55:\\drawable_bg_progress_bar.xml.flat",
+        "source": "C:\\Users\\Nadeeja Weerasinghe\\.gradle\\daemon\\9.0-milestone-1\\com.wellness.brightwell.app-main-57:\\drawable\\bg_progress_bar.xml"
+    },
+    {
+        "merged": "C:\\Users\\Nadeeja Weerasinghe\\.gradle\\daemon\\9.0-milestone-1\\com.wellness.brightwell.app-merged_res-55:\\drawable_ic_mood.xml.flat",
+        "source": "C:\\Users\\Nadeeja Weerasinghe\\.gradle\\daemon\\9.0-milestone-1\\com.wellness.brightwell.app-main-57:\\drawable\\ic_mood.xml"
+    },
+    {
+        "merged": "C:\\Users\\Nadeeja Weerasinghe\\.gradle\\daemon\\9.0-milestone-1\\com.wellness.brightwell.app-merged_res-55:\\drawable_ic_add.xml.flat",
+        "source": "C:\\Users\\Nadeeja Weerasinghe\\.gradle\\daemon\\9.0-milestone-1\\com.wellness.brightwell.app-main-57:\\drawable\\ic_add.xml"
+    },
+    {
+        "merged": "C:\\Users\\Nadeeja Weerasinghe\\.gradle\\daemon\\9.0-milestone-1\\com.wellness.brightwell.app-merged_res-55:\\drawable_ic_description.xml.flat",
+        "source": "C:\\Users\\Nadeeja Weerasinghe\\.gradle\\daemon\\9.0-milestone-1\\com.wellness.brightwell.app-main-57:\\drawable\\ic_description.xml"
+    },
+    {
+        "merged": "C:\\Users\\Nadeeja Weerasinghe\\.gradle\\daemon\\9.0-milestone-1\\com.wellness.brightwell.app-merged_res-55:\\drawable_ic_mood_happy.xml.flat",
+        "source": "C:\\Users\\Nadeeja Weerasinghe\\.gradle\\daemon\\9.0-milestone-1\\com.wellness.brightwell.app-main-57:\\drawable\\ic_mood_happy.xml"
+    },
+    {
+        "merged": "C:\\Users\\Nadeeja Weerasinghe\\.gradle\\daemon\\9.0-milestone-1\\com.wellness.brightwell.app-merged_res-55:\\layout_activity_main.xml.flat",
+        "source": "C:\\Users\\Nadeeja Weerasinghe\\.gradle\\daemon\\9.0-milestone-1\\com.wellness.brightwell.app-main-57:\\layout\\activity_main.xml"
+    },
+    {
+        "merged": "C:\\Users\\Nadeeja Weerasinghe\\.gradle\\daemon\\9.0-milestone-1\\com.wellness.brightwell.app-merged_res-55:\\drawable_ic_today.xml.flat",
+        "source": "C:\\Users\\Nadeeja Weerasinghe\\.gradle\\daemon\\9.0-milestone-1\\com.wellness.brightwell.app-main-57:\\drawable\\ic_today.xml"
+    },
+    {
+        "merged": "C:\\Users\\Nadeeja Weerasinghe\\.gradle\\daemon\\9.0-milestone-1\\com.wellness.brightwell.app-merged_res-55:\\drawable_circle_red.xml.flat",
+        "source": "C:\\Users\\Nadeeja Weerasinghe\\.gradle\\daemon\\9.0-milestone-1\\com.wellness.brightwell.app-main-57:\\drawable\\circle_red.xml"
+    },
+    {
+        "merged": "C:\\Users\\Nadeeja Weerasinghe\\.gradle\\daemon\\9.0-milestone-1\\com.wellness.brightwell.app-merged_res-55:\\drawable_bg_icon_circle_teal.xml.flat",
+        "source": "C:\\Users\\Nadeeja Weerasinghe\\.gradle\\daemon\\9.0-milestone-1\\com.wellness.brightwell.app-main-57:\\drawable\\bg_icon_circle_teal.xml"
+    },
+    {
+        "merged": "C:\\Users\\Nadeeja Weerasinghe\\.gradle\\daemon\\9.0-milestone-1\\com.wellness.brightwell.app-merged_res-55:\\layout_item_mood.xml.flat",
+        "source": "C:\\Users\\Nadeeja Weerasinghe\\.gradle\\daemon\\9.0-milestone-1\\com.wellness.brightwell.app-main-57:\\layout\\item_mood.xml"
+    },
+    {
+        "merged": "C:\\Users\\Nadeeja Weerasinghe\\.gradle\\daemon\\9.0-milestone-1\\com.wellness.brightwell.app-merged_res-55:\\drawable_bg_tag.xml.flat",
+        "source": "C:\\Users\\Nadeeja Weerasinghe\\.gradle\\daemon\\9.0-milestone-1\\com.wellness.brightwell.app-main-57:\\drawable\\bg_tag.xml"
+    },
+    {
+        "merged": "C:\\Users\\Nadeeja Weerasinghe\\.gradle\\daemon\\9.0-milestone-1\\com.wellness.brightwell.app-merged_res-55:\\drawable_bg_neuro_card.xml.flat",
+        "source": "C:\\Users\\Nadeeja Weerasinghe\\.gradle\\daemon\\9.0-milestone-1\\com.wellness.brightwell.app-main-57:\\drawable\\bg_neuro_card.xml"
+    },
+    {
+        "merged": "C:\\Users\\Nadeeja Weerasinghe\\.gradle\\daemon\\9.0-milestone-1\\com.wellness.brightwell.app-merged_res-55:\\drawable_ic_share_modern.xml.flat",
+        "source": "C:\\Users\\Nadeeja Weerasinghe\\.gradle\\daemon\\9.0-milestone-1\\com.wellness.brightwell.app-main-57:\\drawable\\ic_share_modern.xml"
+    },
+    {
+        "merged": "C:\\Users\\Nadeeja Weerasinghe\\.gradle\\daemon\\9.0-milestone-1\\com.wellness.brightwell.app-merged_res-55:\\layout_item_achievement.xml.flat",
+        "source": "C:\\Users\\Nadeeja Weerasinghe\\.gradle\\daemon\\9.0-milestone-1\\com.wellness.brightwell.app-main-57:\\layout\\item_achievement.xml"
+    },
+    {
+        "merged": "com.wellness.brightwell.app-merged_res-55:/layout_onboarding_page_name.xml.flat",
+        "source": "com.wellness.brightwell.app-main-57:/layout/onboarding_page_name.xml"
+    },
+    {
+        "merged": "C:\\Users\\Nadeeja Weerasinghe\\.gradle\\daemon\\9.0-milestone-1\\com.wellness.brightwell.app-merged_res-55:\\drawable_modern_fab_background.xml.flat",
+        "source": "C:\\Users\\Nadeeja Weerasinghe\\.gradle\\daemon\\9.0-milestone-1\\com.wellness.brightwell.app-main-57:\\drawable\\modern_fab_background.xml"
+    },
+    {
+        "merged": "C:\\Users\\Nadeeja Weerasinghe\\.gradle\\daemon\\9.0-milestone-1\\com.wellness.brightwell.app-merged_res-55:\\drawable_bg_button_outlined.xml.flat",
+        "source": "C:\\Users\\Nadeeja Weerasinghe\\.gradle\\daemon\\9.0-milestone-1\\com.wellness.brightwell.app-main-57:\\drawable\\bg_button_outlined.xml"
+    },
+    {
+        "merged": "C:\\Users\\Nadeeja Weerasinghe\\.gradle\\daemon\\9.0-milestone-1\\com.wellness.brightwell.app-merged_res-55:\\drawable_bg_calendar_modern.xml.flat",
+        "source": "C:\\Users\\Nadeeja Weerasinghe\\.gradle\\daemon\\9.0-milestone-1\\com.wellness.brightwell.app-main-57:\\drawable\\bg_calendar_modern.xml"
+    },
+    {
+        "merged": "C:\\Users\\Nadeeja Weerasinghe\\.gradle\\daemon\\9.0-milestone-1\\com.wellness.brightwell.app-merged_res-55:\\layout_dialog_set_goal.xml.flat",
+        "source": "C:\\Users\\Nadeeja Weerasinghe\\.gradle\\daemon\\9.0-milestone-1\\com.wellness.brightwell.app-main-57:\\layout\\dialog_set_goal.xml"
+    },
+    {
+        "merged": "com.wellness.brightwell.app-merged_res-55:/layout_onboarding_page_reminder.xml.flat",
+        "source": "com.wellness.brightwell.app-main-57:/layout/onboarding_page_reminder.xml"
+    },
+    {
+        "merged": "C:\\Users\\Nadeeja Weerasinghe\\.gradle\\daemon\\9.0-milestone-1\\com.wellness.brightwell.app-merged_res-55:\\drawable_ic_info.xml.flat",
+        "source": "C:\\Users\\Nadeeja Weerasinghe\\.gradle\\daemon\\9.0-milestone-1\\com.wellness.brightwell.app-main-57:\\drawable\\ic_info.xml"
+    },
+    {
+        "merged": "C:\\Users\\Nadeeja Weerasinghe\\.gradle\\daemon\\9.0-milestone-1\\com.wellness.brightwell.app-merged_res-55:\\drawable_ic_widget_preview.xml.flat",
+        "source": "C:\\Users\\Nadeeja Weerasinghe\\.gradle\\daemon\\9.0-milestone-1\\com.wellness.brightwell.app-main-57:\\drawable\\ic_widget_preview.xml"
+    },
+    {
+        "merged": "C:\\Users\\Nadeeja Weerasinghe\\.gradle\\daemon\\9.0-milestone-1\\com.wellness.brightwell.app-merged_res-55:\\layout_dialog_add_habit.xml.flat",
+        "source": "C:\\Users\\Nadeeja Weerasinghe\\.gradle\\daemon\\9.0-milestone-1\\com.wellness.brightwell.app-main-57:\\layout\\dialog_add_habit.xml"
+    },
+    {
+        "merged": "C:\\Users\\Nadeeja Weerasinghe\\.gradle\\daemon\\9.0-milestone-1\\com.wellness.brightwell.app-merged_res-55:\\drawable_bg_calendar_today.xml.flat",
+        "source": "C:\\Users\\Nadeeja Weerasinghe\\.gradle\\daemon\\9.0-milestone-1\\com.wellness.brightwell.app-main-57:\\drawable\\bg_calendar_today.xml"
+    },
+    {
+        "merged": "C:\\Users\\Nadeeja Weerasinghe\\.gradle\\daemon\\9.0-milestone-1\\com.wellness.brightwell.app-merged_res-55:\\drawable_bg_button_gradient.xml.flat",
+        "source": "C:\\Users\\Nadeeja Weerasinghe\\.gradle\\daemon\\9.0-milestone-1\\com.wellness.brightwell.app-main-57:\\drawable\\bg_button_gradient.xml"
+    },
+    {
+        "merged": "C:\\Users\\Nadeeja Weerasinghe\\.gradle\\daemon\\9.0-milestone-1\\com.wellness.brightwell.app-merged_res-55:\\drawable_ic_habits.xml.flat",
+        "source": "C:\\Users\\Nadeeja Weerasinghe\\.gradle\\daemon\\9.0-milestone-1\\com.wellness.brightwell.app-main-57:\\drawable\\ic_habits.xml"
+    },
+    {
+        "merged": "C:\\Users\\Nadeeja Weerasinghe\\.gradle\\daemon\\9.0-milestone-1\\com.wellness.brightwell.app-merged_res-55:\\menu_bottom_navigation_menu.xml.flat",
+        "source": "C:\\Users\\Nadeeja Weerasinghe\\.gradle\\daemon\\9.0-milestone-1\\com.wellness.brightwell.app-main-57:\\menu\\bottom_navigation_menu.xml"
+    },
+    {
+        "merged": "C:\\Users\\Nadeeja Weerasinghe\\.gradle\\daemon\\9.0-milestone-1\\com.wellness.brightwell.app-merged_res-55:\\layout_fragment_mood.xml.flat",
+        "source": "C:\\Users\\Nadeeja Weerasinghe\\.gradle\\daemon\\9.0-milestone-1\\com.wellness.brightwell.app-main-57:\\layout\\fragment_mood.xml"
+    },
+    {
+        "merged": "C:\\Users\\Nadeeja Weerasinghe\\.gradle\\daemon\\9.0-milestone-1\\com.wellness.brightwell.app-merged_res-55:\\drawable_bg_dialog_modern.xml.flat",
+        "source": "C:\\Users\\Nadeeja Weerasinghe\\.gradle\\daemon\\9.0-milestone-1\\com.wellness.brightwell.app-main-57:\\drawable\\bg_dialog_modern.xml"
+    },
+    {
+        "merged": "C:\\Users\\Nadeeja Weerasinghe\\.gradle\\daemon\\9.0-milestone-1\\com.wellness.brightwell.app-merged_res-55:\\layout_fragment_calendar.xml.flat",
+        "source": "C:\\Users\\Nadeeja Weerasinghe\\.gradle\\daemon\\9.0-milestone-1\\com.wellness.brightwell.app-main-57:\\layout\\fragment_calendar.xml"
+    },
+    {
+        "merged": "C:\\Users\\Nadeeja Weerasinghe\\.gradle\\daemon\\9.0-milestone-1\\com.wellness.brightwell.app-merged_res-55:\\layout_fragment_achievements.xml.flat",
+        "source": "C:\\Users\\Nadeeja Weerasinghe\\.gradle\\daemon\\9.0-milestone-1\\com.wellness.brightwell.app-main-57:\\layout\\fragment_achievements.xml"
+    },
+    {
+        "merged": "C:\\Users\\Nadeeja Weerasinghe\\.gradle\\daemon\\9.0-milestone-1\\com.wellness.brightwell.app-merged_res-55:\\drawable_modern_elevated_card.xml.flat",
+        "source": "C:\\Users\\Nadeeja Weerasinghe\\.gradle\\daemon\\9.0-milestone-1\\com.wellness.brightwell.app-main-57:\\drawable\\modern_elevated_card.xml"
+    },
+    {
         "merged": "C:\\Users\\Nadeeja Weerasinghe\\.gradle\\daemon\\9.0-milestone-1\\com.wellness.brightwell.app-merged_res-55:\\drawable_ic_water_drop.xml.flat",
         "source": "C:\\Users\\Nadeeja Weerasinghe\\.gradle\\daemon\\9.0-milestone-1\\com.wellness.brightwell.app-main-57:\\drawable\\ic_water_drop.xml"
     },
     {
-        "merged": "C:\\Users\\Nadeeja Weerasinghe\\.gradle\\daemon\\9.0-milestone-1\\com.wellness.brightwell.app-merged_res-55:\\layout_item_habit.xml.flat",
-        "source": "C:\\Users\\Nadeeja Weerasinghe\\.gradle\\daemon\\9.0-milestone-1\\com.wellness.brightwell.app-main-57:\\layout\\item_habit.xml"
+        "merged": "C:\\Users\\Nadeeja Weerasinghe\\.gradle\\daemon\\9.0-milestone-1\\com.wellness.brightwell.app-merged_res-55:\\drawable_modern_difficulty_tag.xml.flat",
+        "source": "C:\\Users\\Nadeeja Weerasinghe\\.gradle\\daemon\\9.0-milestone-1\\com.wellness.brightwell.app-main-57:\\drawable\\modern_difficulty_tag.xml"
     },
     {
         "merged": "C:\\Users\\Nadeeja Weerasinghe\\.gradle\\daemon\\9.0-milestone-1\\com.wellness.brightwell.app-merged_res-55:\\drawable_nav_header_background.xml.flat",
@@ -244,15 +532,11 @@
         "source": "C:\\Users\\Nadeeja Weerasinghe\\.gradle\\daemon\\9.0-milestone-1\\com.wellness.brightwell.app-main-57:\\layout\\nav_header.xml"
     },
     {
-        "merged": "C:\\Users\\Nadeeja Weerasinghe\\.gradle\\daemon\\9.0-milestone-1\\com.wellness.brightwell.app-merged_res-55:\\xml_data_extraction_rules.xml.flat",
-        "source": "C:\\Users\\Nadeeja Weerasinghe\\.gradle\\daemon\\9.0-milestone-1\\com.wellness.brightwell.app-main-57:\\xml\\data_extraction_rules.xml"
+        "merged": "C:\\Users\\Nadeeja Weerasinghe\\.gradle\\daemon\\9.0-milestone-1\\com.wellness.brightwell.app-merged_res-55:\\drawable_modern_chip_background.xml.flat",
+        "source": "C:\\Users\\Nadeeja Weerasinghe\\.gradle\\daemon\\9.0-milestone-1\\com.wellness.brightwell.app-main-57:\\drawable\\modern_chip_background.xml"
     },
     {
         "merged": "C:\\Users\\Nadeeja Weerasinghe\\.gradle\\daemon\\9.0-milestone-1\\com.wellness.brightwell.app-merged_res-55:\\layout_activity_splash.xml.flat",
         "source": "C:\\Users\\Nadeeja Weerasinghe\\.gradle\\daemon\\9.0-milestone-1\\com.wellness.brightwell.app-main-57:\\layout\\activity_splash.xml"
-    },
-    {
-        "merged": "com.wellness.brightwell.app-merged_res-55:/layout_fragment_habits.xml.flat",
-        "source": "com.wellness.brightwell.app-main-57:/layout/fragment_habits.xml"
     }
 ]

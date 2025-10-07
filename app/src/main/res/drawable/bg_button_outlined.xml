@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Modern Outlined Button -->
+<ripple xmlns:android="http://schemas.android.com/apk/res/android"
+    android:color="@color/hover_overlay">
+    <item>
+        <shape android:shape="rectangle">
+            <solid android:color="@color/white" />
+            <stroke
+                android:width="2dp"
+                android:color="@color/primary" />
+            <corners android:radius="16dp" />
+        </shape>
+    </item>
+</ripple>

@@ -26,11 +26,43 @@ class PreferencesManager(context: Context) {
         private const val KEY_HYDRATION_ENABLED = "hydration_enabled"
         private const val KEY_DARK_MODE = "dark_mode_enabled"
         private const val KEY_FIRST_LAUNCH = "first_launch"
+        private const val KEY_ONBOARDING_COMPLETE = "onboarding_complete"
+        private const val KEY_USER_NAME = "user_name"
         
         // Default hydration reminder interval in minutes
         const val DEFAULT_HYDRATION_INTERVAL = 60
         // Default daily hydration goal in milliliters (2 liters)
         const val DEFAULT_HYDRATION_GOAL = 2000
+    }
+
+    // ==================== Onboarding ====================
+    
+    /**
+     * Check if onboarding has been completed
+     */
+    fun isOnboardingComplete(): Boolean {
+        return sharedPreferences.getBoolean(KEY_ONBOARDING_COMPLETE, false)
+    }
+    
+    /**
+     * Mark onboarding as complete
+     */
+    fun setOnboardingComplete() {
+        sharedPreferences.edit().putBoolean(KEY_ONBOARDING_COMPLETE, true).apply()
+    }
+    
+    /**
+     * Save user name from onboarding
+     */
+    fun saveUserName(name: String) {
+        sharedPreferences.edit().putString(KEY_USER_NAME, name).apply()
+    }
+    
+    /**
+     * Get user name
+     */
+    fun getUserName(): String {
+        return sharedPreferences.getString(KEY_USER_NAME, "User") ?: "User"
     }
 
     // ==================== Habit Management ====================

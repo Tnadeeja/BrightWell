@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Modern Gradient Button with Glow Effect -->
+<ripple xmlns:android="http://schemas.android.com/apk/res/android"
+    android:color="@color/white">
+    <item>
+        <layer-list>
+            <!-- Glow Effect -->
+            <item android:bottom="2dp" android:left="2dp" android:right="2dp" android:top="2dp">
+                <shape android:shape="rectangle">
+                    <gradient
+                        android:angle="135"
+                        android:endColor="@color/gradient_green_end"
+                        android:startColor="@color/gradient_green_start"
+                        android:type="linear" />
+                    <corners android:radius="16dp" />
+                </shape>
+            </item>
+        </layer-list>
+    </item>
+</ripple>

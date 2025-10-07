@@ -30,6 +30,9 @@ public final class ItemHabitBinding implements ViewBinding {
   public final ImageButton buttonEdit;
 
   @NonNull
+  public final ImageButton buttonMenu;
+
+  @NonNull
   public final ConstraintLayout cardBackground;
 
   @NonNull
@@ -57,14 +60,16 @@ public final class ItemHabitBinding implements ViewBinding {
   public final TextView textViewStreak;
 
   private ItemHabitBinding(@NonNull MaterialCardView rootView, @NonNull ImageButton buttonDelete,
-      @NonNull ImageButton buttonEdit, @NonNull ConstraintLayout cardBackground,
-      @NonNull CheckBox checkBoxHabit, @NonNull LinearLayout layoutTags,
-      @NonNull TextView textViewCategory, @NonNull TextView textViewDifficulty,
-      @NonNull TextView textViewHabitDescription, @NonNull TextView textViewHabitName,
-      @NonNull TextView textViewIcon, @NonNull TextView textViewStreak) {
+      @NonNull ImageButton buttonEdit, @NonNull ImageButton buttonMenu,
+      @NonNull ConstraintLayout cardBackground, @NonNull CheckBox checkBoxHabit,
+      @NonNull LinearLayout layoutTags, @NonNull TextView textViewCategory,
+      @NonNull TextView textViewDifficulty, @NonNull TextView textViewHabitDescription,
+      @NonNull TextView textViewHabitName, @NonNull TextView textViewIcon,
+      @NonNull TextView textViewStreak) {
     this.rootView = rootView;
     this.buttonDelete = buttonDelete;
     this.buttonEdit = buttonEdit;
+    this.buttonMenu = buttonMenu;
     this.cardBackground = cardBackground;
     this.checkBoxHabit = checkBoxHabit;
     this.layoutTags = layoutTags;
@@ -112,6 +117,12 @@ public final class ItemHabitBinding implements ViewBinding {
       id = R.id.buttonEdit;
       ImageButton buttonEdit = ViewBindings.findChildViewById(rootView, id);
       if (buttonEdit == null) {
+        break missingId;
+      }
+
+      id = R.id.buttonMenu;
+      ImageButton buttonMenu = ViewBindings.findChildViewById(rootView, id);
+      if (buttonMenu == null) {
         break missingId;
       }
 
@@ -169,7 +180,7 @@ public final class ItemHabitBinding implements ViewBinding {
         break missingId;
       }
 
-      return new ItemHabitBinding((MaterialCardView) rootView, buttonDelete, buttonEdit,
+      return new ItemHabitBinding((MaterialCardView) rootView, buttonDelete, buttonEdit, buttonMenu,
           cardBackground, checkBoxHabit, layoutTags, textViewCategory, textViewDifficulty,
           textViewHabitDescription, textViewHabitName, textViewIcon, textViewStreak);
     }
